@@ -1,0 +1,939 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+.App {
+  font-family: 'Roboto', sans-serif;
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+.component {
+  background-color: #F5F5F5;
+}
+
+.row {
+  margin: 0px;
+}
+
+.navigation-bar {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.navigation-bar form {
+  height: max-content;
+}
+
+.navigation-bar .navbar {
+  background-image: linear-gradient(to right, white, white);
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.12);
+}
+
+.navigation-bar .nav-link:hover {
+  color: #297209 !important;
+}
+
+.navigation-bar img {
+  width: 100px;
+}
+
+.navigation-bar .search-nav-button {
+  border: none;
+  background-color: transparent;
+  font-size: 26px;
+  color: #5C5C5C;
+}
+
+.navigation-bar .search-nav-button:hover {
+  color: #297209 !important;
+}
+
+.navigation-bar .language-button {
+  color: #5C5C5C !important;
+}
+
+.navigation-bar .icon {
+  font-size: 26px;
+}
+
+.navigation-bar .login-button {
+  background-image: linear-gradient(to right, #3B9315, #297209);
+  border: none;
+  border-radius: 100px;
+  color: white;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.navigation-bar .login-button:hover {
+  background-image: linear-gradient(to right, #297209, #297209);
+}
+
+.navigation-bar .login-button .icon {
+  font-size: 20px;
+}
+
+.navigation-bar .dropdown-parent:hover .dropdown-menu-parent {
+  display: block;
+  margin-top: 0;
+}
+
+.navigation-bar .dropdown-parent .dropdown-menu-parent .dropdown-item:hover {
+  background-color: #C3FFA9;
+  color: #3B9315;
+}
+
+.navigation-bar .account-dropdown .account-button {
+  padding: 0px;
+}
+
+.navigation-bar .account-dropdown .account-button img {
+  width: 36px;
+}
+
+.navigation-bar .account-dropdown .dropdown-item:hover {
+  background-color: #C3FFA9 !important;
+  text-decoration: underline;
+  color: #3B9315;
+}
+
+.navigation-bar .account-dropdown .logout:hover {
+  background-color: #FFA9A9 !important;
+  text-decoration: underline;
+  color: #CF0606;
+}
+
+.navigation-bar .dropdown-child:hover {
+  background-color: #C3FFA9;
+  border-radius: 0 !important;
+  text-decoration: underline;
+  color: #3B9315;
+}
+
+.navigation-bar .dropdown-child:hover .dropdown-menu-child {
+  display: block;
+  left: 100%;
+  right: auto;
+  background-color: transparent;
+  padding-left: 4px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  border: none;
+}
+
+.navigation-bar .dropdown-child:hover .dropdown-menu-child .custom-dropdown {
+  background-color: white;
+  padding: 8px 0px;
+  border: 0.1px solid lightgray;
+  border-radius: 8px;
+}
+
+.navigation-bar .dropdown-child .dropdown-menu-child .dropdown-item:hover {
+  background-color: #C3FFA9;
+}
+
+.navigation-bar .dropdown-menu .dropdown-toggle, .dropdown-item {
+  font-size: 14px !important;
+  font-weight: 500 !important;
+}
+
+.navigation-bar .modal .modal-content {
+  border-radius: 20px !important;
+}
+
+.navigation-bar .modal .modal-body {
+  padding: 0px !important;
+}
+
+.navigation-bar .modal .modal-body img {
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+.navigation-bar .modal .modal-body form input {
+  width: 300px !important;
+}
+
+.navigation-bar .modal .modal-body label {
+  font-weight: 400;
+}
+
+.navigation-bar .modal .modal-body h4 {
+  font-weight: bolder;
+}
+
+.navigation-bar .modal .modal-body a {
+  text-decoration: none;
+  color: #3B9315;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.navigation-bar .modal .modal-body a:hover {
+  color: #297209;
+  text-decoration: underline;
+}
+
+.navigation-bar .modal .modal-body button {
+  background-image: linear-gradient(to right, #3B9315, #297209);
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  color: white;
+}
+
+.navigation-bar .modal .modal-body button:hover {
+  background-image: linear-gradient(to right, #297209, #297209);
+}
+
+/*-------------------------------------------------------------------------------------*/
+
+.footer {
+  background-color: #292929;
+  color: white;
+}
+
+.footer .footer-logo {
+  height: 100%;
+}
+
+.footer a {
+  text-decoration: none;
+  color: white;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+  color: #3B9315;
+  font-weight: 500;
+}
+
+.footer a .icon {
+  font-size: 20px;
+}
+
+.footer .footer-email {
+  color: #3B9315;
+}
+
+.footer .footer-email:hover {
+  color: #297209;
+}
+
+.footer .footer-logo .sintesis-text {
+  width: 160px;
+}
+
+.footer .footer-logo .sintesis-img-text {
+  width: 220px;
+}
+
+.footer .footer-about, .footer-help, .footer-account label {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.footer .footer-department {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.footer .footer-training-office .mb-3 label, .footer-head-office .mb-3 label {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.footer .footer-training-office label, .footer-head-office label {
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.footer .helpdesk-button button {
+  background-image: linear-gradient(to right, #3B9315, #297209);
+  border: solid white;
+  border-radius: 100px;
+  font-size: 14px;
+  color: white;
+}
+
+.footer .helpdesk-button button:hover {
+  background-image: linear-gradient(to right, #297209, #297209);
+}
+
+.footer .helpdesk-button button .icon {
+  font-size: 20px;
+}
+
+/*-------------------------------------------------------------------------------------*/
+
+.landing-page .carousel-indicators {
+  bottom: -50px !important;
+}
+
+.landing-page .carousel-indicators button {
+  width: 8px !important;
+  height: 8px !important;
+  border-radius: 100% !important;
+  background-color: #3B9315 !important;
+}
+
+.landing-page .carousel-indicators .active {
+  width: 10px !important;
+  height: 10px !important;
+}
+
+.landing-page .carousel-control button {
+  padding: 0px !important;
+  margin: 0px !important;
+}
+
+.landing-page .carousel-control-prev {
+  left: -48px !important;
+  pointer-events: none;
+}
+
+.landing-page .carousel-control-next {
+  right: -48px !important;
+  pointer-events: none;
+}
+
+.landing-page .carousel-control-prev .carousel-control-prev-icon {
+  background-color: transparent !important;
+  padding: 40px 26px 40px 26px !important;
+  border-radius: 4px !important;
+  pointer-events: fill;
+}
+
+.landing-page .carousel:hover .carousel-control-prev .carousel-control-prev-icon {
+  background-color: rgba(51, 51, 51, 0.5) !important;
+  padding: 40px 26px 40px 26px !important;
+  border-radius: 4px !important;
+  pointer-events: fill;
+}
+
+.landing-page .carousel-control-next .carousel-control-next-icon {
+  background-color: transparent !important;
+  padding: 40px 26px 40px 26px !important;
+  border-radius: 4px !important;
+  pointer-events: fill;
+}
+
+.landing-page .carousel:hover .carousel-control-next .carousel-control-next-icon {
+  background-color: rgba(51, 51, 51, 0.5) !important;
+  padding: 40px 26px 40px 26px !important;
+  border-radius: 4px !important;
+  pointer-events: fill;
+}
+
+.landing-page .carousel span {
+  visibility: hidden;
+  background-color: white;
+}
+
+.landing-page .carousel:hover span {
+  visibility: visible;
+}
+
+.landing-page .title .line {
+  width: 100px;
+  height: 3px;
+  background-color: #62A944;
+  border-radius: 10px;
+}
+
+.landing-page .title label {
+  color: #5C5C5C;
+  font-size: small;
+  font-weight: 400;
+}
+
+.landing-page .category .see-all-button {
+  color: #3B9315;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.landing-page .category .see-all-button:hover {
+  color: #297209;
+  text-decoration: underline;
+}
+
+.landing-page .category .see-all-button .icon {
+  font-size: 24px;
+}
+
+.landing-page .category .col-3 .box {
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.12);
+  background-color: white;
+}
+
+.landing-page .category .col-3 .box img {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.landing-page .category .col-3 .box .category-desc {
+  height: 104px;
+}
+
+.landing-page .category .col-3 .box h6 {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.landing-page .category .col-3 .box p {
+  font-size: 10px;
+  font-weight: 500;
+  color: #5C5C5C;
+}
+
+.landing-page .category-readmore-button button {
+  background-image: linear-gradient(to right, #3B9315, #297209);
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  color: white;
+}
+
+.landing-page .category-readmore-button button:hover {
+  background-image: linear-gradient(to right, #297209, #297209);
+}
+
+.landing-page .trainer .col .box {
+  width: 240px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.12);
+  background-color: white;
+}
+
+.landing-page .trainer .col .box img {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.landing-page .trainer .col .box h6 {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.landing-page .trainer .col .box p {
+  font-size: 10px;
+  font-weight: 500;
+  color: #5C5C5C;
+}
+
+.landing-page .statistic {
+  background-image: url("/src/assets/statisticbg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+
+.landing-page .statistic .title label {
+  color: white;
+  font-size: small;
+  font-weight: 400;
+}
+
+.landing-page .statistic label {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.landing-page .partner .px-3 .d-flex {
+  height: 100%;
+}
+
+.landing-page .partner .px-3 .d-flex img {
+  width: 120px;
+}
+
+/*-------------------------------------------------------------------------------------*/
+
+.dashboard-page .account-section {
+  background-image: linear-gradient(to left, #3B9315, #297209);
+  color: white;
+}
+
+.dashboard-page .account-section .title a {
+  color: white;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 300;
+}
+
+.dashboard-page .account-section .title a:hover {
+  text-decoration: underline;
+}
+
+.dashboard-page .account-section .title .icon {
+  font-size: 24px;
+}
+
+.dashboard-page .account-section .title label {
+  font-size: 14px;
+}
+
+.dashboard-page .account-section .account img {
+  width: 88px;
+  height: 88px;
+}
+
+.dashboard-page .account-section .account img {
+  width: 88px;
+  height: 88px;
+}
+
+.dashboard-page .account-section .account a {
+  color: white;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+.dashboard-page .account-section .account a:hover {
+  text-decoration: underline;
+}
+
+.dashboard-page .account-section .account a .icon {
+  font-size: 18px;
+}
+
+.dashboard-page .navigation label {
+  font-size: 14px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.dashboard-page .navigation label:hover {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.dashboard-page .navigation .line {
+  width: 100%;
+  height: 2px;
+  background-color: transparent;
+  border-radius: 10px;
+}
+
+.dashboard-page .navigation .active label {
+  font-size: 14px;
+  font-weight: 500;
+  pointer-events: none;
+}
+
+.dashboard-page .navigation .active .line {
+  width: 100%;
+  height: 3px;
+  background-color: #292929;
+  border-radius: 10px;
+}
+
+.dashboard-page .training-section .training-navigation button {
+  background-color: transparent;
+  color: #292929;
+  font-size: 12px;
+  font-weight: 600;
+  border: none;
+  border-radius: 2px;
+}
+
+.dashboard-page .training-section .training-navigation button:hover {
+  background-color: #C3FFA9;
+  color: #3B9315;
+}
+
+.dashboard-page .training-section .training-navigation .active {
+  background-image: linear-gradient(to right, #3B9315, #297209);
+  color: white;
+  border-left: 4px solid #292929;
+  pointer-events: none;
+}
+
+.training-section .search-button {
+  border: none;
+  background-color: transparent;
+  font-size: 26px;
+  color: #5C5C5C;
+  margin-left: 10px;
+}
+
+.navigation-bar .search-button:hover {
+  color: #297209 !important;
+}
+
+.dashboard-page .training-section .topic label {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.dashboard-page .training-section .topic .topic-collection {
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
+
+.dashboard-page .training-section .topic .topic-collection::-webkit-scrollbar {
+  display: none;
+}
+
+.dashboard-page .training-section .topic .topic-collection button {
+  border: none;
+  border-radius: 4px;
+  background-color: white;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.12);
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.dashboard-page .training-section .topic .topic-collection button:hover {
+  background-color: #C3FFA9;
+  color: #3B9315;
+}
+
+.dashboard-page .training-section .training-item-container {
+  margin: 0px;
+}
+
+.dashboard-page .training-section .training-item-container .col-6 .m-2 {
+  display: flex;
+}
+
+.dashboard-page .training-section .training-item-container .training-item {
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.12);
+  border-radius: 6px;
+  background-color: white;
+  padding: 0px;
+  height: 100%;
+}
+
+.dashboard-page .training-section .training-item-container .training-item img {
+  width: 100%;
+  border-radius: 4px;
+}
+
+.dashboard-page .training-section .training-item h6 {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.dashboard-page .training-section .training-item label {
+  font-size: 10px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.dashboard-page .training-section .training-item .training-progress {
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  height: max-content;
+}
+
+.dashboard-page .training-section .training-item .progress {
+  height: 8px !important;
+}
+
+.dashboard-page .training-section .training-item .progress .progress-bar {
+  background-image: linear-gradient(to right, #3B9315, #297209);
+}
+
+.dashboard-page .training-section .training-item button {
+  border: none;
+  border-radius: 8px;
+  background-image: linear-gradient(to right, #3B9315, #297209);
+  font-size: 12px;
+  font-weight: 500;
+  color: white;
+}
+
+.dashboard-page .training-section .training-item button:hover {
+  background-image: linear-gradient(to right, #297209, #297209);
+}
+
+.certificate-item {
+  cursor: pointer;
+}
+
+.certificate-item img {
+  border-radius: 8px;
+}
+
+.certificate-item .certificate-desc {
+  height: 140px;
+}
+
+.certificate-item .modal {
+  cursor: default;
+}
+
+.certificate-item .modal .modal-img-container {
+  background-color: #F5F5F5;
+  border-radius: 8px;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.3);
+}
+
+.certificate-item .modal .modal-img-container img {
+  border-radius: 10px;
+  width: 100px;
+}
+
+/*-------------------------------------------------------------------------------------*/
+
+.training-page .header-section {
+  background-image: linear-gradient(to left, #3B9315, #297209);
+  color: white;
+}
+
+.training-page .header-section .title a {
+  color: white;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 300;
+}
+
+.training-page .header-section .title a:hover {
+  text-decoration: underline;
+}
+
+.training-page .header-section .title .icon {
+  font-size: 24px;
+}
+
+.training-page .header-section .title label {
+  font-size: 14px;
+}
+
+.training-page .header-section .title h5 {
+  font-weight: 500;
+}
+
+.training-page .training-progress {
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  height: max-content;
+  background-color: white;
+}
+
+.training-page .training-progress label {
+  font-size: 12px;
+  font-weight: 500;
+  color: #292929;
+}
+
+.training-page .training-progress .progress {
+  height: 10px !important;
+}
+
+.training-page .progress .progress-bar {
+  background-image: linear-gradient(to right, #3B9315, #297209);
+}
+
+.training-page .test-section .col-3 {
+  background-color: white !important;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.3);
+}
+
+.training-page .test-section h6 {
+  font-weight: 600;
+}
+
+.training-page .test-section button {
+  border: none;
+  background-color: transparent;
+  font-size: 12px;
+  font-weight: 500;
+  border-top: 1px solid #C0C0C0;
+}
+
+.training-page .test-section button .icon {
+  font-size: 18px;
+}
+
+.training-page .test-section button .check-icon {
+  color: transparent;
+}
+
+.training-page .test-section button .check-icon .active {
+  color: #64D035;
+}
+
+/*-------------------------------------------------------------------------------------*/
+
+.react-calendar {
+  max-width: 100%;
+  background-color: #fff;
+  color: #222;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.12);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.125em;
+  padding: 12px;
+  font-size: 12px;
+}
+
+.react-calendar--doubleView {
+  width: 700px;
+}
+
+.react-calendar--doubleView .react-calendar__viewContainer {
+  display: flex;
+  margin: -0.5em;
+}
+
+.react-calendar--doubleView .react-calendar__viewContainer>* {
+  width: 50%;
+  margin: 0.5em;
+}
+
+.react-calendar,
+.react-calendar *,
+.react-calendar *:before,
+.react-calendar *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.react-calendar button {
+  margin: 0;
+  border: 0;
+  outline: none;
+}
+
+.react-calendar button:enabled:hover {
+  cursor: pointer;
+}
+
+.react-calendar__navigation {
+  display: flex;
+  height: 44px;
+  margin-bottom: 1em;
+}
+
+.react-calendar__navigation button {
+  color: #297209;
+  min-width: 30px;
+  background: none;
+  font-size: 14px;
+  margin-top: 8px;
+  padding: 0px;
+}
+
+.react-calendar__navigation button:disabled {
+  background-color: #f0f0f0;
+}
+
+abbr[title] {
+  text-decoration: none;
+}
+
+.react-calendar__navigation button:enabled:hover,
+.react-calendar__navigation button:enabled:focus {
+  background-color: #f8f8fa;
+}
+
+.react-calendar__month-view__weekdays {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 0.75em;
+}
+
+.react-calendar__month-view__weekdays__weekday {
+  padding: 0.5em;
+}
+
+.react-calendar__month-view__weekNumbers .react-calendar__tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75em;
+  font-weight: bold;
+}
+
+/*.react-calendar__month-view__days__day--weekend {
+  color: #d10000;
+}*/
+
+.react-calendar__month-view__days__day--neighboringMonth {
+  color: #757575;
+}
+
+.react-calendar__year-view .react-calendar__tile,
+.react-calendar__decade-view .react-calendar__tile,
+.react-calendar__century-view .react-calendar__tile {
+  padding: 2em 0.5em;
+}
+
+.react-calendar__tile {
+  max-width: 100%;
+  padding: 10px 6.6667px;
+  background: none;
+  text-align: center;
+  line-height: 16px;
+}
+
+.react-calendar__tile:disabled {
+  background-color: #f0f0f0;
+}
+
+.react-calendar__tile:enabled:hover,
+.react-calendar__tile:enabled:focus {
+  background: #f8f8fa;
+  color: #3B9315;
+  border-radius: 100%;
+}
+
+.react-calendar__tile--now {
+  background: #3B931533;
+  border-radius: 100%;
+  font-weight: bold;
+  color: #3B9315;
+}
+
+.react-calendar__tile--now:enabled:hover,
+.react-calendar__tile--now:enabled:focus {
+  background: #3B931533;
+  border-radius: 100%;
+  font-weight: bold;
+  color: #3B9315;
+}
+
+.react-calendar__tile--hasActive {
+  background: #3B931533;
+}
+
+.react-calendar__tile--hasActive:enabled:hover,
+.react-calendar__tile--hasActive:enabled:focus {
+  background: #f8f8fa;
+}
+
+.react-calendar__tile--active {
+  background: #3B9315;
+  border-radius: 100%;
+  font-weight: bold;
+  color: white;
+}
+
+.react-calendar__tile--active:enabled:hover,
+.react-calendar__tile--active:enabled:focus {
+  background: #3B9315;
+  color: white;
+}
+
+.react-calendar--selectRange .react-calendar__tile--hover {
+  background-color: #f8f8fa;
+}
