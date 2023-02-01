@@ -108,7 +108,7 @@ const Component = () => {
                         </div>
                       </ul>
                     </li>
-                    <li className="btn-group dropend dropdown-child d-flex">
+                    {/*<li className="btn-group dropend dropdown-child d-flex">
                       <button
                         type="button"
                         className="btn dropdown-toggle text-start"
@@ -156,7 +156,7 @@ const Component = () => {
                           </li>
                         </div>
                       </ul>
-                    </li>
+                    </li>*/}
                     <li className="btn-group dropend dropdown-child d-flex">
                       <button
                         type="button"
@@ -270,7 +270,7 @@ const Component = () => {
                         </div>
                       </ul>
                     </li>
-                    <li className="btn-group dropend dropdown-child d-flex">
+                    {/*<li className="btn-group dropend dropdown-child d-flex">
                       <button
                         type="button"
                         className="btn dropdown-toggle text-start"
@@ -303,7 +303,7 @@ const Component = () => {
                           </li>
                         </div>
                       </ul>
-                    </li>
+                    </li>*/}
                     <li className="btn-group dropdown-child d-flex">
                       <button type="button" className="btn text-start">
                         SOP

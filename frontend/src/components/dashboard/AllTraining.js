@@ -77,38 +77,38 @@ const AllTraining = ({ handleTrainingTitle, handleCourseId, handleCourseTitle })
         ]
       : currentTraining == "Advance Training"
       ? [
-          { title: "Surat Penunjukan Tenaga Teknis" },
-          { title: "Surat Penunjukan Pengawas Teknis" },
-          { title: "Surat Penunjukan Pengawas Operasional" },
-          { title: "E-Induksi BUMA" },
+          { id: 44, title: "Surat Penunjukan Tenaga Teknis" },
+          { id: 45, title: "Surat Penunjukan Pengawas Teknis" },
+          { id: 46, title: "Surat Penunjukan Pengawas Operasional" },
+          { id: 47, title: "E-Induksi BUMA" },
           {
-            title: "Pendidikan dan Pelatihan Pengelola Peledakan (KPP Pertama)",
+            id: 48, title: "Pendidikan dan Pelatihan Pengelola Peledakan (KPP Pertama)",
           },
-          { title: "Frontline Behavior Based Safety" },
-          { title: "SINTESIS+" },
+          { id: 49, title: "Frontline Behavior Based Safety" },
+          { id: 50, title: "SINTESIS+" },
         ]
       : currentTraining == "Program Sintesis"
       ? [
-          { title: "KELOMPOK MATERI PELATIHAN DASAR (KMPD) 2022" },
+          { id: 51, title: "KELOMPOK MATERI PELATIHAN DASAR (KMPD) 2022" },
           {
-            title:
+            id: 52, title:
               "Pencegahan Kecelakaan Akibat  Fatigue dengan Konsep SBS (Sistem Bekerja Selamat)",
           },
           {
-            title:
+            id: 53, title:
               "Pengawasan Langsung Berjarak: Dalam Meningkatkan Keselamatan Kerja & Produktivitas Tambang",
           },
         ]
       : currentTraining == "Weekly Refresh Competency"
       ? [
-          { title: "PIT SERVICE - WEEKLY REFRESH COMPETENCY" },
-          { title: "PLANT - WEEKLY REFRESH COMPETENCY" },
-          { title: "DO & DON'T EKSPLORASI" },
-          { title: "Drill & Blast - WEEKLY REFRESH COMPETENCY" },
-          { title: "MINING & HAULING OPERATION - WEEKLY REFRESH COMPETENCY" },
-          { title: "DO AND DON'T MARINE - WEEKLY REFRESH COMPETENCY" },
+          { id: 54, title: "PIT SERVICE - WEEKLY REFRESH COMPETENCY" },
+          { id: 55, title: "PLANT - WEEKLY REFRESH COMPETENCY" },
+          { id: 56, title: "DO & DON'T EKSPLORASI" },
+          { id: 57, title: "Drill & Blast - WEEKLY REFRESH COMPETENCY" },
+          { id: 58, title: "MINING & HAULING OPERATION - WEEKLY REFRESH COMPETENCY" },
+          { id: 59, title: "DO AND DON'T MARINE - WEEKLY REFRESH COMPETENCY" },
         ]
-      : [{ title: "Surat Penunjukan Tenaga Teknis" }];
+      : [{ id: 60, title: "Surat Penunjukan Tenaga Teknis" }];
 
   const trainingArr = trainingApi.map((data) => {
     return (
