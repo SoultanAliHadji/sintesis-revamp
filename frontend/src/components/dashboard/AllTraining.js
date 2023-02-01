@@ -3,9 +3,16 @@ import { Icon } from "@iconify/react";
 import { useState, useEffect } from "react";
 import Training from "./Training";
 
-const AllTraining = ({ handleTrainingTitle, handleCourseId, handleCourseTitle }) => {
+const AllTraining = ({
+  handleTrainingTitle,
+  handleCourseId,
+  handleCourseTitle,
+  currentTrainingPage,
+}) => {
   const [currentTraining, setCurrentTraining] = useState(
-    "Pelatihan-Uji Online SIMAK dan KPO"
+    currentTrainingPage == null
+      ? "Pelatihan-Uji Online SIMAK dan KPO"
+      : currentTrainingPage
   );
   const progress = 0;
   const trainingApi = [
@@ -82,7 +89,8 @@ const AllTraining = ({ handleTrainingTitle, handleCourseId, handleCourseTitle })
           { id: 46, title: "Surat Penunjukan Pengawas Operasional" },
           { id: 47, title: "E-Induksi BUMA" },
           {
-            id: 48, title: "Pendidikan dan Pelatihan Pengelola Peledakan (KPP Pertama)",
+            id: 48,
+            title: "Pendidikan dan Pelatihan Pengelola Peledakan (KPP Pertama)",
           },
           { id: 49, title: "Frontline Behavior Based Safety" },
           { id: 50, title: "SINTESIS+" },
@@ -91,11 +99,13 @@ const AllTraining = ({ handleTrainingTitle, handleCourseId, handleCourseTitle })
       ? [
           { id: 51, title: "KELOMPOK MATERI PELATIHAN DASAR (KMPD) 2022" },
           {
-            id: 52, title:
+            id: 52,
+            title:
               "Pencegahan Kecelakaan Akibat  Fatigue dengan Konsep SBS (Sistem Bekerja Selamat)",
           },
           {
-            id: 53, title:
+            id: 53,
+            title:
               "Pengawasan Langsung Berjarak: Dalam Meningkatkan Keselamatan Kerja & Produktivitas Tambang",
           },
         ]
@@ -105,7 +115,10 @@ const AllTraining = ({ handleTrainingTitle, handleCourseId, handleCourseTitle })
           { id: 55, title: "PLANT - WEEKLY REFRESH COMPETENCY" },
           { id: 56, title: "DO & DON'T EKSPLORASI" },
           { id: 57, title: "Drill & Blast - WEEKLY REFRESH COMPETENCY" },
-          { id: 58, title: "MINING & HAULING OPERATION - WEEKLY REFRESH COMPETENCY" },
+          {
+            id: 58,
+            title: "MINING & HAULING OPERATION - WEEKLY REFRESH COMPETENCY",
+          },
           { id: 59, title: "DO AND DON'T MARINE - WEEKLY REFRESH COMPETENCY" },
         ]
       : [{ id: 60, title: "Surat Penunjukan Tenaga Teknis" }];
@@ -162,10 +175,10 @@ const AllTraining = ({ handleTrainingTitle, handleCourseId, handleCourseTitle })
                       <button
                         className="px-3"
                         onClick={() => {
-                          handleTrainingTitle(currentTraining)
+                          handleTrainingTitle(currentTraining);
                           handleCourseId(data.id);
                           handleCourseTitle(data.title);
-                          window.scrollTo(0,0)
+                          window.scrollTo(0, 0);
                         }}
                       >
                         Lanjutkan

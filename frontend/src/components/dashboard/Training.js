@@ -2,7 +2,13 @@ import "../../App.css";
 import { Icon } from "@iconify/react";
 import { useState, useEffect } from "react";
 
-const Training = ({ handleRoute, trainingTitle, courseTitle, handleCourseId }) => {
+const Training = ({
+  handleRoute,
+  trainingTitle,
+  courseTitle,
+  handleCourseId,
+  handleCurrentTrainingPage,
+}) => {
   const progress = 85;
 
   return (
@@ -12,21 +18,43 @@ const Training = ({ handleRoute, trainingTitle, courseTitle, handleCourseId }) =
           <div className="title">
             <div className="d-flex mb-4">
               <div className="d-flex align-items-center me-4">
-                <a href="#" onClick={() => {handleRoute("landing")}}>Home</a>
+                <a
+                  href="#"
+                  onClick={() => {
+                    handleRoute("landing");
+                  }}
+                >
+                  Home
+                </a>
               </div>
               <Icon
                 className="icon me-4"
                 icon="material-symbols:chevron-right-rounded"
               />
               <div className="d-flex align-items-center me-4">
-                <a href="#" onClick={() => {handleCourseId(null)}}>Dashboard</a>
+                <a
+                  href="#"
+                  onClick={() => {
+                    handleCourseId(null);
+                  }}
+                >
+                  Dashboard
+                </a>
               </div>
               <Icon
                 className="icon me-4"
                 icon="material-symbols:chevron-right-rounded"
               />
               <div className="d-flex align-items-center me-4">
-                <a href="#" onClick={() => {handleCourseId(null)}}>{trainingTitle}</a>
+                <a
+                  href="#"
+                  onClick={() => {
+                    handleCourseId(null);
+                    handleCurrentTrainingPage(trainingTitle)
+                  }}
+                >
+                  {trainingTitle}
+                </a>
               </div>
               <Icon
                 className="icon me-4"

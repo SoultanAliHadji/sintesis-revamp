@@ -13,6 +13,7 @@ const Dashboard = ({ handleRoute, handleRouteDetail, currentPageDetail }) => {
   const [trainingTitle, setTrainingTitle] = useState();
   const [courseId, setCourseId] = useState();
   const [courseTitle, setCourseTitle] = useState();
+  const [currentTrainingPage, setCurrentTrainingPage] = useState();
 
   const handleTrainingTitle = (data) => {
     setTrainingTitle(data);
@@ -25,6 +26,10 @@ const Dashboard = ({ handleRoute, handleRouteDetail, currentPageDetail }) => {
   const handleCourseTitle = (data) => {
     setCourseTitle(data);
   };
+
+  const handleCurrentTrainingPage = (data) => {
+    setCurrentTrainingPage(data)
+  }
 
   return (
     <div>
@@ -136,6 +141,7 @@ const Dashboard = ({ handleRoute, handleRouteDetail, currentPageDetail }) => {
                 handleTrainingTitle={handleTrainingTitle}
                 handleCourseId={handleCourseId}
                 handleCourseTitle={handleCourseTitle}
+                currentTrainingPage={currentTrainingPage}
               />
             ) : currentPage == "myTraining" ? (
               <MyTraining />
@@ -150,6 +156,7 @@ const Dashboard = ({ handleRoute, handleRouteDetail, currentPageDetail }) => {
           trainingTitle={trainingTitle}
           courseTitle={courseTitle}
           handleCourseId={handleCourseId}
+          handleCurrentTrainingPage={handleCurrentTrainingPage}
         />
       )}
     </div>
