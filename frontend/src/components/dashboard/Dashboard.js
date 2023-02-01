@@ -6,8 +6,10 @@ import Training from "./Training";
 import { Icon } from "@iconify/react";
 import { useState, useEffect } from "react";
 
-const Dashboard = ({ handleRoute }) => {
-  const [currentPage, setCurrentPage] = useState("allTraining");
+const Dashboard = ({ handleRoute, handleRouteDetail, currentPageDetail }) => {
+  const [currentPage, setCurrentPage] = useState(
+    currentPageDetail == null ? "allTraining" : currentPageDetail
+  );
   const [trainingTitle, setTrainingTitle] = useState();
   const [courseId, setCourseId] = useState();
   const [courseTitle, setCourseTitle] = useState();
@@ -36,6 +38,7 @@ const Dashboard = ({ handleRoute }) => {
                     href="#"
                     onClick={() => {
                       handleRoute("landing");
+                      handleRouteDetail(null)
                     }}
                   >
                     Home
@@ -142,7 +145,12 @@ const Dashboard = ({ handleRoute }) => {
           </div>
         </div>
       ) : (
-        <Training trainingTitle={trainingTitle} courseTitle={courseTitle} />
+        <Training
+          handleRoute={handleRoute}
+          trainingTitle={trainingTitle}
+          courseTitle={courseTitle}
+          handleCourseId={handleCourseId}
+        />
       )}
     </div>
   );

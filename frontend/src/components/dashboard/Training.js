@@ -2,7 +2,7 @@ import "../../App.css";
 import { Icon } from "@iconify/react";
 import { useState, useEffect } from "react";
 
-const Training = ({ trainingTitle, courseTitle }) => {
+const Training = ({ handleRoute, trainingTitle, courseTitle, handleCourseId }) => {
   const progress = 85;
 
   return (
@@ -12,21 +12,21 @@ const Training = ({ trainingTitle, courseTitle }) => {
           <div className="title">
             <div className="d-flex mb-4">
               <div className="d-flex align-items-center me-4">
-                <a href="#">Home</a>
+                <a href="#" onClick={() => {handleRoute("landing")}}>Home</a>
               </div>
               <Icon
                 className="icon me-4"
                 icon="material-symbols:chevron-right-rounded"
               />
               <div className="d-flex align-items-center me-4">
-                <a href="#">Dashboard</a>
+                <a href="#" onClick={() => {handleCourseId(null)}}>Dashboard</a>
               </div>
               <Icon
                 className="icon me-4"
                 icon="material-symbols:chevron-right-rounded"
               />
               <div className="d-flex align-items-center me-4">
-                <a href="#">{trainingTitle}</a>
+                <a href="#" onClick={() => {handleCourseId(null)}}>{trainingTitle}</a>
               </div>
               <Icon
                 className="icon me-4"
@@ -74,10 +74,16 @@ const Training = ({ trainingTitle, courseTitle }) => {
             <div className="line"></div>
             <button className="w-100 text-start d-flex align-items-center px-2 py-3">
               <div className="check-icon d-flex me-1">
-                <Icon className="icon active" icon="material-symbols:check-circle-rounded" />
+                <Icon
+                  className="icon active"
+                  icon="material-symbols:check-circle-rounded"
+                />
               </div>
               <div className="d-flex me-1">
-                <Icon className="icon" icon="fluent:clipboard-task-list-rtl-20-regular" />
+                <Icon
+                  className="icon"
+                  icon="fluent:clipboard-task-list-rtl-20-regular"
+                />
               </div>
               <div className="d-flex">
                 <div>Pre-Test</div>
@@ -85,10 +91,16 @@ const Training = ({ trainingTitle, courseTitle }) => {
             </button>
             <button className="w-100 text-start d-flex align-items-center px-2 py-3">
               <div className="check-icon d-flex me-1">
-                <Icon className="icon active" icon="material-symbols:check-circle-rounded" />
+                <Icon
+                  className="icon active"
+                  icon="material-symbols:check-circle-rounded"
+                />
               </div>
               <div className="d-flex me-1">
-                <Icon className="icon" icon="material-symbols:play-circle-outline-rounded" />
+                <Icon
+                  className="icon"
+                  icon="material-symbols:play-circle-outline-rounded"
+                />
               </div>
               <div className="d-flex">
                 <div>Video H5P</div>
@@ -96,10 +108,16 @@ const Training = ({ trainingTitle, courseTitle }) => {
             </button>
             <button className="w-100 text-start d-flex align-items-center px-2 py-3">
               <div className="check-icon d-flex me-1">
-                <Icon className="icon" icon="material-symbols:check-circle-rounded" />
+                <Icon
+                  className="icon"
+                  icon="material-symbols:check-circle-rounded"
+                />
               </div>
               <div className="d-flex me-1">
-                <Icon className="icon" icon="material-symbols:play-circle-outline-rounded" />
+                <Icon
+                  className="icon"
+                  icon="material-symbols:play-circle-outline-rounded"
+                />
               </div>
               <div className="d-flex">
                 <div>Video Golden RUles</div>
@@ -107,7 +125,10 @@ const Training = ({ trainingTitle, courseTitle }) => {
             </button>
             <button className="w-100 text-start d-flex align-items-center px-2 py-3">
               <div className="check-icon d-flex me-1">
-                <Icon className="icon" icon="material-symbols:check-circle-rounded" />
+                <Icon
+                  className="icon"
+                  icon="material-symbols:check-circle-rounded"
+                />
               </div>
               <div className="d-flex me-1">
                 <Icon className="icon" icon="bi:filetype-doc" />
@@ -118,10 +139,16 @@ const Training = ({ trainingTitle, courseTitle }) => {
             </button>
             <button className="w-100 text-start d-flex align-items-center px-2 py-3">
               <div className="check-icon d-flex me-1">
-                <Icon className="icon" icon="material-symbols:check-circle-rounded" />
+                <Icon
+                  className="icon"
+                  icon="material-symbols:check-circle-rounded"
+                />
               </div>
               <div className="d-flex me-1">
-                <Icon className="icon" icon="fluent:clipboard-task-list-rtl-20-regular" />
+                <Icon
+                  className="icon"
+                  icon="fluent:clipboard-task-list-rtl-20-regular"
+                />
               </div>
               <div className="d-flex">
                 <div>Post-Test</div>
@@ -129,7 +156,10 @@ const Training = ({ trainingTitle, courseTitle }) => {
             </button>
             <button className="w-100 text-start d-flex align-items-center px-2 py-3">
               <div className="check-icon d-flex me-1">
-                <Icon className="icon" icon="material-symbols:check-circle-rounded" />
+                <Icon
+                  className="icon"
+                  icon="material-symbols:check-circle-rounded"
+                />
               </div>
               <div className="d-flex me-1">
                 <Icon className="icon" icon="fluent:certificate-24-regular" />

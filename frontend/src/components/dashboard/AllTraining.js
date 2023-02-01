@@ -165,6 +165,7 @@ const AllTraining = ({ handleTrainingTitle, handleCourseId, handleCourseTitle })
                           handleTrainingTitle(currentTraining)
                           handleCourseId(data.id);
                           handleCourseTitle(data.title);
+                          window.scrollTo(0,0)
                         }}
                       >
                         Lanjutkan

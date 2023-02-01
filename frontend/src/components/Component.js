@@ -7,11 +7,16 @@ import { useState, useEffect } from "react";
 const Component = () => {
   const [login, setLogin] = useState(false);
   const [currentPage, setCurrentPage] = useState("landing");
+  const [currentPageDetail, setCurrentPageDetail] = useState();
   const [navOption, setNavOption] = useState();
   const [searchNow, setSearchNow] = useState(false);
 
   const handleRoute = (data) => {
     setCurrentPage(data);
+  };
+
+  const handleRouteDetail = (data) => {
+    setCurrentPageDetail(data);
   };
 
   return (
@@ -24,6 +29,7 @@ const Component = () => {
               href="#"
               onClick={() => {
                 setCurrentPage("landing");
+                setCurrentPageDetail(null);
               }}
             >
               <img src={require("../assets/logo.png")} alt="" />
@@ -311,7 +317,19 @@ const Component = () => {
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link active" aria-current="page" href="#">
+                  <a
+                    className="nav-link active"
+                    aria-current="page"
+                    href="#"
+                    onClick={() => {
+                      setCurrentPageDetail("myCertificate");
+                      login == true
+                        ? setCurrentPage("dashboard")
+                        : setCurrentPage("landing");
+                    }}
+                    data-bs-toggle={login == false ? "modal" : ""}
+                    data-bs-target={login == false ? "#loginModal" : ""}
+                  >
                     Cek Sertifikat
                   </a>
                 </li>
@@ -426,7 +444,8 @@ const Component = () => {
                             onClick={() => {
                               setLogin(false);
                               setCurrentPage("landing");
-                              setNavOption("");
+                              setNavOption(null);
+                              setCurrentPageDetail(null);
                             }}
                           >
                             Logout
@@ -502,7 +521,7 @@ const Component = () => {
                         data-bs-dismiss="modal"
                         onClick={() => {
                           setLogin(true);
-                          navOption == "op1"
+                          navOption == "op1" || currentPageDetail != null
                             ? setCurrentPage("dashboard")
                             : setCurrentPage("landing");
                         }}
@@ -522,7 +541,18 @@ const Component = () => {
           {currentPage == "landing" ? (
             <Landing handleRoute={handleRoute} />
           ) : currentPage == "dashboard" && navOption == "op1" ? (
-            <Dashboard handleRoute={handleRoute} />
+            <Dashboard
+              handleRoute={handleRoute}
+              handleRouteDetail={handleRouteDetail}
+              currentPageDetail={currentPageDetail}
+            />
+          ) : currentPage == "dashboard" &&
+            currentPageDetail == "myCertificate" ? (
+            <Dashboard
+              handleRoute={handleRoute}
+              handleRouteDetail={handleRouteDetail}
+              currentPageDetail={currentPageDetail}
+            />
           ) : (
             ""
           )}
