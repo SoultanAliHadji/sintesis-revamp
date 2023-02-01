@@ -71,7 +71,7 @@
   border: none;
   border-radius: 100px;
   color: white;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
 }
 
@@ -80,7 +80,7 @@
 }
 
 .navigation-bar .login-button .icon {
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .navigation-bar .dropdown-parent:hover .dropdown-menu-parent {
