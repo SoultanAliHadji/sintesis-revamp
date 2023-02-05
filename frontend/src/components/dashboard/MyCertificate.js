@@ -36,16 +36,18 @@ const MyCertificate = () => {
     return (
       <div className="col-3 p-0 my-2">
         <div className="h-100 mx-2">
-          <div
-            className="certificate-item training-item p-2"
-            data-bs-toggle="modal"
-            data-bs-target="#certificateModal"
-            onClick={() => {
-              setTitle(data.title);
-              setDate(data.date);
-            }}
-          >
-            <img src={require("../../assets/certificate.png")} alt="" />
+          <div className="certificate-item training-item p-2">
+            <img
+              className="card-img"
+              src={require("../../assets/certificate.png")}
+              alt=""
+              data-bs-toggle="modal"
+              data-bs-target="#certificateModal"
+              onClick={() => {
+                setTitle(data.title);
+                setDate(data.date);
+              }}
+            />
             <div className="mt-2">
               <div className="certificate-desc d-flex align-items-start flex-column">
                 <h6>{data.title}</h6>
@@ -76,7 +78,7 @@ const MyCertificate = () => {
                         <div className="col-4 d-flex align-items-center">
                           <div>
                             <h6>{title}</h6>
-                            <label>{date}</label>
+                            <label className="mb-5">{date}</label>
                             <div className="w-100">
                               <button className="py-2 w-100">Download</button>
                             </div>

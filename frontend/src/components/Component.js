@@ -30,6 +30,7 @@ const Component = () => {
               onClick={() => {
                 setCurrentPage("landing");
                 setCurrentPageDetail(null);
+                window.scrollTo(0, 0);
               }}
             >
               <img src={require("../assets/logo.png")} alt="" />

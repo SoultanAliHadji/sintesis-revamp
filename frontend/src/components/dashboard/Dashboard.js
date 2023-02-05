@@ -2,7 +2,7 @@ import "../../App.css";
 import AllTraining from "./AllTraining";
 import MyTraining from "./MyTraining";
 import MyCertificate from "./MyCertificate";
-import Training from "./Training";
+import Training from "./trainingContents/Training";
 import { Icon } from "@iconify/react";
 import { useState, useEffect } from "react";
 

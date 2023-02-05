@@ -14,7 +14,7 @@
   /* Internet Explorer/Edge */
   user-select: none;
   /* Non-prefixed version, currently
-                                  supported by Chrome, Edge, Opera and Firefox */
+                                    supported by Chrome, Edge, Opera and Firefox */
 }
 
 .component {
@@ -260,12 +260,17 @@
   font-weight: 300;
 }
 
+.footer .helpdesk-button {
+  pointer-events: none;
+}
+
 .footer .helpdesk-button button {
   background-image: linear-gradient(to right, #3B9315, #297209);
   border: solid white;
   border-radius: 100px;
   font-size: 14px;
   color: white;
+  pointer-events: fill;
 }
 
 .footer .helpdesk-button button:hover {
@@ -644,6 +649,7 @@
 
 .dashboard-page .training-section .training-item .progress {
   height: 8px !important;
+  background-color: #C0C0C0;
 }
 
 .dashboard-page .training-section .training-item .progress .progress-bar {
@@ -663,7 +669,7 @@
   background-image: linear-gradient(to right, #297209, #297209);
 }
 
-.certificate-item {
+.certificate-item .card-img {
   cursor: pointer;
 }
 
@@ -735,13 +741,14 @@
 
 .training-page .training-progress .progress {
   height: 10px !important;
+  background-color: #C0C0C0;
 }
 
 .training-page .progress .progress-bar {
   background-image: linear-gradient(to right, #3B9315, #297209);
 }
 
-.training-page .test-section .col-3 {
+.training-page .test-section .test-nav {
   background-color: white !important;
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.3);
 }
@@ -750,7 +757,7 @@
   font-weight: 600;
 }
 
-.training-page .test-section button {
+.training-page .test-section .test-nav button {
   border: none;
   background-color: transparent;
   font-size: 12px;
@@ -758,16 +765,268 @@
   border-top: 1px solid #C0C0C0;
 }
 
-.training-page .test-section button .icon {
-  font-size: 18px;
+.training-page .test-section .test-nav button:hover {
+  border: none;
+  background-image: linear-gradient(to right, #C3FFA9, #C3FFA9);
+  color: #3B9315;
+  font-size: 12px;
+  font-weight: 500;
+  border-top: 1px solid #C0C0C0;
 }
 
 .training-page .test-section button .check-icon {
   color: transparent;
 }
 
-.training-page .test-section button .check-icon .active {
+.training-page .test-section .test-nav .active-section {
+  border-left: 4px solid #292929;
+  background-image: linear-gradient(to right, #3B9315, #297209);
+  color: white;
+  font-size: 12px;
+  font-weight: 500;
+  border-top: 1px solid #C0C0C0;
+  cursor: default;
+}
+
+.training-page .test-section .test-nav .active-section:hover {
+  border-left: 4px solid #292929;
+  background-image: linear-gradient(to right, #3B9315, #297209);
+  color: white;
+}
+
+.training-page .test-section .active-section .check-icon .done {
+  color: white;
+}
+
+.training-page .test-section .active-section:hover .check-icon .done {
+  color: white;
+}
+
+.training-page .test-section button .check-icon .done {
   color: #64D035;
+}
+
+.training-page .test-section button:hover .check-icon .done {
+  color: #3B9315;
+}
+
+.training-page .test-section .icon {
+  font-size: 18px;
+}
+
+.training-page .test-section .collapse-section button .collapse-icon .active-collapse {
+  transform: rotate(90deg);
+}
+
+.training-page .test-section .collapse-section .collapse .active-sub-section {
+  border: none;
+  background-image: linear-gradient(to right, #64D035, #64D035);
+  color: white;
+  font-size: 12px;
+  font-weight: 500;
+  border-top: 1px solid #C0C0C0;
+  cursor: default;
+}
+
+.training-page .test-section .collapse-section .collapse .active-sub-section .done {
+  color: white;
+}
+
+/*-------------------------------------------------------------------------------------*/
+
+.training-pretest .training-container {
+  background-color: white;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+.training-pretest .training-pretest-title {
+  font-size: 12px;
+}
+
+.training-pretest .summary-table label {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.training-pretest .summary-table .table {
+  font-size: 12px;
+}
+
+.training-pretest .summary-table .table tbody {
+  font-weight: 500 !important;
+}
+
+.training-pretest .summary-table .table .table-state {
+  font-size: 10px;
+  color: #858585;
+}
+
+.training-pretest .summary-table .table .table-review {
+  color: #858585;
+}
+
+.training-pretest .do-test .modal-button {
+  background-image: linear-gradient(to right, #3B9315, #297209);
+  border: none;
+  border-radius: 6px;
+  font-size: 12px;
+  color: white;
+}
+
+.training-pretest .do-test .modal-button:hover {
+  background-image: linear-gradient(to right, #297209, #297209);
+}
+
+.training-pretest .modal-body img {
+  width: 40px;
+}
+
+.training-pretest .modal-content {
+  width: 440px;
+}
+
+.training-pretest .modal-body label {
+  font-size: 12px;
+  font-weight: 400;
+  text-align: justify;
+}
+
+.training-pretest .modal-body .agree-button {
+  background-image: linear-gradient(to right, #3B9315, #297209);
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  color: white;
+}
+
+.training-pretest .modal-body .agree-button:hover {
+  background-image: linear-gradient(to right, #297209, #297209);
+}
+
+.training-pretest .modal-body .disagree-button {
+  border: 1px solid #3B9315;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #297209;
+  font-weight: 500;
+  background-color: transparent;
+}
+
+.training-pretest .modal-body .disagree-button:hover {
+  background-image: linear-gradient(to right, #297209, #297209);
+  color: white;
+  border: none;
+  font-weight: 400;
+}
+
+.training-pretest .question, .answer {
+  background-color: white;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  font-size: 14px;
+  text-align: justify;
+  height: max-content;
+}
+
+.training-pretest .question h6 {
+  font-size: 14px;
+}
+
+.training-pretest .answer .active-answer {
+  background-color: #3B9315;
+}
+
+.training-pretest .test-summary {
+  background-color: white;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  font-size: 14px;
+  text-align: justify;
+}
+
+.training-pretest .test-summary h6 {
+  font-size: 14px;
+}
+
+.training-pretest .test-summary .jump-to-button button {
+  width: 28px;
+  height: 28px;
+  border-radius: 100%;
+  border: none;
+  background-color: #ADADAD;
+  color: white;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.training-pretest .test-summary .jump-to-button button:hover {
+  background-color: #E4E4E4;
+  color: #3B9315;
+}
+
+.indicator-finish-section {
+  height:248px;
+}
+
+.training-pretest .indicator-button button {
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  color: white;
+  width: 160px;
+}
+
+.training-pretest .indicator-button .next-prev-question {
+  background-color: #0089F4;
+}
+
+.training-pretest .indicator-button .hesitant {
+  background-color: #FF8D07;
+}
+
+.training-pretest .test-summary .indicator-finish-section {
+  margin-bottom: 0%;
+}
+
+.training-pretest .test-summary .indicator-desc {
+  font-size: 12px;
+}
+
+.training-pretest .test-summary .indicator-desc .green-indicator {
+  background-color: #64D035;
+  color: white;
+}
+
+.training-pretest .test-summary .indicator-desc .orange-indicator {
+  background-color: #FF8D07;
+  color: white;
+}
+
+.training-pretest .test-summary .indicator-desc .grey-indicator {
+  background-color: #ADADAD;
+  color: white;
+}
+
+.training-pretest .test-summary .finish-test-button button {
+  background-image: linear-gradient(to right, #3B9315, #297209);
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  color: white;
+  width: 160px;
+}
+
+.training-pretest .test-summary .finish-test-button button:hover {
+  background-image: linear-gradient(to right, #297209, #297209);
+}
+
+/*-------------------------------------------------------------------------------------*/
+
+.training-h5p {
+  background-color: white;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
 }
 
 /*-------------------------------------------------------------------------------------*/
