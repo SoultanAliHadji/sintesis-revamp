@@ -82,6 +82,7 @@ const Component = () => {
                                 login == true
                                   ? setCurrentPage("dashboard")
                                   : setCurrentPage("landing");
+                                window.scrollTo(0, 0);
                               }}
                               data-bs-toggle={login == false ? "modal" : ""}
                               data-bs-target={

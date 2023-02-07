@@ -955,10 +955,23 @@
   height: 28px;
   border-radius: 100%;
   border: none;
-  background-color: #ADADAD;
-  color: white;
   font-size: 12px;
   font-weight: 500;
+}
+
+.training-pretest .test-summary .jump-to-button .green-indicator {
+  background-color: #64D035;
+  color: white;
+}
+
+.training-pretest .test-summary .jump-to-button .orange-indicator {
+  background-color: #FF8D07;
+  color: white;
+}
+
+.training-pretest .test-summary .jump-to-button .grey-indicator {
+  background-color: #ADADAD;
+  color: white;
 }
 
 .training-pretest .test-summary .jump-to-button button:hover {

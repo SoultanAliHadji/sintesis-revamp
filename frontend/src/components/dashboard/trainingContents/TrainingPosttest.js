@@ -1,7 +1,7 @@
 import "../../../App.css";
 import { useState, useEffect } from "react";
 
-const TrainingPretest = () => {
+const TrainingPosttest = () => {
   const [doTest, setDoTest] = useState(false);
   const [currentQuestion, setCurrentQuestion] = useState(1);
   const [activeAnswer, setActiveAnswer] = useState();
@@ -9,9 +9,6 @@ const TrainingPretest = () => {
   const [hesitantCheckbox, setHesitantCheckbox] = useState(false);
   const [hesitantAnswer, setHesitantAnswer] = useState([false]);
   const [mark, setMark] = useState([0]);
-
-  const [ayam, setAyam] = useState();
-
   const day =
     new Date().toString().substring(0, 3) == "Mon"
       ? "Monday"
@@ -96,12 +93,6 @@ const TrainingPretest = () => {
       review: "Tidak diizinkan",
     },
   ]);
-
-  useEffect(() => {
-    record.map((data) => {
-      setAyam(Math.max(data.score));
-    });
-  });
 
   const question = [
     {
@@ -377,7 +368,7 @@ const TrainingPretest = () => {
                         : (hesitantAnswer[currentQuestion - 1] =
                             hesitantAnswer[currentQuestion - 1]);
                       mark[currentQuestion - 1] == null
-                        ? setMark((array) => [...array, 0])
+                        ? setMark((array) => [...array, ""])
                         : (mark[currentQuestion - 1] =
                             mark[currentQuestion - 1]);
                     }}
@@ -407,7 +398,7 @@ const TrainingPretest = () => {
                     answers[currentQuestion - 1] != null
                       ? (answers[currentQuestion - 1] =
                           answers[currentQuestion - 1])
-                      : setHesitantAnswer((array) => [...array, false]);
+                      : setAnswers((array) => [...array, false]);
                   }}
                 >
                   <input
@@ -442,7 +433,7 @@ const TrainingPretest = () => {
                         : (hesitantAnswer[currentQuestion - 1] =
                             hesitantAnswer[currentQuestion - 1]);
                       mark[currentQuestion - 1] == null
-                        ? setMark((array) => [...array, 0])
+                        ? setMark((array) => [...array, ""])
                         : (mark[currentQuestion - 1] =
                             mark[currentQuestion - 1]);
                     }}
@@ -460,10 +451,6 @@ const TrainingPretest = () => {
                           ? setAnswers((array) => [...array, ""])
                           : (answers[currentQuestion - 1] =
                               answers[currentQuestion - 1]);
-                        mark[currentQuestion - 1] == null
-                          ? setMark((array) => [...array, 0])
-                          : (mark[currentQuestion - 1] =
-                              mark[currentQuestion - 1]);
                       }}
                     >
                       Selesaikan Ujian
@@ -534,25 +521,6 @@ const TrainingPretest = () => {
         </div>
       );
     });
-
-  const indicatorArr = question.map((data) => {
-    return (
-      <button
-        className={
-          hesitantAnswer[data.id - 1] == true
-            ? "orange-indicator"
-            : answers[data.id - 1] != null && answers[data.id - 1] != ""
-            ? "green-indicator"
-            : "grey-indicator"
-        }
-        onClick={() => {
-          setCurrentQuestion(parseInt(data.id));
-        }}
-      >
-        {data.id}
-      </button>
-    );
-  });
 
   return (
     <div className="training-pretest">
@@ -687,7 +655,9 @@ const TrainingPretest = () => {
               <hr />
               <div className="px-3">
                 <div className="jump-to-button d-flex gap-2">
-                  {indicatorArr}
+                  <button>1</button>
+                  <button>2</button>
+                  <button>3</button>
                 </div>
                 <div className="indicator-finish-section d-grid align-items-end mb-3">
                   <div>
@@ -723,10 +693,6 @@ const TrainingPretest = () => {
                             ? setAnswers((array) => [...array, ""])
                             : (answers[currentQuestion - 1] =
                                 answers[currentQuestion - 1]);
-                          mark[currentQuestion - 1] == null
-                            ? setMark((array) => [...array, 0])
-                            : (mark[currentQuestion - 1] =
-                                mark[currentQuestion - 1]);
                         }}
                       >
                         Selesaikan Ujian
@@ -801,4 +767,4 @@ const TrainingPretest = () => {
   );
 };
 
-export default TrainingPretest;
+export default TrainingPosttest;
