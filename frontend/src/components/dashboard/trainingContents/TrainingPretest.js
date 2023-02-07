@@ -9,8 +9,8 @@ const TrainingPretest = () => {
   const [hesitantCheckbox, setHesitantCheckbox] = useState(false);
   const [hesitantAnswer, setHesitantAnswer] = useState([false]);
   const [mark, setMark] = useState([0]);
-
-  const [ayam, setAyam] = useState();
+  const scores = [];
+  const [highest, setHighest] = useState();
 
   const day =
     new Date().toString().substring(0, 3) == "Mon"
@@ -97,12 +97,6 @@ const TrainingPretest = () => {
     },
   ]);
 
-  useEffect(() => {
-    record.map((data) => {
-      setAyam(Math.max(data.score));
-    });
-  });
-
   const question = [
     {
       id: "1",
@@ -165,6 +159,26 @@ const TrainingPretest = () => {
       },
     ]);
   };
+
+  useEffect(() => {
+    record.map((data) => {
+      if (data.score.length == 6) {
+        const cutString = data.score.substring(0, 3);
+        const transformInt = parseInt(cutString);
+        if (!scores.includes(data.score)) {
+          scores.push(transformInt);
+          setHighest(Math.max(...scores));
+        }
+      } else {
+        const cutString = data.score.substring(0, 2);
+        const transformInt = parseInt(cutString);
+        if (!scores.includes(data.score)) {
+          scores.push(transformInt);
+          setHighest(Math.max(...scores));
+        }
+      }
+    });
+  }, [doTest]);
 
   const tableArr = record.map((data) => {
     return (
@@ -594,7 +608,7 @@ const TrainingPretest = () => {
                   </thead>
                   <tbody className="align-middle">{tableArr}</tbody>
                 </table>
-                <label>Nilai Tertinggi: 93,33 / 100,00.</label>
+                <label>Nilai Tertinggi: {highest},00 / 100,00.</label>
               </div>
             ) : (
               ""
