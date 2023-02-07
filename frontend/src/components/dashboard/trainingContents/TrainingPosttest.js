@@ -1,7 +1,7 @@
 import "../../../App.css";
 import { useState, useEffect } from "react";
 
-const TrainingPosttest = () => {
+const TrainingPostTest = () => {
   const [doTest, setDoTest] = useState(false);
   const [currentQuestion, setCurrentQuestion] = useState(1);
   const [activeAnswer, setActiveAnswer] = useState();
@@ -9,6 +9,9 @@ const TrainingPosttest = () => {
   const [hesitantCheckbox, setHesitantCheckbox] = useState(false);
   const [hesitantAnswer, setHesitantAnswer] = useState([false]);
   const [mark, setMark] = useState([0]);
+  const scores = [];
+  const [highest, setHighest] = useState();
+
   const day =
     new Date().toString().substring(0, 3) == "Mon"
       ? "Monday"
@@ -59,40 +62,7 @@ const TrainingPosttest = () => {
     ", " +
     new Date().toString().substring(16, 21);
 
-  const [record, setRecord] = useState([
-    {
-      id: 1,
-      state: "Selesai",
-      time: "Terkumpul Monday, 22 August 2022, 17.37",
-      mark: "20,00",
-      score: "66,00",
-      review: "Tidak diizinkan",
-    },
-    {
-      id: 2,
-      state: "Selesai",
-      time: "Terkumpul Wednesday, 24 August 2022, 13:49",
-      mark: "10,00",
-      score: "33,00",
-      review: "Tidak diizinkan",
-    },
-    {
-      id: 3,
-      state: "Selesai",
-      time: "Terkumpul Thursday, 20 October 2022, 03:00",
-      mark: "20,00",
-      score: "66,00",
-      review: "Tidak diizinkan",
-    },
-    {
-      id: 4,
-      state: "Selesai",
-      time: "Terkumpul Thursday, 27 October 2022, 16:57",
-      mark: "20,00",
-      score: "66,00",
-      review: "Tidak diizinkan",
-    },
-  ]);
+  const [record, setRecord] = useState([]);
 
   const question = [
     {
@@ -156,6 +126,26 @@ const TrainingPosttest = () => {
       },
     ]);
   };
+
+  useEffect(() => {
+    record.map((data) => {
+      if (data.score.length == 6) {
+        const cutString = data.score.substring(0, 3);
+        const transformInt = parseInt(cutString);
+        if (!scores.includes(data.score)) {
+          scores.push(transformInt);
+          setHighest(Math.max(...scores));
+        }
+      } else {
+        const cutString = data.score.substring(0, 2);
+        const transformInt = parseInt(cutString);
+        if (!scores.includes(data.score)) {
+          scores.push(transformInt);
+          setHighest(Math.max(...scores));
+        }
+      }
+    });
+  }, [doTest]);
 
   const tableArr = record.map((data) => {
     return (
@@ -368,7 +358,7 @@ const TrainingPosttest = () => {
                         : (hesitantAnswer[currentQuestion - 1] =
                             hesitantAnswer[currentQuestion - 1]);
                       mark[currentQuestion - 1] == null
-                        ? setMark((array) => [...array, ""])
+                        ? setMark((array) => [...array, 0])
                         : (mark[currentQuestion - 1] =
                             mark[currentQuestion - 1]);
                     }}
@@ -398,7 +388,7 @@ const TrainingPosttest = () => {
                     answers[currentQuestion - 1] != null
                       ? (answers[currentQuestion - 1] =
                           answers[currentQuestion - 1])
-                      : setAnswers((array) => [...array, false]);
+                      : setHesitantAnswer((array) => [...array, false]);
                   }}
                 >
                   <input
@@ -433,7 +423,7 @@ const TrainingPosttest = () => {
                         : (hesitantAnswer[currentQuestion - 1] =
                             hesitantAnswer[currentQuestion - 1]);
                       mark[currentQuestion - 1] == null
-                        ? setMark((array) => [...array, ""])
+                        ? setMark((array) => [...array, 0])
                         : (mark[currentQuestion - 1] =
                             mark[currentQuestion - 1]);
                     }}
@@ -451,6 +441,10 @@ const TrainingPosttest = () => {
                           ? setAnswers((array) => [...array, ""])
                           : (answers[currentQuestion - 1] =
                               answers[currentQuestion - 1]);
+                        mark[currentQuestion - 1] == null
+                          ? setMark((array) => [...array, 0])
+                          : (mark[currentQuestion - 1] =
+                              mark[currentQuestion - 1]);
                       }}
                     >
                       Selesaikan Ujian
@@ -522,12 +516,31 @@ const TrainingPosttest = () => {
       );
     });
 
+  const indicatorArr = question.map((data) => {
+    return (
+      <button
+        className={
+          hesitantAnswer[data.id - 1] == true
+            ? "orange-indicator"
+            : answers[data.id - 1] != null && answers[data.id - 1] != ""
+            ? "green-indicator"
+            : "grey-indicator"
+        }
+        onClick={() => {
+          setCurrentQuestion(parseInt(data.id));
+        }}
+      >
+        {data.id}
+      </button>
+    );
+  });
+
   return (
-    <div className="training-pretest">
+    <div className="training-pre-post-test">
       {doTest == false ? (
         <div className="training-container px-3 py-4 h-100 d-flex align-items-center">
           <div className="w-100">
-            <div className="training-pretest-title text-center">
+            <div className="training-pre-post-test-title text-center">
               <div className="d-grid gap-2">
                 <label>Jumlah percobaan yang diperbolehkan: 5</label>
                 <label>
@@ -562,7 +575,7 @@ const TrainingPosttest = () => {
                   </thead>
                   <tbody className="align-middle">{tableArr}</tbody>
                 </table>
-                <label>Nilai Tertinggi: 93,33 / 100,00.</label>
+                <label>Nilai Tertinggi: {highest},00 / 100,00.</label>
               </div>
             ) : (
               ""
@@ -650,14 +663,12 @@ const TrainingPosttest = () => {
           <div className="col-3">
             <div className="test-summary h-100">
               <div className="px-3 pt-3">
-                <h6>Soal No. 1</h6>
+                <h6>Soal No. {currentQuestion}</h6>
               </div>
               <hr />
               <div className="px-3">
                 <div className="jump-to-button d-flex gap-2">
-                  <button>1</button>
-                  <button>2</button>
-                  <button>3</button>
+                  {indicatorArr}
                 </div>
                 <div className="indicator-finish-section d-grid align-items-end mb-3">
                   <div>
@@ -678,11 +689,6 @@ const TrainingPosttest = () => {
                         <label>Belum dijawab</label>
                       </div>
                     </div>
-                    <label>{answers.join()}</label>
-                    <br />
-                    <label>{hesitantAnswer.join()}</label>
-                    <br />
-                    <label>{mark.join()}</label>
                     <div className="finish-test-button mt-3 d-flex align-items-end">
                       <button
                         className="w-100 py-1"
@@ -693,6 +699,10 @@ const TrainingPosttest = () => {
                             ? setAnswers((array) => [...array, ""])
                             : (answers[currentQuestion - 1] =
                                 answers[currentQuestion - 1]);
+                          mark[currentQuestion - 1] == null
+                            ? setMark((array) => [...array, 0])
+                            : (mark[currentQuestion - 1] =
+                                mark[currentQuestion - 1]);
                         }}
                       >
                         Selesaikan Ujian
@@ -767,4 +777,4 @@ const TrainingPosttest = () => {
   );
 };
 
-export default TrainingPosttest;
+export default TrainingPostTest;

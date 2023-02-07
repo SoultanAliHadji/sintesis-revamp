@@ -1,7 +1,7 @@
 import "../../../App.css";
 import { useState, useEffect } from "react";
 
-const TrainingPretest = () => {
+const TrainingPreTest = () => {
   const [doTest, setDoTest] = useState(false);
   const [currentQuestion, setCurrentQuestion] = useState(1);
   const [activeAnswer, setActiveAnswer] = useState();
@@ -61,7 +61,7 @@ const TrainingPretest = () => {
     new Date().toString().substring(11, 15) +
     ", " +
     new Date().toString().substring(16, 21);
-
+    
   const [record, setRecord] = useState([
     {
       id: 1,
@@ -569,11 +569,11 @@ const TrainingPretest = () => {
   });
 
   return (
-    <div className="training-pretest">
+    <div className="training-pre-post-test">
       {doTest == false ? (
         <div className="training-container px-3 py-4 h-100 d-flex align-items-center">
           <div className="w-100">
-            <div className="training-pretest-title text-center">
+            <div className="training-pre-post-test-title text-center">
               <div className="d-grid gap-2">
                 <label>Jumlah percobaan yang diperbolehkan: 5</label>
                 <label>
@@ -696,7 +696,7 @@ const TrainingPretest = () => {
           <div className="col-3">
             <div className="test-summary h-100">
               <div className="px-3 pt-3">
-                <h6>Soal No. 1</h6>
+                <h6>Soal No. {currentQuestion}</h6>
               </div>
               <hr />
               <div className="px-3">
@@ -722,11 +722,6 @@ const TrainingPretest = () => {
                         <label>Belum dijawab</label>
                       </div>
                     </div>
-                    <label>{answers.join()}</label>
-                    <br />
-                    <label>{hesitantAnswer.join()}</label>
-                    <br />
-                    <label>{mark.join()}</label>
                     <div className="finish-test-button mt-3 d-flex align-items-end">
                       <button
                         className="w-100 py-1"
@@ -815,4 +810,4 @@ const TrainingPretest = () => {
   );
 };
 
-export default TrainingPretest;
+export default TrainingPreTest;

@@ -1,6 +1,7 @@
 import "../../../App.css";
-import TrainingPretest from "./TrainingPretest";
+import TrainingPreTest from "./TrainingPreTest";
 import TrainingH5P from "./TrainingH5P";
+import TrainingPostTest from "./TrainingPostTest";
 import { Icon } from "@iconify/react";
 import { useState, useEffect } from "react";
 
@@ -381,9 +382,12 @@ const Training = ({
           </div>
           <div className="col-9 p-4">
             {currentSection == "Pre-Test" ? (
-              <TrainingPretest />
-            ) : currentSubSection == "1. Opening dan Perundang-undangan Intera..." ? (
+              <TrainingPreTest />
+            ) : currentSubSection ==
+              "1. Opening dan Perundang-undangan Intera..." ? (
               <TrainingH5P />
+            ) : currentSection == "Post-Test" ? (
+              <TrainingPostTest />
             ) : (
               ""
             )}
