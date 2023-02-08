@@ -570,16 +570,14 @@
   pointer-events: none;
 }
 
-.training-section .search-button {
-  border: none;
-  background-color: transparent;
-  font-size: 26px;
-  color: #5C5C5C;
-  margin-left: 10px;
+.training-section .search-container {
+  position: relative;
 }
 
-.navigation-bar .search-button:hover {
-  color: #297209 !important;
+.training-section .search-container .icon {
+  position: absolute;
+  left: 16px;
+  font-size: 18px;
 }
 
 .dashboard-page .training-section .topic label {
@@ -608,6 +606,16 @@
 .dashboard-page .training-section .topic .topic-collection button:hover {
   background-color: #C3FFA9;
   color: #3B9315;
+}
+
+.dashboard-page .training-section .topic .filter-course-active {
+  background-image: linear-gradient(to right, #3B9315, #297209);
+  color: white;
+}
+
+.dashboard-page .training-section .topic .filter-course-active:hover {
+  background-image: linear-gradient(to right, #297209, #297209);
+  color: white !important;
 }
 
 .dashboard-page .training-section .training-item-container {

@@ -3,7 +3,7 @@ import { Icon } from "@iconify/react";
 import { useState, useEffect } from "react";
 
 const SectionCertificate = () => {
-  const progress = 85;
+  const progress = 80;
 
   return (
     <div className="section-certificate px-3 py-4 h-100">
@@ -12,35 +12,39 @@ const SectionCertificate = () => {
           <div className="certificate-container">
             <div className="img-container p-4">
               <img
-                className="w-100 h-100 mb-3"
+                className="w-100 h-100"
                 src={require("../../../assets/certificate.png")}
                 alt=""
               />
-              <div className="d-flex justify-content-center">
+              <div className="d-flex justify-content-center mt-3">
                 <button className="px-3 py-2">Download Sertifikat</button>
               </div>
             </div>
-            <div className="certificate-lock w-100 h-100 d-flex justify-content-center align-items-center">
-              <div>
-                <div className="d-flex justify-content-center">
-                  <Icon className="icon mb-3" icon="bxs:lock-alt" />
-                </div>
-                <div className="d-flex align-items-center">
-                  <div className="progress me-3">
-                    <div
-                      className="progress-bar"
-                      style={{ width: progress + "%" }}
-                      role="progressbar"
-                      aria-label="Basic example"
-                      aria-valuenow="25"
-                      aria-valuemin="0"
-                      aria-valuemax="100"
-                    ></div>
+            {progress < 100 ? (
+              <div className="certificate-lock w-100 h-100 d-flex justify-content-center align-items-center">
+                <div>
+                  <div className="d-flex justify-content-center">
+                    <Icon className="icon mb-3" icon="bxs:lock-alt" />
                   </div>
-                  <label>3/5 Activity</label>
+                  <div className="d-flex align-items-center">
+                    <div className="progress me-3">
+                      <div
+                        className="progress-bar"
+                        style={{ width: progress + "%" }}
+                        role="progressbar"
+                        aria-label="Basic example"
+                        aria-valuenow="25"
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                      ></div>
+                    </div>
+                    <label>3/5 Activity</label>
+                  </div>
                 </div>
               </div>
-            </div>
+            ) : (
+              ""
+            )}
           </div>
         </div>
         <div className="col">
@@ -58,11 +62,15 @@ const SectionCertificate = () => {
                   </div>
                   <div className="mark-score-container">
                     <label>30,00</label>
-                    <div className="d-flex justify-content-center">
-                      <div className="mark-score-lock px-2">
-                        <label>30,00</label>
+                    {progress < 100 ? (
+                      <div className="d-flex justify-content-center">
+                        <div className="mark-score-lock px-2">
+                          <label>30,00</label>
+                        </div>
                       </div>
-                    </div>
+                    ) : (
+                      ""
+                    )}
                   </div>
                 </div>
                 <div className="col d-grid">
@@ -72,11 +80,15 @@ const SectionCertificate = () => {
                   </div>
                   <div className="mark-score-container">
                     <label>100,00</label>
-                    <div className="d-flex justify-content-center">
-                      <div className="mark-score-lock px-2">
-                        <label>100,00</label>
+                    {progress < 100 ? (
+                      <div className="d-flex justify-content-center">
+                        <div className="mark-score-lock px-2">
+                          <label>100,00</label>
+                        </div>
                       </div>
-                    </div>
+                    ) : (
+                      ""
+                    )}
                   </div>
                 </div>
               </div>

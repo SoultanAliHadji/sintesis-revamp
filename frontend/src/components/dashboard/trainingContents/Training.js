@@ -1,6 +1,8 @@
 import "../../../App.css";
 import SectionPreTest from "./SectionPreTest";
 import SectionH5P from "./SectionH5P";
+import SectionVideo from "./SectionVideo";
+import SectionCourse from "./SectionCourse";
 import SectionPostTest from "./SectionPostTest";
 import SectionCertificate from "./SectionCertificate";
 import { Icon } from "@iconify/react";
@@ -16,7 +18,6 @@ const Training = ({
   const progress = 85;
   const [currentSubSection, setCurrentSubSection] = useState();
   const [collapse1, setCollapse1] = useState(false);
-
   const [sectionData, setSectionData] = useState([
     {
       id: 1,
@@ -369,9 +370,14 @@ const Training = ({
               currentSubSection ==
                 "1. Opening dan Perundang-undangan Intera..." ? (
               <SectionH5P />
+            ) : currentSection == "Video Golden Rules" ? (
+              <SectionVideo />
+            ) : currentSection == "KMPD Berbasis Perilaku dan Golden Rules" ? (
+              <SectionCourse />
             ) : currentSection == "Post-Test" ? (
               <SectionPostTest handleUpdateSection5={handleUpdateSection5} />
-            ) : currentSection == "Sertifikat Kelompok Materi Pelatihan Dasar (KMPD)" ? (
+            ) : currentSection ==
+              "Sertifikat Kelompok Materi Pelatihan Dasar (KMPD)" ? (
               <SectionCertificate />
             ) : (
               ""
