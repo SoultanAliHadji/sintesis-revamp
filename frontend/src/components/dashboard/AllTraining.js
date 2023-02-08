@@ -1,7 +1,6 @@
 import "../../App.css";
 import { Icon } from "@iconify/react";
 import { useState, useEffect } from "react";
-import Training from "./trainingContents/Training";
 
 const AllTraining = ({
   handleTrainingTitle,

@@ -1,9 +1,10 @@
 import "../../../App.css";
-import TrainingPreTest from "./TrainingPreTest";
-import TrainingH5P from "./TrainingH5P";
-import TrainingPostTest from "./TrainingPostTest";
+import SectionPreTest from "./SectionPreTest";
+import SectionH5P from "./SectionH5P";
+import SectionPostTest from "./SectionPostTest";
 import { Icon } from "@iconify/react";
 import { useState, useEffect } from "react";
+import axios from "axios";
 
 const Training = ({
   handleRoute,
@@ -12,10 +13,22 @@ const Training = ({
   handleCourseId,
   handleCurrentTrainingPage,
 }) => {
+  const [sectionData, setSectionData] = useState();
   const progress = 85;
   const [currentSection, setCurrentSection] = useState("Pre-Test");
   const [currentSubSection, setCurrentSubSection] = useState();
   const [collapse1, setCollapse1] = useState(false);
+
+  useEffect(() => {
+    axios
+      .get("json/sectiondata.json")
+      .then((res) => {
+        setSectionData(res.data)
+        console.log(res.data)
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
 
   return (
     <div className="training-page">
@@ -305,7 +318,7 @@ const Training = ({
             >
               <div className="check-icon me-1">
                 <Icon
-                  className="icon"
+                  className="icon done"
                   icon="material-symbols:check-circle-rounded"
                 />
               </div>
@@ -328,7 +341,7 @@ const Training = ({
             >
               <div className="check-icon me-1">
                 <Icon
-                  className="icon"
+                  className="icon done"
                   icon="material-symbols:check-circle-rounded"
                 />
               </div>
@@ -346,7 +359,7 @@ const Training = ({
             >
               <div className="check-icon me-1">
                 <Icon
-                  className="icon"
+                  className="icon done"
                   icon="material-symbols:check-circle-rounded"
                 />
               </div>
@@ -369,7 +382,7 @@ const Training = ({
             >
               <div className="check-icon me-1">
                 <Icon
-                  className="icon"
+                  className="icon done"
                   icon="material-symbols:check-circle-rounded"
                 />
               </div>
@@ -382,12 +395,12 @@ const Training = ({
           </div>
           <div className="col-9 p-4">
             {currentSection == "Pre-Test" ? (
-              <TrainingPreTest />
+              <SectionPreTest />
             ) : currentSubSection ==
               "1. Opening dan Perundang-undangan Intera..." ? (
-              <TrainingH5P />
+              <SectionH5P />
             ) : currentSection == "Post-Test" ? (
-              <TrainingPostTest />
+              <SectionPostTest />
             ) : (
               ""
             )}

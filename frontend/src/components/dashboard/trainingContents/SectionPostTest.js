@@ -1,7 +1,8 @@
 import "../../../App.css";
 import { useState, useEffect } from "react";
+import axios from "axios";
 
-const TrainingPostTest = () => {
+const SectionPostTest = () => {
   const [doTest, setDoTest] = useState(false);
   const [currentQuestion, setCurrentQuestion] = useState(1);
   const [activeAnswer, setActiveAnswer] = useState();
@@ -63,6 +64,26 @@ const TrainingPostTest = () => {
     new Date().toString().substring(16, 21);
 
   const [record, setRecord] = useState([]);
+
+  useEffect(() => {
+    axios({
+      method: "put",
+      url: "json/trainingstatus.json",
+      data: {
+        id: 4,
+        status: "done",
+      },
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [record]);
 
   const question = [
     {
@@ -777,4 +798,4 @@ const TrainingPostTest = () => {
   );
 };
 
-export default TrainingPostTest;
+export default SectionPostTest;

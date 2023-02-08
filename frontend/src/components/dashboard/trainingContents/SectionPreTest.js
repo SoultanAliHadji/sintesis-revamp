@@ -1,7 +1,7 @@
 import "../../../App.css";
 import { useState, useEffect } from "react";
 
-const TrainingPreTest = () => {
+const SectionPreTest = () => {
   const [doTest, setDoTest] = useState(false);
   const [currentQuestion, setCurrentQuestion] = useState(1);
   const [activeAnswer, setActiveAnswer] = useState();
@@ -810,4 +810,4 @@ const TrainingPreTest = () => {
   );
 };
 
-export default TrainingPreTest;
+export default SectionPreTest;

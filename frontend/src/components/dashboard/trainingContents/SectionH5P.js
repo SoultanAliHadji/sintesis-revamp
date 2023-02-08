@@ -2,7 +2,7 @@ import "../../../App.css";
 import ReactPlayer from "react-player";
 import { useState, useEffect } from "react";
 
-const TrainingH5P = () => {
+const SectionH5P = () => {
   return (
     <div className="training-h5p px-3 py-4">
       <div className="w-100">
@@ -23,4 +23,4 @@ const TrainingH5P = () => {
   );
 };
 
-export default TrainingH5P;
+export default SectionH5P;
