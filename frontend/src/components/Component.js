@@ -8,6 +8,7 @@ const Component = () => {
   const [login, setLogin] = useState(false);
   const [currentPage, setCurrentPage] = useState("landing");
   const [currentPageDetail, setCurrentPageDetail] = useState();
+  const [currentPageDetailTraining, setCurrentPageDetailTraining] = useState(false)
   const [navOption, setNavOption] = useState();
   const [searchNow, setSearchNow] = useState(false);
 
@@ -78,6 +79,8 @@ const Component = () => {
                               className="dropdown-item"
                               href="#"
                               onClick={() => {
+                                setCurrentPageDetail("allTraining");
+                                setCurrentPageDetailTraining(currentPageDetailTraining == false ? true : false)
                                 setNavOption("op1");
                                 login == true
                                   ? setCurrentPage("dashboard")
@@ -344,6 +347,7 @@ const Component = () => {
                   <a className="nav-link active" aria-current="page" href="#">
                     Panduan
                   </a>
+                  {currentPageDetailTraining}
                 </li>
               </ul>
               <div className="d-flex justify-content-end align-items-center gap-2">
@@ -547,6 +551,7 @@ const Component = () => {
               handleRoute={handleRoute}
               handleRouteDetail={handleRouteDetail}
               currentPageDetail={currentPageDetail}
+              currentPageDetailTraining={currentPageDetailTraining}
             />
           ) : currentPage == "dashboard" &&
             currentPageDetail == "myCertificate" ? (
@@ -554,6 +559,7 @@ const Component = () => {
               handleRoute={handleRoute}
               handleRouteDetail={handleRouteDetail}
               currentPageDetail={currentPageDetail}
+              currentPageDetailTraining={currentPageDetailTraining}
             />
           ) : (
             ""

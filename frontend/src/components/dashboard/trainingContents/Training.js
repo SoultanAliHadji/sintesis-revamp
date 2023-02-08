@@ -13,9 +13,9 @@ const Training = ({
   handleCourseId,
   handleCurrentTrainingPage,
 }) => {
-  const [sectionData, setSectionData] = useState();
+  const [sectionData, setSectionData] = useState([]);
   const progress = 85;
-  const [currentSection, setCurrentSection] = useState("Pre-Test");
+  const [currentSection, setCurrentSection] = useState();
   const [currentSubSection, setCurrentSubSection] = useState();
   const [collapse1, setCollapse1] = useState(false);
 
@@ -23,13 +23,227 @@ const Training = ({
     axios
       .get("json/sectiondata.json")
       .then((res) => {
-        setSectionData(res.data)
-        console.log(res.data)
+        setSectionData(res.data);
+        setCurrentSection(res.data[0].section);
+        console.log(res.data);
       })
       .catch((err) => console.log(err));
   }, []);
 
-  
+  const sectionArr = sectionData.map((data) => {
+    return (
+      <div>
+        {data.section != "Video H5P" ? (
+          <button
+            className={
+              "w-100 text-start d-flex align-items-center px-2 py-3" +
+              (currentSection == data.section ? " active-section" : "")
+            }
+            onClick={() => {
+              setCurrentSection(data.section);
+              window.scrollTo(0, 0);
+            }}
+          >
+            <div className="check-icon me-1">
+              <Icon
+                className={"icon " + data.status}
+                icon="material-symbols:check-circle-rounded"
+              />
+            </div>
+            <Icon
+              className="icon me-1"
+              icon={
+                data.section == "Pre-Test"
+                  ? "fluent:clipboard-task-list-rtl-20-regular"
+                  : data.section == "Video Golden Rules"
+                  ? "material-symbols:play-circle-outline-rounded"
+                  : data.section == "KMPD Berbasis Perilaku dan Golden Rules"
+                  ? "bi:filetype-doc"
+                  : data.section == "Post-Test"
+                  ? "fluent:clipboard-task-list-rtl-20-regular"
+                  : data.section ==
+                    "Sertifikat Kelompok Materi Pelatihan Dasar (KMPD)"
+                  ? "fluent:certificate-24-regular"
+                  : ""
+              }
+            />
+            <div>{data.section}</div>
+          </button>
+        ) : (
+          <div className="collapse-section">
+            <button
+              className={
+                "w-100 text-start d-flex align-items-center px-2 py-3" +
+                (currentSection == data.section ? " active-section" : "")
+              }
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseExample"
+              aria-expanded="false"
+              aria-controls="collapseExample"
+              onClick={() => {
+                collapse1 == false ? setCollapse1(true) : setCollapse1(false);
+              }}
+            >
+              <div className="row w-100 d-flex align-items-center">
+                <div className="d-flex align-items-center col-6 pe-0">
+                  <div className="check-icon me-1">
+                    <Icon
+                      className="icon done"
+                      icon="material-symbols:check-circle-rounded"
+                    />
+                  </div>
+                  <div>{data.section}</div>
+                </div>
+                <div className="collapse-icon d-flex justify-content-end col-6 pe-0">
+                  <Icon
+                    className={
+                      "icon" + (collapse1 == true ? " active-collapse" : "")
+                    }
+                    icon="material-symbols:chevron-right-rounded"
+                  />
+                </div>
+              </div>
+            </button>
+            <div className="collapse" id="collapseExample">
+              <button
+                className={
+                  "w-100 text-start d-flex align-items-center ps-1 py-3" +
+                  (currentSection == data.section &&
+                  currentSubSection ==
+                    "1. Opening dan Perundang-undangan Intera..."
+                    ? " active-sub-section"
+                    : "")
+                }
+                onClick={() => {
+                  setCurrentSubSection(
+                    "1. Opening dan Perundang-undangan Intera..."
+                  );
+                  setCurrentSection(data.section);
+                  window.scrollTo(0, 0);
+                }}
+              >
+                <div className="check-icon d-flex me-1">
+                  <Icon
+                    className="icon done"
+                    icon="material-symbols:check-circle-rounded"
+                  />
+                </div>
+                <Icon
+                  className="icon me-1"
+                  icon="material-symbols:play-circle-outline-rounded"
+                />
+                <div>1. Opening dan Perundang-undangan Intera...</div>
+              </button>
+              <button
+                className={
+                  "w-100 text-start d-flex align-items-center ps-1 py-3" +
+                  (currentSection == data.section &&
+                  currentSubSection == "2. Mindset K3"
+                    ? " active-sub-section"
+                    : "")
+                }
+                onClick={() => {
+                  setCurrentSubSection("2. Mindset K3");
+                  setCurrentSection(data.section);
+                  window.scrollTo(0, 0);
+                }}
+              >
+                <div className="check-icon d-flex me-1">
+                  <Icon
+                    className="icon done"
+                    icon="material-symbols:check-circle-rounded"
+                  />
+                </div>
+                <Icon
+                  className="icon me-1"
+                  icon="material-symbols:play-circle-outline-rounded"
+                />
+                <div>2. Mindset K3</div>
+              </button>
+              <button
+                className={
+                  "w-100 text-start d-flex align-items-center ps-1 py-3" +
+                  (currentSection == data.section &&
+                  currentSubSection == "3. Pengertian Kecelakaan Kerja"
+                    ? " active-sub-section"
+                    : "")
+                }
+                onClick={() => {
+                  setCurrentSubSection("3. Pengertian Kecelakaan Kerja");
+                  setCurrentSection(data.section);
+                  window.scrollTo(0, 0);
+                }}
+              >
+                <div className="check-icon d-flex me-1">
+                  <Icon
+                    className="icon done"
+                    icon="material-symbols:check-circle-rounded"
+                  />
+                </div>
+                <Icon
+                  className="icon me-1"
+                  icon="material-symbols:play-circle-outline-rounded"
+                />
+                <div>3. Pengertian Kecelakaan Kerja</div>
+              </button>
+              <button
+                className={
+                  "w-100 text-start d-flex align-items-center ps-1 py-3" +
+                  (currentSection == data.section &&
+                  currentSubSection == "4. APD dan Kegunaannya"
+                    ? " active-sub-section"
+                    : "")
+                }
+                onClick={() => {
+                  setCurrentSubSection("4. APD dan Kegunaannya");
+                  setCurrentSection(data.section);
+                  window.scrollTo(0, 0);
+                }}
+              >
+                <div className="check-icon d-flex me-1">
+                  <Icon
+                    className="icon done"
+                    icon="material-symbols:check-circle-rounded"
+                  />
+                </div>
+                <Icon
+                  className="icon me-1"
+                  icon="material-symbols:play-circle-outline-rounded"
+                />
+                <div>4. APD dan Kegunaannya</div>
+              </button>
+              <button
+                className={
+                  "w-100 text-start d-flex align-items-center ps-1 py-3" +
+                  (currentSection == data.section &&
+                  currentSubSection == "5. Konsep Penataan Lingkungan Kerja"
+                    ? " active-sub-section"
+                    : "")
+                }
+                onClick={() => {
+                  setCurrentSubSection("5. Konsep Penataan Lingkungan Kerja");
+                  setCurrentSection(data.section);
+                  window.scrollTo(0, 0);
+                }}
+              >
+                <div className="check-icon d-flex me-1">
+                  <Icon
+                    className="icon done"
+                    icon="material-symbols:check-circle-rounded"
+                  />
+                </div>
+                <Icon
+                  className="icon me-1"
+                  icon="material-symbols:play-circle-outline-rounded"
+                />
+                <div>5. Konsep Penataan Lingkungan Kerja</div>
+              </button>
+            </div>
+          </div>
+        )}
+      </div>
+    );
+  });
 
   return (
     <div className="training-page">
@@ -120,285 +334,14 @@ const Training = ({
               <h6>Summary KMPD</h6>
             </div>
             <div className="line"></div>
-            <button
-              className={
-                "w-100 text-start d-flex align-items-center px-2 py-3" +
-                (currentSection == "Pre-Test" ? " active-section" : "")
-              }
-              onClick={() => {
-                setCurrentSection("Pre-Test");
-              }}
-            >
-              <div className="check-icon me-1">
-                <Icon
-                  className="icon done"
-                  icon="material-symbols:check-circle-rounded"
-                />
-              </div>
-              <Icon
-                className="icon me-1"
-                icon="fluent:clipboard-task-list-rtl-20-regular"
-              />
-              <div>Pre-Test</div>
-            </button>
-            <div className="collapse-section">
-              <button
-                className={
-                  "w-100 text-start d-flex align-items-center px-2 py-3" +
-                  (currentSection == "Video H5P" ? " active-section" : "")
-                }
-                data-bs-toggle="collapse"
-                data-bs-target="#collapseExample"
-                aria-expanded="false"
-                aria-controls="collapseExample"
-                onClick={() => {
-                  collapse1 == false ? setCollapse1(true) : setCollapse1(false);
-                }}
-              >
-                <div className="row w-100 d-flex align-items-center">
-                  <div className="d-flex align-items-center col-6 pe-0">
-                    <div className="check-icon me-1">
-                      <Icon
-                        className="icon done"
-                        icon="material-symbols:check-circle-rounded"
-                      />
-                    </div>
-                    <div>Video H5P</div>
-                  </div>
-                  <div className="collapse-icon d-flex justify-content-end col-6 pe-0">
-                    <Icon
-                      className={
-                        "icon" + (collapse1 == true ? " active-collapse" : "")
-                      }
-                      icon="material-symbols:chevron-right-rounded"
-                    />
-                  </div>
-                </div>
-              </button>
-              <div className="collapse" id="collapseExample">
-                <button
-                  className={
-                    "w-100 text-start d-flex align-items-center ps-1 py-3" +
-                    (currentSection == "Video H5P" &&
-                    currentSubSection ==
-                      "1. Opening dan Perundang-undangan Intera..."
-                      ? " active-sub-section"
-                      : "")
-                  }
-                  onClick={() => {
-                    setCurrentSubSection(
-                      "1. Opening dan Perundang-undangan Intera..."
-                    );
-                    setCurrentSection("Video H5P");
-                  }}
-                >
-                  <div className="check-icon d-flex me-1">
-                    <Icon
-                      className="icon done"
-                      icon="material-symbols:check-circle-rounded"
-                    />
-                  </div>
-                  <Icon
-                    className="icon me-1"
-                    icon="material-symbols:play-circle-outline-rounded"
-                  />
-                  <div>1. Opening dan Perundang-undangan Intera...</div>
-                </button>
-                <button
-                  className={
-                    "w-100 text-start d-flex align-items-center ps-1 py-3" +
-                    (currentSection == "Video H5P" &&
-                    currentSubSection == "2. Mindset K3"
-                      ? " active-sub-section"
-                      : "")
-                  }
-                  onClick={() => {
-                    setCurrentSubSection("2. Mindset K3");
-                    setCurrentSection("Video H5P");
-                  }}
-                >
-                  <div className="check-icon d-flex me-1">
-                    <Icon
-                      className="icon done"
-                      icon="material-symbols:check-circle-rounded"
-                    />
-                  </div>
-                  <Icon
-                    className="icon me-1"
-                    icon="material-symbols:play-circle-outline-rounded"
-                  />
-                  <div>2. Mindset K3</div>
-                </button>
-                <button
-                  className={
-                    "w-100 text-start d-flex align-items-center ps-1 py-3" +
-                    (currentSection == "Video H5P" &&
-                    currentSubSection == "3. Pengertian Kecelakaan Kerja"
-                      ? " active-sub-section"
-                      : "")
-                  }
-                  onClick={() => {
-                    setCurrentSubSection("3. Pengertian Kecelakaan Kerja");
-                    setCurrentSection("Video H5P");
-                  }}
-                >
-                  <div className="check-icon d-flex me-1">
-                    <Icon
-                      className="icon done"
-                      icon="material-symbols:check-circle-rounded"
-                    />
-                  </div>
-                  <Icon
-                    className="icon me-1"
-                    icon="material-symbols:play-circle-outline-rounded"
-                  />
-                  <div>3. Pengertian Kecelakaan Kerja</div>
-                </button>
-                <button
-                  className={
-                    "w-100 text-start d-flex align-items-center ps-1 py-3" +
-                    (currentSection == "Video H5P" &&
-                    currentSubSection == "4. APD dan Kegunaannya"
-                      ? " active-sub-section"
-                      : "")
-                  }
-                  onClick={() => {
-                    setCurrentSubSection("4. APD dan Kegunaannya");
-                    setCurrentSection("Video H5P");
-                  }}
-                >
-                  <div className="check-icon d-flex me-1">
-                    <Icon
-                      className="icon done"
-                      icon="material-symbols:check-circle-rounded"
-                    />
-                  </div>
-                  <Icon
-                    className="icon me-1"
-                    icon="material-symbols:play-circle-outline-rounded"
-                  />
-                  <div>4. APD dan Kegunaannya</div>
-                </button>
-                <button
-                  className={
-                    "w-100 text-start d-flex align-items-center ps-1 py-3" +
-                    (currentSection == "Video H5P" &&
-                    currentSubSection == "5. Konsep Penataan Lingkungan Kerja"
-                      ? " active-sub-section"
-                      : "")
-                  }
-                  onClick={() => {
-                    setCurrentSubSection("5. Konsep Penataan Lingkungan Kerja");
-                    setCurrentSection("Video H5P");
-                  }}
-                >
-                  <div className="check-icon d-flex me-1">
-                    <Icon
-                      className="icon done"
-                      icon="material-symbols:check-circle-rounded"
-                    />
-                  </div>
-                  <Icon
-                    className="icon me-1"
-                    icon="material-symbols:play-circle-outline-rounded"
-                  />
-                  <div>5. Konsep Penataan Lingkungan Kerja</div>
-                </button>
-              </div>
-            </div>
-            <button
-              className={
-                "w-100 text-start d-flex align-items-center px-2 py-3" +
-                (currentSection == "Video Golden RUles"
-                  ? " active-section"
-                  : "")
-              }
-              onClick={() => {
-                setCurrentSection("Video Golden RUles");
-              }}
-            >
-              <div className="check-icon me-1">
-                <Icon
-                  className="icon done"
-                  icon="material-symbols:check-circle-rounded"
-                />
-              </div>
-              <Icon
-                className="icon me-1"
-                icon="material-symbols:play-circle-outline-rounded"
-              />
-              <div>Video Golden Rules</div>
-            </button>
-            <button
-              className={
-                "w-100 text-start d-flex align-items-center px-2 py-3" +
-                (currentSection == "KMPD Berbasis Perilaku dan Golden Rules"
-                  ? " active-section"
-                  : "")
-              }
-              onClick={() => {
-                setCurrentSection("KMPD Berbasis Perilaku dan Golden Rules");
-              }}
-            >
-              <div className="check-icon me-1">
-                <Icon
-                  className="icon done"
-                  icon="material-symbols:check-circle-rounded"
-                />
-              </div>
-              <Icon className="icon me-1" icon="bi:filetype-doc" />
-              <div>KMPD Berbasis Perilaku dan Golden Rules</div>
-            </button>
-            <button
-              className={
-                "w-100 text-start d-flex align-items-center px-2 py-3" +
-                (currentSection == "Post-Test" ? " active-section" : "")
-              }
-              onClick={() => {
-                setCurrentSection("Post-Test");
-              }}
-            >
-              <div className="check-icon me-1">
-                <Icon
-                  className="icon done"
-                  icon="material-symbols:check-circle-rounded"
-                />
-              </div>
-              <Icon
-                className="icon me-1"
-                icon="fluent:clipboard-task-list-rtl-20-regular"
-              />
-              <div>Post-Test</div>
-            </button>
-            <button
-              className={
-                "w-100 text-start d-flex align-items-center px-2 py-3" +
-                (currentSection == "Sertifikat" + { courseTitle }
-                  ? " active-section"
-                  : "")
-              }
-              onClick={() => {
-                setCurrentSection("Sertifikat" + { courseTitle });
-              }}
-            >
-              <div className="check-icon me-1">
-                <Icon
-                  className="icon done"
-                  icon="material-symbols:check-circle-rounded"
-                />
-              </div>
-              <Icon
-                className="icon me-1"
-                icon="fluent:certificate-24-regular"
-              />
-              <div>Sertifikat {courseTitle}</div>
-            </button>
+            <div>{sectionArr}</div>
           </div>
           <div className="col-9 p-4">
             {currentSection == "Pre-Test" ? (
               <SectionPreTest />
-            ) : currentSubSection ==
-              "1. Opening dan Perundang-undangan Intera..." ? (
+            ) : currentSection == "Video H5P" &&
+              currentSubSection ==
+                "1. Opening dan Perundang-undangan Intera..." ? (
               <SectionH5P />
             ) : currentSection == "Post-Test" ? (
               <SectionPostTest />

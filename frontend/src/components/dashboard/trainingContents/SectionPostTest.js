@@ -68,9 +68,10 @@ const SectionPostTest = () => {
   useEffect(() => {
     axios({
       method: "put",
-      url: "json/trainingstatus.json",
+      url: "json/sectiondata.json",
       data: {
-        id: 4,
+        id: 5,
+        section: "Post-Test",
         status: "done",
       },
       headers: {
@@ -557,11 +558,11 @@ const SectionPostTest = () => {
   });
 
   return (
-    <div className="training-pre-post-test">
+    <div className="section-pre-post-test">
       {doTest == false ? (
-        <div className="training-container px-3 py-4 h-100 d-flex align-items-center">
+        <div className="section-container px-3 py-4 h-100 d-flex align-items-center">
           <div className="w-100">
-            <div className="training-pre-post-test-title text-center">
+            <div className="section-pre-post-test-title text-center">
               <div className="d-grid gap-2">
                 <label>Jumlah percobaan yang diperbolehkan: 5</label>
                 <label>

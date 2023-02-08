@@ -6,7 +6,12 @@ import Training from "./trainingContents/Training";
 import { Icon } from "@iconify/react";
 import { useState, useEffect } from "react";
 
-const Dashboard = ({ handleRoute, handleRouteDetail, currentPageDetail }) => {
+const Dashboard = ({
+  handleRoute,
+  handleRouteDetail,
+  currentPageDetail,
+  currentPageDetailTraining,
+}) => {
   const [currentPage, setCurrentPage] = useState(
     currentPageDetail == null ? "allTraining" : currentPageDetail
   );
@@ -28,8 +33,17 @@ const Dashboard = ({ handleRoute, handleRouteDetail, currentPageDetail }) => {
   };
 
   const handleCurrentTrainingPage = (data) => {
-    setCurrentTrainingPage(data)
-  }
+    setCurrentTrainingPage(data);
+  };
+
+  useEffect(() => {
+    setCurrentPage(currentPageDetail);
+    setCourseId(null);
+  }, [currentPageDetail]);
+
+  useEffect(() => {
+    setCourseId(null)
+  }, [currentPageDetailTraining]);
 
   return (
     <div>
@@ -43,7 +57,7 @@ const Dashboard = ({ handleRoute, handleRouteDetail, currentPageDetail }) => {
                     href="#"
                     onClick={() => {
                       handleRoute("landing");
-                      handleRouteDetail(null)
+                      handleRouteDetail(null);
                     }}
                   >
                     Home
@@ -90,6 +104,7 @@ const Dashboard = ({ handleRoute, handleRouteDetail, currentPageDetail }) => {
                         <label
                           onClick={() => {
                             setCurrentPage("allTraining");
+                            handleRouteDetail("allTraining");
                           }}
                         >
                           Semua Training
@@ -106,6 +121,7 @@ const Dashboard = ({ handleRoute, handleRouteDetail, currentPageDetail }) => {
                         <label
                           onClick={() => {
                             setCurrentPage("myTraining");
+                            handleRouteDetail("myTraining");
                           }}
                         >
                           Training Saya
@@ -123,6 +139,7 @@ const Dashboard = ({ handleRoute, handleRouteDetail, currentPageDetail }) => {
                         <label
                           onClick={() => {
                             setCurrentPage("myCertificate");
+                            handleRouteDetail("myCertificate");
                           }}
                         >
                           Sertifikat Saya
