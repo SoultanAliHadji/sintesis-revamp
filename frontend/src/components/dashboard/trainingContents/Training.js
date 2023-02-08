@@ -29,6 +29,7 @@ const Training = ({
       .catch((err) => console.log(err));
   }, []);
 
+  
 
   return (
     <div className="training-page">

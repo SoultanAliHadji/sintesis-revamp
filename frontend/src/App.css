@@ -835,39 +835,39 @@
 
 /*-------------------------------------------------------------------------------------*/
 
-.training-pre-post-test .training-container {
+.section-pre-post-test .section-container {
   background-color: white;
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
 }
 
-.training-pre-post-test .training-pre-post-test-title {
+.section-pre-post-test .section-pre-post-test-title {
   font-size: 12px;
 }
 
-.training-pre-post-test .summary-table label {
+.section-pre-post-test .summary-table label {
   font-size: 14px;
   font-weight: 500;
 }
 
-.training-pre-post-test .summary-table .table {
+.section-pre-post-test .summary-table .table {
   font-size: 12px;
 }
 
-.training-pre-post-test .summary-table .table tbody {
+.section-pre-post-test .summary-table .table tbody {
   font-weight: 500 !important;
 }
 
-.training-pre-post-test .summary-table .table .table-state {
+.section-pre-post-test .summary-table .table .table-state {
   font-size: 10px;
   color: #858585;
 }
 
-.training-pre-post-test .summary-table .table .table-review {
+.section-pre-post-test .summary-table .table .table-review {
   color: #858585;
 }
 
-.training-pre-post-test .do-test .modal-button {
+.section-pre-post-test .do-test .modal-button {
   background-image: linear-gradient(to right, #3B9315, #297209);
   border: none;
   border-radius: 6px;
@@ -875,25 +875,25 @@
   color: white;
 }
 
-.training-pre-post-test .do-test .modal-button:hover {
+.section-pre-post-test .do-test .modal-button:hover {
   background-image: linear-gradient(to right, #297209, #297209);
 }
 
-.training-pre-post-test .modal-body img {
+.section-pre-post-test .modal-body img {
   width: 40px;
 }
 
-.training-pre-post-test .modal-content {
+.section-pre-post-test .modal-content {
   width: 440px;
 }
 
-.training-pre-post-test .modal-body label {
+.section-pre-post-test .modal-body label {
   font-size: 12px;
   font-weight: 400;
   text-align: justify;
 }
 
-.training-pre-post-test .modal-body .agree-button {
+.section-pre-post-test .modal-body .agree-button {
   background-image: linear-gradient(to right, #3B9315, #297209);
   border: none;
   border-radius: 6px;
@@ -901,11 +901,11 @@
   color: white;
 }
 
-.training-pre-post-test .modal-body .agree-button:hover {
+.section-pre-post-test .modal-body .agree-button:hover {
   background-image: linear-gradient(to right, #297209, #297209);
 }
 
-.training-pre-post-test .modal-body .disagree-button {
+.section-pre-post-test .modal-body .disagree-button {
   border: 1px solid #3B9315;
   border-radius: 6px;
   font-size: 14px;
@@ -914,14 +914,14 @@
   background-color: transparent;
 }
 
-.training-pre-post-test .modal-body .disagree-button:hover {
+.section-pre-post-test .modal-body .disagree-button:hover {
   background-image: linear-gradient(to right, #297209, #297209);
   color: white;
   border: none;
   font-weight: 400;
 }
 
-.training-pre-post-test .question, .answer {
+.section-pre-post-test .question, .answer {
   background-color: white;
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
@@ -930,15 +930,15 @@
   height: max-content;
 }
 
-.training-pre-post-test .question h6 {
+.section-pre-post-test .question h6 {
   font-size: 14px;
 }
 
-.training-pre-post-test .answer .active-answer {
+.section-pre-post-test .answer .active-answer {
   background-color: #3B9315;
 }
 
-.training-pre-post-test .test-summary {
+.section-pre-post-test .test-summary {
   background-color: white;
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
@@ -946,11 +946,11 @@
   text-align: justify;
 }
 
-.training-pre-post-test .test-summary h6 {
+.section-pre-post-test .test-summary h6 {
   font-size: 14px;
 }
 
-.training-pre-post-test .test-summary .jump-to-button button {
+.section-pre-post-test .test-summary .jump-to-button button {
   width: 28px;
   height: 28px;
   border-radius: 100%;
@@ -959,22 +959,22 @@
   font-weight: 500;
 }
 
-.training-pre-post-test .test-summary .jump-to-button .green-indicator {
+.section-pre-post-test .test-summary .jump-to-button .green-indicator {
   background-color: #64D035;
   color: white;
 }
 
-.training-pre-post-test .test-summary .jump-to-button .orange-indicator {
+.section-pre-post-test .test-summary .jump-to-button .orange-indicator {
   background-color: #FF8D07;
   color: white;
 }
 
-.training-pre-post-test .test-summary .jump-to-button .grey-indicator {
+.section-pre-post-test .test-summary .jump-to-button .grey-indicator {
   background-color: #ADADAD;
   color: white;
 }
 
-.training-pre-post-test .test-summary .jump-to-button button:hover {
+.section-pre-post-test .test-summary .jump-to-button button:hover {
   background-color: #E4E4E4;
   color: #3B9315;
 }
@@ -983,7 +983,7 @@
   height:248px;
 }
 
-.training-pre-post-test .indicator-button button {
+.section-pre-post-test .indicator-button button {
   border: none;
   border-radius: 6px;
   font-size: 14px;
@@ -991,38 +991,38 @@
   width: 160px;
 }
 
-.training-pre-post-test .indicator-button .next-prev-question {
+.section-pre-post-test .indicator-button .next-prev-question {
   background-color: #0089F4;
 }
 
-.training-pre-post-test .indicator-button .hesitant {
+.section-pre-post-test .indicator-button .hesitant {
   background-color: #FF8D07;
 }
 
-.training-pre-post-test .test-summary .indicator-finish-section {
+.section-pre-post-test .test-summary .indicator-finish-section {
   margin-bottom: 0%;
 }
 
-.training-pre-post-test .test-summary .indicator-desc {
+.section-pre-post-test .test-summary .indicator-desc {
   font-size: 12px;
 }
 
-.training-pre-post-test .test-summary .indicator-desc .green-indicator {
+.section-pre-post-test .test-summary .indicator-desc .green-indicator {
   background-color: #64D035;
   color: white;
 }
 
-.training-pre-post-test .test-summary .indicator-desc .orange-indicator {
+.section-pre-post-test .test-summary .indicator-desc .orange-indicator {
   background-color: #FF8D07;
   color: white;
 }
 
-.training-pre-post-test .test-summary .indicator-desc .grey-indicator {
+.section-pre-post-test .test-summary .indicator-desc .grey-indicator {
   background-color: #ADADAD;
   color: white;
 }
 
-.training-pre-post-test .test-summary .finish-test-button button {
+.section-pre-post-test .test-summary .finish-test-button button {
   background-image: linear-gradient(to right, #3B9315, #297209);
   border: none;
   border-radius: 6px;
@@ -1031,7 +1031,7 @@
   width: 160px;
 }
 
-.training-pre-post-test .test-summary .finish-test-button button:hover {
+.section-pre-post-test .test-summary .finish-test-button button:hover {
   background-image: linear-gradient(to right, #297209, #297209);
 }
 
