@@ -8,7 +8,8 @@ const Component = () => {
   const [login, setLogin] = useState(false);
   const [currentPage, setCurrentPage] = useState("landing");
   const [currentPageDetail, setCurrentPageDetail] = useState();
-  const [currentPageDetailTraining, setCurrentPageDetailTraining] = useState(false)
+  const [currentPageDetailTraining, setCurrentPageDetailTraining] =
+    useState(false);
   const [navOption, setNavOption] = useState();
   const [searchNow, setSearchNow] = useState(false);
 
@@ -80,7 +81,11 @@ const Component = () => {
                               href="#"
                               onClick={() => {
                                 setCurrentPageDetail("allTraining");
-                                setCurrentPageDetailTraining(currentPageDetailTraining == false ? true : false)
+                                setCurrentPageDetailTraining(
+                                  currentPageDetailTraining == false
+                                    ? true
+                                    : false
+                                );
                                 setNavOption("op1");
                                 login == true
                                   ? setCurrentPage("dashboard")
@@ -566,11 +571,7 @@ const Component = () => {
           )}
         </div>
       </div>
-      <div
-        className={
-          "footer px-5 py-5" + (currentPage != "landing" ? " mt-4" : "")
-        }
-      >
+      <div className="footer px-5 py-5">
         <div className="container-lg px-5">
           <div className="footer-logo row mb-3">
             <div className="col-8 d-flex align-items-center">

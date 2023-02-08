@@ -688,7 +688,7 @@
 
 .certificate-item .modal .modal-img-container {
   background-color: #F5F5F5;
-  border-radius: 8px;
+  border-radius: 10px;
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.3);
 }
 
@@ -980,7 +980,7 @@
 }
 
 .indicator-finish-section {
-  height:248px;
+  height: 248px;
 }
 
 .section-pre-post-test .indicator-button button {
@@ -1037,10 +1037,96 @@
 
 /*-------------------------------------------------------------------------------------*/
 
-.training-h5p {
+.section-h5p {
   background-color: white;
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
+}
+
+/*-------------------------------------------------------------------------------------*/
+
+.section-certificate {
+  background-color: white;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+.section-certificate .certificate-container {
+  position: relative;
+}
+
+.section-certificate .img-container {
+  background-color: #F5F5F5;
+  border-radius: 10px;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.3);
+}
+
+.section-certificate .img-container img {
+  border-radius: 10px;
+}
+
+.section-certificate .img-container button {
+  background-image: linear-gradient(to right, #3B9315, #297209);
+  border: none;
+  border-radius: 6px;
+  font-size: 12px;
+  color: white;
+}
+
+.section-certificate .img-container button:hover {
+  background-image: linear-gradient(to right, #297209, #297209);
+}
+
+.section-certificate .certificate-lock {
+  background-color: rgba(0, 0, 0, 0.8);
+  position: absolute;
+  top: 0;
+  border-radius: 10px;
+  color: white;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.section-certificate .certificate-lock .icon {
+  font-size: 28px;
+}
+
+.section-certificate .certificate-lock .progress {
+  width: 180px;
+  height: 8px !important;
+  background-color: #C0C0C0;
+}
+
+.training-page .certificate-lock .progress .progress-bar {
+  background-image: linear-gradient(to right, #3B9315, #297209);
+}
+
+.section-certificate .certificate-desc h6 {
+  font-size: 14px;
+  margin: 0px;
+}
+
+.section-certificate .certificate-desc .label-bold {
+  font-weight: 500;
+}
+
+.section-certificate .certificate-desc label {
+  font-size: 12px;
+}
+
+.section-certificate .certificate-desc .mark-score-container {
+  position: relative;
+}
+
+.section-certificate .certificate-desc .mark-score-lock {
+  background-color: #CCCCCC;
+  position: absolute;
+  top: 0px;
+  border-radius: 2px;
+}
+
+.section-certificate .certificate-desc .mark-score-lock label {
+  visibility: hidden;
 }
 
 /*-------------------------------------------------------------------------------------*/

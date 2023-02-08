@@ -61,7 +61,7 @@ const SectionPreTest = () => {
     new Date().toString().substring(11, 15) +
     ", " +
     new Date().toString().substring(16, 21);
-    
+
   const [record, setRecord] = useState([
     {
       id: 1,
@@ -167,17 +167,16 @@ const SectionPreTest = () => {
         const transformInt = parseInt(cutString);
         if (!scores.includes(data.score)) {
           scores.push(transformInt);
-          setHighest(Math.max(...scores));
         }
       } else {
         const cutString = data.score.substring(0, 2);
         const transformInt = parseInt(cutString);
         if (!scores.includes(data.score)) {
           scores.push(transformInt);
-          setHighest(Math.max(...scores));
         }
       }
     });
+    setHighest(Math.max(...scores));
   }, [doTest]);
 
   const tableArr = record.map((data) => {
@@ -424,19 +423,21 @@ const SectionPreTest = () => {
                       : setHesitantAnswer((array) => [...array, false]);
                   }}
                 >
-                  <input
-                    className="my-1 me-2"
-                    type="checkbox"
-                    checked={
-                      hesitantAnswer[currentQuestion - 1] == null ||
-                      hesitantAnswer[currentQuestion - 1] == false ||
-                      (hesitantAnswer[currentQuestion - 1] != null &&
-                        hesitantAnswer[currentQuestion - 1] == false)
-                        ? false
-                        : true
-                    }
-                  />
-                  <div>Ragu-Ragu</div>
+                  <div className="d-flex">
+                    <input
+                      className="my-1 me-4"
+                      type="checkbox"
+                      checked={
+                        hesitantAnswer[currentQuestion - 1] == null ||
+                        hesitantAnswer[currentQuestion - 1] == false ||
+                        (hesitantAnswer[currentQuestion - 1] != null &&
+                          hesitantAnswer[currentQuestion - 1] == false)
+                          ? false
+                          : true
+                      }
+                    />
+                    <div>Ragu-Ragu</div>
+                  </div>
                 </button>
               </div>
             </div>
@@ -569,7 +570,7 @@ const SectionPreTest = () => {
   });
 
   return (
-    <div className="section-pre-post-test">
+    <div className="section-pre-post-test h-100">
       {doTest == false ? (
         <div className="section-container px-3 py-4 h-100 d-flex align-items-center">
           <div className="w-100">

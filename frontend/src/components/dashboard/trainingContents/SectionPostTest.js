@@ -1,8 +1,7 @@
 import "../../../App.css";
 import { useState, useEffect } from "react";
-import axios from "axios";
 
-const SectionPostTest = () => {
+const SectionPostTest = ({ handleUpdateSection5 }) => {
   const [doTest, setDoTest] = useState(false);
   const [currentQuestion, setCurrentQuestion] = useState(1);
   const [activeAnswer, setActiveAnswer] = useState();
@@ -64,27 +63,6 @@ const SectionPostTest = () => {
     new Date().toString().substring(16, 21);
 
   const [record, setRecord] = useState([]);
-
-  useEffect(() => {
-    axios({
-      method: "put",
-      url: "json/sectiondata.json",
-      data: {
-        id: 5,
-        section: "Post-Test",
-        status: "done",
-      },
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
-    })
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, [record]);
 
   const question = [
     {
@@ -156,17 +134,16 @@ const SectionPostTest = () => {
         const transformInt = parseInt(cutString);
         if (!scores.includes(data.score)) {
           scores.push(transformInt);
-          setHighest(Math.max(...scores));
         }
       } else {
         const cutString = data.score.substring(0, 2);
         const transformInt = parseInt(cutString);
         if (!scores.includes(data.score)) {
           scores.push(transformInt);
-          setHighest(Math.max(...scores));
         }
       }
     });
+    setHighest(Math.max(...scores));
   }, [doTest]);
 
   const tableArr = record.map((data) => {
@@ -394,7 +371,7 @@ const SectionPostTest = () => {
             </div>
             <div className="col d-flex justify-content-center">
               <div>
-                <button
+              <button
                   className="hesitant d-flex py-1"
                   onClick={() => {
                     hesitantCheckbox == false
@@ -413,19 +390,21 @@ const SectionPostTest = () => {
                       : setHesitantAnswer((array) => [...array, false]);
                   }}
                 >
-                  <input
-                    className="my-1 me-2"
-                    type="checkbox"
-                    checked={
-                      hesitantAnswer[currentQuestion - 1] == null ||
-                      hesitantAnswer[currentQuestion - 1] == false ||
-                      (hesitantAnswer[currentQuestion - 1] != null &&
-                        hesitantAnswer[currentQuestion - 1] == false)
-                        ? false
-                        : true
-                    }
-                  />
-                  <div>Ragu-Ragu</div>
+                  <div className="d-flex">
+                    <input
+                      className="my-1 me-4"
+                      type="checkbox"
+                      checked={
+                        hesitantAnswer[currentQuestion - 1] == null ||
+                        hesitantAnswer[currentQuestion - 1] == false ||
+                        (hesitantAnswer[currentQuestion - 1] != null &&
+                          hesitantAnswer[currentQuestion - 1] == false)
+                          ? false
+                          : true
+                      }
+                    />
+                    <div>Ragu-Ragu</div>
+                  </div>
                 </button>
               </div>
             </div>
@@ -519,6 +498,7 @@ const SectionPostTest = () => {
                                     setAnswers([""]);
                                     setHesitantAnswer([false]);
                                     setMark([0]);
+                                    handleUpdateSection5("done");
                                   }}
                                 >
                                   Kumpulkan dan selesai
@@ -558,7 +538,7 @@ const SectionPostTest = () => {
   });
 
   return (
-    <div className="section-pre-post-test">
+    <div className="section-pre-post-test h-100">
       {doTest == false ? (
         <div className="section-container px-3 py-4 h-100 d-flex align-items-center">
           <div className="w-100">
@@ -777,6 +757,7 @@ const SectionPostTest = () => {
                                       setAnswers([""]);
                                       setHesitantAnswer([false]);
                                       setMark([0]);
+                                      handleUpdateSection5("done");
                                     }}
                                   >
                                     Kumpulkan dan selesai

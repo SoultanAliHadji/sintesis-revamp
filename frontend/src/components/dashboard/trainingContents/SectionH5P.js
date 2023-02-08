@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 
 const SectionH5P = () => {
   return (
-    <div className="training-h5p px-3 py-4">
+    <div className="section-h5p px-3 py-4">
       <div className="w-100">
         <ReactPlayer
           className="w-100"

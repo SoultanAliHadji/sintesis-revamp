@@ -2,9 +2,9 @@ import "../../../App.css";
 import SectionPreTest from "./SectionPreTest";
 import SectionH5P from "./SectionH5P";
 import SectionPostTest from "./SectionPostTest";
+import SectionCertificate from "./SectionCertificate";
 import { Icon } from "@iconify/react";
 import { useState, useEffect } from "react";
-import axios from "axios";
 
 const Training = ({
   handleRoute,
@@ -13,22 +13,48 @@ const Training = ({
   handleCourseId,
   handleCurrentTrainingPage,
 }) => {
-  const [sectionData, setSectionData] = useState([]);
   const progress = 85;
-  const [currentSection, setCurrentSection] = useState();
   const [currentSubSection, setCurrentSubSection] = useState();
   const [collapse1, setCollapse1] = useState(false);
 
-  useEffect(() => {
-    axios
-      .get("json/sectiondata.json")
-      .then((res) => {
-        setSectionData(res.data);
-        setCurrentSection(res.data[0].section);
-        console.log(res.data);
-      })
-      .catch((err) => console.log(err));
-  }, []);
+  const [sectionData, setSectionData] = useState([
+    {
+      id: 1,
+      section: "Pre-Test",
+      status: "done",
+    },
+    {
+      id: 2,
+      section: "Video H5P",
+      status: "done",
+    },
+    {
+      id: 3,
+      section: "Video Golden Rules",
+      status: "not yet",
+    },
+    {
+      id: 4,
+      section: "KMPD Berbasis Perilaku dan Golden Rules",
+      status: "not yet",
+    },
+    {
+      id: 5,
+      section: "Post-Test",
+      status: "not yet",
+    },
+    {
+      id: 6,
+      section: "Sertifikat Kelompok Materi Pelatihan Dasar (KMPD)",
+      status: "not yet",
+    },
+  ]);
+
+  const [currentSection, setCurrentSection] = useState(sectionData[0].section);
+
+  const handleUpdateSection5 = (data) => {
+    sectionData[4] = { id: 5, section: "Post-Test", status: data };
+  };
 
   const sectionArr = sectionData.map((data) => {
     return (
@@ -344,7 +370,9 @@ const Training = ({
                 "1. Opening dan Perundang-undangan Intera..." ? (
               <SectionH5P />
             ) : currentSection == "Post-Test" ? (
-              <SectionPostTest />
+              <SectionPostTest handleUpdateSection5={handleUpdateSection5} />
+            ) : currentSection == "Sertifikat Kelompok Materi Pelatihan Dasar (KMPD)" ? (
+              <SectionCertificate />
             ) : (
               ""
             )}
