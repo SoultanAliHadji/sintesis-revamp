@@ -1,6 +1,7 @@
 import "../../App.css";
 import { Icon } from "@iconify/react";
 import { useState, useEffect } from "react";
+import ScrollContainer from "react-indiana-drag-scroll";
 
 const AllTraining = ({
   handleTrainingTitle,
@@ -11,7 +12,7 @@ const AllTraining = ({
 }) => {
   const [collapse, setCollapse] = useState(false);
   const [search, setSearch] = useState();
-  const [filterCourse, setFilterCourse] = useState();
+  const [filterTopic, setFilterTopic] = useState();
 
   const handleSearch = (data) => {
     setSearch(data.target.value);
@@ -41,7 +42,7 @@ const AllTraining = ({
   );
 
   useEffect(() => {
-    setFilterCourse(null);
+    setFilterTopic(null);
   }, [currentTraining]);
 
   const courseData =
@@ -50,268 +51,268 @@ const AllTraining = ({
           {
             id: 1,
             title: "Kelompok Materi Pelatihan Dasar (KMPD)",
-            category: "Kelompok Materi Pelatihan Dasar (KMPD)",
+            topic: "Kelompok Materi Pelatihan Dasar (KMPD)",
           },
           {
             id: 2,
             title: "KMKOP Izin Bekerja di Ketinggian",
-            category:
+            topic:
               "Kelompok Materi Keselamatan Operasional Pertambangan (KMKOP)",
           },
           {
             id: 3,
             title: "KMKOP Izin Bekerja di Dekat Air",
-            category:
+            topic:
               "Kelompok Materi Keselamatan Operasional Pertambangan (KMKOP)",
           },
           {
             id: 4,
             title: "KMKOP Izin Bekerja pada Ruang Terbatas",
-            category:
+            topic:
               "Kelompok Materi Keselamatan Operasional Pertambangan (KMKOP)",
           },
           {
             id: 5,
             title: "KMKOP Izin Pengangkatan & Pengangkutan Material",
-            category:
+            topic:
               "Kelompok Materi Keselamatan Operasional Pertambangan (KMKOP)",
           },
           {
             id: 6,
             title: "KMKOP Izin Bekerja Pekerjaan Panas",
-            category:
+            topic:
               "Kelompok Materi Keselamatan Operasional Pertambangan (KMKOP)",
           },
           {
             id: 7,
             title:
               "KMKOP Izin Bekerja Di Luar Workshop (Mechanic & Helper Mechanic)",
-            category:
+            topic:
               "Kelompok Materi Keselamatan Operasional Pertambangan (KMKOP)",
           },
           {
             id: 8,
             title: "KMKOP Driver Light Vehicle (LV)",
-            category:
+            topic:
               "Kelompok Materi Keselamatan Operasional Pertambangan (KMKOP)",
           },
           {
             id: 9,
             title: "KMKOP Operator A2B",
-            category:
+            topic:
               "Kelompok Materi Keselamatan Operasional Pertambangan (KMKOP)",
           },
           {
             id: 10,
             title: "KMKOP Alat Angkut (Hauler)",
-            category:
+            topic:
               "Kelompok Materi Keselamatan Operasional Pertambangan (KMKOP)",
           },
           {
             id: 11,
             title: "KMKOP Bekerja Aman Area Taman/ Landscape",
-            category:
+            topic:
               "Kelompok Materi Keselamatan Operasional Pertambangan (KMKOP)",
           },
           {
             id: 12,
             title: "KMKOP Land Clearing",
-            category:
+            topic:
               "Kelompok Materi Keselamatan Operasional Pertambangan (KMKOP)",
           },
           {
             id: 13,
             title: "KMKOP Pengoperasian UVS",
-            category:
+            topic:
               "Kelompok Materi Keselamatan Operasional Pertambangan (KMKOP)",
           },
           {
             id: 14,
             title: "KMKOP Pengelolaan Peledakan (KPP Pertama)",
-            category:
+            topic:
               "Kelompok Materi Keselamatan Operasional Pertambangan (KMKOP)",
           },
           {
             id: 15,
             title: "KMKOP Eksplorasi",
-            category:
+            topic:
               "Kelompok Materi Keselamatan Operasional Pertambangan (KMKOP)",
           },
           {
             id: 16,
             title: "KMKOP Dasar K3 Listrik",
-            category:
+            topic:
               "Kelompok Materi Keselamatan Operasional Pertambangan (KMKOP)",
           },
           {
             id: 17,
             title: "KMKOP Penanganan Hidrocarbon & MSDS",
-            category:
+            topic:
               "Kelompok Materi Keselamatan Operasional Pertambangan (KMKOP)",
           },
           {
             id: 18,
             title: "KPO Maintenance",
-            category: "Kompetensi Pengawas Operasional (KPO)",
+            topic: "Kompetensi Pengawas Operasional (KPO)",
           },
           {
             id: 19,
             title: "KPO Project",
-            category: "Kompetensi Pengawas Operasional (KPO)",
+            topic: "Kompetensi Pengawas Operasional (KPO)",
           },
           {
             id: 20,
             title: "KPO Land Clearing",
-            category: "Kompetensi Pengawas Operasional (KPO)",
+            topic: "Kompetensi Pengawas Operasional (KPO)",
           },
           {
             id: 21,
             title: "KPO Pengupasan Batuan Penutup (OB Removal)",
-            category: "Kompetensi Pengawas Operasional (KPO)",
+            topic: "Kompetensi Pengawas Operasional (KPO)",
           },
           {
             id: 22,
             title: "KPO Eksplorasi",
-            category: "Kompetensi Pengawas Operasional (KPO)",
+            topic: "Kompetensi Pengawas Operasional (KPO)",
           },
           {
             id: 23,
             title: "KPO Penimbunan (Dumping)",
-            category: "Kompetensi Pengawas Operasional (KPO)",
+            topic: "Kompetensi Pengawas Operasional (KPO)",
           },
           {
             id: 24,
             title: "KPO Pengeboran dan Peledakan (Blasting)",
-            category: "Kompetensi Pengawas Operasional (KPO)",
+            topic: "Kompetensi Pengawas Operasional (KPO)",
           },
           {
             id: 25,
             title: "KPO Penambangan (Coal Getting)",
-            category: "Kompetensi Pengawas Operasional (KPO)",
+            topic: "Kompetensi Pengawas Operasional (KPO)",
           },
           {
             id: 26,
             title: "KPO Loading Material Lunak",
-            category: "Kompetensi Pengawas Operasional (KPO)",
+            topic: "Kompetensi Pengawas Operasional (KPO)",
           },
           {
             id: 27,
             title: "KPO Hauling Road Maintenance (HRM)",
-            category: "Kompetensi Pengawas Operasional (KPO)",
+            topic: "Kompetensi Pengawas Operasional (KPO)",
           },
           {
             id: 28,
             title: "KPO Coal Processing Plant (CPP)",
-            category: "Kompetensi Pengawas Operasional (KPO)",
+            topic: "Kompetensi Pengawas Operasional (KPO)",
           },
           {
             id: 29,
             title: "KPO Dewatering",
-            category: "Kompetensi Pengawas Operasional (KPO)",
+            topic: "Kompetensi Pengawas Operasional (KPO)",
           },
           {
             id: 30,
             title: "KPO Limbah Bahan Berbahaya dan Beracun (B3)",
-            category: "Kompetensi Pengawas Operasional (KPO)",
+            topic: "Kompetensi Pengawas Operasional (KPO)",
           },
           {
             id: 31,
             title: "KPO Marine",
-            category: "Kompetensi Pengawas Operasional (KPO)",
+            topic: "Kompetensi Pengawas Operasional (KPO)",
           },
           {
             id: 32,
             title: "KPO Safety",
-            category: "Kompetensi Pengawas Operasional (KPO)",
+            topic: "Kompetensi Pengawas Operasional (KPO)",
           },
           {
             id: 33,
             title: "KMPL Mining Eyes",
-            category: "Kelompok Materi Pelatihan Tingkat Lanjut (KMPL)",
+            topic: "Kelompok Materi Pelatihan Tingkat Lanjut (KMPL)",
           },
           {
             id: 34,
             title: "KMPL Pekerja Konstruksi",
-            category: "Kelompok Materi Pelatihan Tingkat Lanjut (KMPL)",
+            topic: "Kelompok Materi Pelatihan Tingkat Lanjut (KMPL)",
           },
           {
             id: 35,
             title: "KMPL HIRA",
-            category: "Kelompok Materi Pelatihan Tingkat Lanjut (KMPL)",
+            topic: "Kelompok Materi Pelatihan Tingkat Lanjut (KMPL)",
           },
           {
             id: 36,
             title: "KMPL Pekerja Kantor dan Dapur",
-            category: "Kelompok Materi Pelatihan Tingkat Lanjut (KMPL)",
+            topic: "Kelompok Materi Pelatihan Tingkat Lanjut (KMPL)",
           },
           {
             id: 37,
             title: "KMPL Sistem Manajemen Keselamatan Pertambangan (SMKP)",
-            category: "Kelompok Materi Pelatihan Tingkat Lanjut (KMPL)",
+            topic: "Kelompok Materi Pelatihan Tingkat Lanjut (KMPL)",
           },
           {
             id: 38,
             title: "KMPL Investigasi Kecelakaan - Sistem Bekerja Selamat",
-            category: "Kelompok Materi Pelatihan Tingkat Lanjut (KMPL)",
+            topic: "Kelompok Materi Pelatihan Tingkat Lanjut (KMPL)",
           },
           {
             id: 39,
             title: "Trainer Instructor Development Program (TIDP) 2022",
-            category: "Trainer Instructor Development Program (TIDP)",
+            topic: "Trainer Instructor Development Program (TIDP)",
           },
-          { id: 40, title: "Fatigue Manajement", category: "Unknown" },
-          { id: 41, title: "Pelatihan CPR AED Pengawas", category: "Unknown" },
-          { id: 42, title: "Pelatihan Self Evacuation", category: "Unknown" },
-          { id: 43, title: "Pelatihan PPGD", category: "Unknown" },
+          { id: 40, title: "Fatigue Manajement", topic: "Unknown" },
+          { id: 41, title: "Pelatihan CPR AED Pengawas", topic: "Unknown" },
+          { id: 42, title: "Pelatihan Self Evacuation", topic: "Unknown" },
+          { id: 43, title: "Pelatihan PPGD", topic: "Unknown" },
         ]
       : currentTraining == "Advance Training"
       ? [
           {
             id: 44,
             title: "Surat Penunjukan Tenaga Teknis",
-            category: "Unknown",
+            topic: "Unknown",
           },
           {
             id: 45,
             title: "Surat Penunjukan Pengawas Teknis",
-            category: "Unknown",
+            topic: "Unknown",
           },
           {
             id: 46,
             title: "Surat Penunjukan Pengawas Operasional",
-            category: "Unknown",
+            topic: "Unknown",
           },
-          { id: 47, title: "E-Induksi BUMA", category: "Unknown" },
+          { id: 47, title: "E-Induksi BUMA", topic: "Unknown" },
           {
             id: 48,
             title: "Pendidikan dan Pelatihan Pengelola Peledakan (KPP Pertama)",
-            category: "Unknown",
+            topic: "Unknown",
           },
           {
             id: 49,
             title: "Frontline Behavior Based Safety",
-            category: "Unknown",
+            topic: "Unknown",
           },
-          { id: 50, title: "SINTESIS+", category: "Unknown" },
+          { id: 50, title: "SINTESIS+", topic: "Unknown" },
         ]
       : currentTraining == "Program Sintesis"
       ? [
           {
             id: 51,
             title: "KELOMPOK MATERI PELATIHAN DASAR (KMPD) 2022",
-            category: "Unknown",
+            topic: "Unknown",
           },
           {
             id: 52,
             title:
               "Pencegahan Kecelakaan Akibat  Fatigue dengan Konsep SBS (Sistem Bekerja Selamat)",
-            category: "Unknown",
+            topic: "Unknown",
           },
           {
             id: 53,
             title:
               "Pengawasan Langsung Berjarak: Dalam Meningkatkan Keselamatan Kerja & Produktivitas Tambang",
-            category: "Unknown",
+            topic: "Unknown",
           },
         ]
       : currentTraining == "Weekly Refresh Competency"
@@ -319,56 +320,56 @@ const AllTraining = ({
           {
             id: 54,
             title: "PIT SERVICE - WEEKLY REFRESH COMPETENCY",
-            category: "Unknown",
+            topic: "Unknown",
           },
           {
             id: 55,
             title: "PLANT - WEEKLY REFRESH COMPETENCY",
-            category: "Unknown",
+            topic: "Unknown",
           },
-          { id: 56, title: "DO & DON'T EKSPLORASI", category: "Unknown" },
+          { id: 56, title: "DO & DON'T EKSPLORASI", topic: "Unknown" },
           {
             id: 57,
             title: "Drill & Blast - WEEKLY REFRESH COMPETENCY",
-            category: "Unknown",
+            topic: "Unknown",
           },
           {
             id: 58,
             title: "MINING & HAULING OPERATION - WEEKLY REFRESH COMPETENCY",
-            category: "Unknown",
+            topic: "Unknown",
           },
           {
             id: 59,
             title: "DO AND DON'T MARINE - WEEKLY REFRESH COMPETENCY",
-            category: "Unknown",
+            topic: "Unknown",
           },
         ]
       : [
           {
             id: 60,
             title: "Surat Penunjukan Tenaga Teknis",
-            category: "Unknown",
+            topic: "Unknown",
           },
         ];
 
   const filterData =
     currentTraining == "Pelatihan-Uji Online SIMAK dan KPO"
       ? [
-          { id: 1, category: "Kelompok Materi Pelatihan Dasar (KMPD)" },
+          { id: 1, topic: "Kelompok Materi Pelatihan Dasar (KMPD)" },
           {
             id: 2,
-            category:
+            topic:
               "Kelompok Materi Keselamatan Operasional Pertambangan (KMKOP)",
           },
-          { id: 3, category: "Kompetensi Pengawas Operasional (KPO)" },
+          { id: 3, topic: "Kompetensi Pengawas Operasional (KPO)" },
           {
             id: 4,
-            category: "Kelompok Materi Pelatihan Tingkat Lanjut (KMPL)",
+            topic: "Kelompok Materi Pelatihan Tingkat Lanjut (KMPL)",
           },
-          { id: 5, category: "Trainer Instructor Development Program (TIDP)" },
-          { id: 6, category: "Unknown" },
+          { id: 5, topic: "Trainer Instructor Development Program (TIDP)" },
+          { id: 6, topic: "Unknown" },
         ]
-      : [{ id: 1, category: "Unknown" }];
+      : [{ id: 1, topic: "Unknown" }];
 
   const trainingArr = trainingData.map((data, index) => {
     if (index != 0) {
@@ -442,8 +443,8 @@ const AllTraining = ({
   });
 
   const courseArr = courseData.map((data) => {
-    if (filterCourse != null) {
-      if (filterCourse == data.category) {
+    if (filterTopic != null) {
+      if (filterTopic == data.topic) {
         return (
           <div className="col-6 p-0 my-2">
             <div className="h-100 mx-2">
@@ -619,15 +620,15 @@ const AllTraining = ({
       <button
         className={
           "px-3 py-1" +
-          (filterCourse == data.category ? " filter-course-active" : "")
+          (filterTopic == data.topic ? " filter-course-active" : "")
         }
         onClick={() => {
-          filterCourse != data.category
-            ? setFilterCourse(data.category)
-            : setFilterCourse(null);
+          filterTopic != data.topic
+            ? setFilterTopic(data.topic)
+            : setFilterTopic(null);
         }}
       >
-        {data.category}
+        {data.topic}
       </button>
     );
   });
@@ -637,8 +638,11 @@ const AllTraining = ({
       <div className="container-lg">
         <div className="row">
           <div className="col-3">
-            <div className="training-navigation px-1 py-3 d-grid gap-2">
-              {trainingArr}
+            <div className="training-navigation px-1 py-3">
+              <div className="d-flex justify-content-center">
+                <h6>Kategori</h6>
+              </div>
+              <div className="d-grid gap-2">{trainingArr}</div>
             </div>
           </div>
           <div className="col-9">
@@ -649,6 +653,9 @@ const AllTraining = ({
                   type="search"
                   placeholder="Cari kursus yang ingin anda ikuti"
                   aria-label="Search"
+                  onClick={() => {
+                    setFilterTopic();
+                  }}
                   onChange={handleSearch}
                 />
               </form>
@@ -661,9 +668,9 @@ const AllTraining = ({
                 <div className="d-flex align-items-center">
                   <label className="me-2">Topik:</label>
                 </div>
-                <div className="topic-collection d-flex overflow-auto gap-2 p-1">
+                <ScrollContainer className="scroll-container topic-collection d-flex overflow-auto gap-2 p-1">
                   {filterArr}
-                </div>
+                </ScrollContainer>
               </div>
             </div>
             <div className="training-item-container row">{courseArr}</div>

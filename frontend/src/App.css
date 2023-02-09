@@ -555,6 +555,10 @@
   border-radius: 6px;
 }
 
+.dashboard-page .training-section .training-navigation h6 {
+  font-weight: 600;
+}
+
 .dashboard-page .training-section .training-navigation button {
   background-color: transparent;
   color: #292929;
