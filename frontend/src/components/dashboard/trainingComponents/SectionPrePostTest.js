@@ -195,9 +195,9 @@ const SectionPrePostTest = ({
             </div>
           </div>
           <div className="answer px-3 py-3">
-            <div class="form-check">
+            <div className="form-check">
               <input
-                class={
+                className={
                   "form-check-input" +
                   (activeAnswer == data.answeroption[0] ||
                   answers[currentQuestion - 1] == data.answeroption[0]
@@ -231,13 +231,13 @@ const SectionPrePostTest = ({
                     : setMark((array) => [...array, 0]);
                 }}
               />
-              <label class="form-check-label" for="flexRadioDefault1">
+              <label className="form-check-label" for="flexRadioDefault1">
                 a. {data.answeroption[0]}
               </label>
             </div>
-            <div class="form-check">
+            <div className="form-check">
               <input
-                class={
+                className={
                   "form-check-input" +
                   (activeAnswer == data.answeroption[1] ||
                   answers[currentQuestion - 1] == data.answeroption[1]
@@ -271,13 +271,13 @@ const SectionPrePostTest = ({
                     : setMark((array) => [...array, 0]);
                 }}
               />
-              <label class="form-check-label" for="flexRadioDefault2">
+              <label className="form-check-label" for="flexRadioDefault2">
                 b. {data.answeroption[1]}
               </label>
             </div>
-            <div class="form-check">
+            <div className="form-check">
               <input
-                class={
+                className={
                   "form-check-input" +
                   (activeAnswer == data.answeroption[2] ||
                   answers[currentQuestion - 1] == data.answeroption[2]
@@ -311,13 +311,13 @@ const SectionPrePostTest = ({
                     : setMark((array) => [...array, 0]);
                 }}
               />
-              <label class="form-check-label" for="flexRadioDefault3">
+              <label className="form-check-label" for="flexRadioDefault3">
                 c. {data.answeroption[2]}
               </label>
             </div>
-            <div class="form-check">
+            <div className="form-check">
               <input
-                class={
+                className={
                   "form-check-input" +
                   (activeAnswer == data.answeroption[3] ||
                   answers[currentQuestion - 1] == data.answeroption[3]
@@ -351,7 +351,7 @@ const SectionPrePostTest = ({
                     : setMark((array) => [...array, 0]);
                 }}
               />
-              <label class="form-check-label" for="flexRadioDefault4">
+              <label className="form-check-label" for="flexRadioDefault4">
                 d. {data.answeroption[3]}
               </label>
             </div>
@@ -467,15 +467,15 @@ const SectionPrePostTest = ({
                       Selesaikan Ujian
                     </button>
                     <div
-                      class="modal fade"
+                      className="modal fade"
                       id="finishExam"
                       tabindex="-1"
                       aria-labelledby="exampleModalLabel"
                       aria-hidden="true"
                     >
-                      <div class="modal-dialog modal-dialog-centered d-flex justify-content-center">
-                        <div class="modal-content">
-                          <div class="modal-body">
+                      <div className="modal-dialog modal-dialog-centered d-flex justify-content-center">
+                        <div className="modal-content">
+                          <div className="modal-body">
                             <div className="d-flex justify-content-center">
                               <img
                                 src={require("../../../assets/testmodalimg.png")}
@@ -494,7 +494,7 @@ const SectionPrePostTest = ({
                             <div className="row">
                               <div className="col-6">
                                 <button
-                                  class="disagree-button w-100 px-2 py-1"
+                                  className="disagree-button w-100 px-2 py-1"
                                   data-bs-dismiss="modal"
                                   onClick={() => {
                                     setDoTest(true);
@@ -505,7 +505,7 @@ const SectionPrePostTest = ({
                               </div>
                               <div className="col-6">
                                 <button
-                                  class="agree-button w-100 px-2 py-1"
+                                  className="agree-button w-100 px-2 py-1"
                                   data-bs-dismiss="modal"
                                   onClick={() => {
                                     setDoTest(false);
@@ -578,7 +578,7 @@ const SectionPrePostTest = ({
                 <div className="mb-3">
                   <h6>Ringkasan usaha-usaha sebelumnya</h6>
                 </div>
-                <table class="table table-striped border">
+                <table className="table table-striped border">
                   <thead>
                     <tr>
                       <th scope="col">
@@ -623,15 +623,15 @@ const SectionPrePostTest = ({
                   Kerjakan Kuis Sekarang
                 </button>
                 <div
-                  class="modal fade"
+                  className="modal fade"
                   id="exampleModal"
                   tabindex="-1"
                   aria-labelledby="exampleModalLabel"
                   aria-hidden="true"
                 >
-                  <div class="modal-dialog modal-dialog-centered d-flex justify-content-center">
-                    <div class="modal-content">
-                      <div class="modal-body">
+                  <div className="modal-dialog modal-dialog-centered d-flex justify-content-center">
+                    <div className="modal-content">
+                      <div className="modal-body">
                         <div className="d-flex justify-content-center">
                           <img
                             src={require("../../../assets/testmodalimg.png")}
@@ -655,7 +655,7 @@ const SectionPrePostTest = ({
                         <div className="row">
                           <div className="col-6">
                             <button
-                              class="disagree-button w-100 px-2 py-1"
+                              className="disagree-button w-100 px-2 py-1"
                               data-bs-dismiss="modal"
                               onClick={() => {
                                 setDoTest(false);
@@ -666,7 +666,7 @@ const SectionPrePostTest = ({
                           </div>
                           <div className="col-6">
                             <button
-                              class="agree-button w-100 px-2 py-1"
+                              className="agree-button w-100 px-2 py-1"
                               data-bs-dismiss="modal"
                               onClick={() => {
                                 setDoTest(true);
@@ -738,15 +738,15 @@ const SectionPrePostTest = ({
                         Selesaikan Ujian
                       </button>
                       <div
-                        class="modal fade"
+                        className="modal fade"
                         id="quickFinishExam"
                         tabindex="-1"
                         aria-labelledby="exampleModalLabel"
                         aria-hidden="true"
                       >
-                        <div class="modal-dialog modal-dialog-centered d-flex justify-content-center">
-                          <div class="modal-content">
-                            <div class="modal-body">
+                        <div className="modal-dialog modal-dialog-centered d-flex justify-content-center">
+                          <div className="modal-content">
+                            <div className="modal-body">
                               <div className="d-flex justify-content-center">
                                 <img
                                   src={require("../../../assets/testmodalimg.png")}
@@ -765,7 +765,7 @@ const SectionPrePostTest = ({
                               <div className="row">
                                 <div className="col-6">
                                   <button
-                                    class="disagree-button w-100 px-2 py-1"
+                                    className="disagree-button w-100 px-2 py-1"
                                     data-bs-dismiss="modal"
                                     onClick={() => {
                                       setDoTest(true);
@@ -776,7 +776,7 @@ const SectionPrePostTest = ({
                                 </div>
                                 <div className="col-6">
                                   <button
-                                    class="agree-button w-100 px-2 py-1"
+                                    className="agree-button w-100 px-2 py-1"
                                     data-bs-dismiss="modal"
                                     onClick={() => {
                                       setDoTest(false);
