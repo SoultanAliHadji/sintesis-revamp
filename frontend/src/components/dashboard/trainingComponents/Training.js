@@ -104,7 +104,7 @@ const Training = ({
           <div className="collapse-section">
             <button
               className={
-                "w-100 text-start d-flex align-items-center px-2 py-3" +
+                "collapse-button w-100 text-start d-flex align-items-center px-2 py-3" +
                 (currentSection == data.section ? " active-section" : "")
               }
               data-bs-toggle="collapse"
@@ -116,7 +116,7 @@ const Training = ({
               }}
             >
               <div className="row w-100 d-flex align-items-center">
-                <div className="d-flex align-items-center col-6 pe-0">
+                <div className="d-flex align-items-center col-10 pe-0">
                   <div className="check-icon me-1">
                     <Icon
                       className="icon done"
@@ -125,7 +125,7 @@ const Training = ({
                   </div>
                   <div>{data.section}</div>
                 </div>
-                <div className="collapse-icon d-flex justify-content-end col-6 pe-0">
+                <div className="collapse-icon d-flex justify-content-end col-2 pe-0">
                   <Icon
                     className={
                       "icon" + (collapse1 == true ? " active-collapse" : "")
@@ -300,7 +300,7 @@ const Training = ({
                 <a
                   href="#"
                   onClick={() => {
-                    setCurrentPage("allTraining")
+                    setCurrentPage("allTraining");
                     handleCourseId(null);
                     handleCurrentTrainingPage(null);
                   }}
@@ -368,7 +368,6 @@ const Training = ({
             <div className="px-2 pt-3 pb-1 d-flex justify-content-center">
               <h6>Summary KMPD</h6>
             </div>
-            <div className="line"></div>
             <div>{sectionArr}</div>
           </div>
           <div className="col-9 p-4">

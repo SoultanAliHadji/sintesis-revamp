@@ -1,6 +1,4 @@
 import "../../App.css";
-import { Icon } from "@iconify/react";
-import { useState, useEffect } from "react";
 
 const MyTraining = ({ progress, handleCourseId, handleCourseTitle }) => {
   const api = [

@@ -549,13 +549,20 @@
   border-radius: 10px;
 }
 
+.dashboard-page .training-section .training-navigation {
+  background-color: white;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.12);
+  border-radius: 6px;
+}
+
 .dashboard-page .training-section .training-navigation button {
   background-color: transparent;
   color: #292929;
   font-size: 12px;
   font-weight: 600;
   border: none;
-  border-radius: 2px;
+  border-radius: 4px;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.14);
 }
 
 .dashboard-page .training-section .training-navigation button:hover {
@@ -567,7 +574,51 @@
   background-image: linear-gradient(to right, #3B9315, #297209);
   color: white;
   border-left: 4px solid #292929;
-  pointer-events: none;
+  cursor: default;
+}
+
+.dashboard-page .training-section .training-navigation .active:hover {
+  background-image: linear-gradient(to right, #3B9315, #297209);
+  color: white;
+}
+
+.dashboard-page .training-section .training-navigation .collapse-section .collapse-button {
+  cursor: default;
+}
+
+.dashboard-page .training-section .training-navigation .collapse-section .collapse-button .collapse-icon .icon {
+  font-size: 18px;
+}
+
+.dashboard-page .training-section .training-navigation .collapse-section .collapse-button .collapse-icon .active-collapse {
+  transform: rotate(90deg);
+}
+
+.dashboard-page .training-section .training-navigation .collapse-section .collapse button {
+  background-color: transparent;
+  color: #292929;
+  font-size: 12px;
+  font-weight: 600;
+  border: none;
+  border-radius: 0px !important;
+  box-shadow: none;
+}
+
+.dashboard-page .training-section .training-navigation .collapse-section .collapse button:hover {
+  background-color: #C3FFA9;
+  color: #3B9315;
+}
+
+.dashboard-page .training-section .training-navigation .collapse-section .collapse .active-sub-training {
+  background-image: linear-gradient(to right, #64D035, #64D035);
+  color: white;
+  cursor: default;
+}
+
+.dashboard-page .training-section .training-navigation .collapse-section .collapse .active-sub-training:hover {
+  background-image: linear-gradient(to right, #64D035, #64D035);
+  color: white;
+  
 }
 
 .training-section .search-container {
@@ -823,7 +874,11 @@
   font-size: 18px;
 }
 
-.training-page .test-section .collapse-section button .collapse-icon .active-collapse {
+.training-page .test-section .collapse-section .collapse-button {
+  cursor: default;
+}
+
+.training-page .test-section .collapse-section .collapse-button .collapse-icon .active-collapse {
   transform: rotate(90deg);
 }
 

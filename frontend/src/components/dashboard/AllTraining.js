@@ -9,11 +9,7 @@ const AllTraining = ({
   currentTrainingPage,
   progress,
 }) => {
-  const [currentTraining, setCurrentTraining] = useState(
-    currentTrainingPage == null
-      ? "Pelatihan-Uji Online SIMAK dan KPO"
-      : currentTrainingPage
-  );
+  const [collapse, setCollapse] = useState(false);
   const [search, setSearch] = useState();
   const [filterCourse, setFilterCourse] = useState();
 
@@ -21,17 +17,32 @@ const AllTraining = ({
     setSearch(data.target.value);
   };
 
-  useEffect(() => {
-    setFilterCourse(null);
-  }, [currentTraining]);
-
   const trainingData = [
-    { title: "Pelatihan-Uji Online SIMAK dan KPO" },
+    {
+      title: "Pelatihan-Uji Online SIMAK dan KPO",
+      sub: [
+        "Pelatihan-Uji Online SIMAK dan KPO 2022",
+        "Trainer Instructor Development Program (TIDP)",
+        "Fatigue Management",
+        "Pelatihan Emergency Response",
+      ],
+    },
     { title: "Advance Training" },
     { title: "Program Sintesis" },
     { title: "Weekly Refresh Competency" },
     { title: "SOP" },
   ];
+
+  const [currentTraining, setCurrentTraining] = useState(
+    currentTrainingPage == null ? trainingData[0].title : currentTrainingPage
+  );
+  const [currentSubTraining, setCurrentSubTraining] = useState(
+    trainingData[0].sub[0]
+  );
+
+  useEffect(() => {
+    setFilterCourse(null);
+  }, [currentTraining]);
 
   const courseData =
     currentTraining == "Pelatihan-Uji Online SIMAK dan KPO"
@@ -359,18 +370,75 @@ const AllTraining = ({
         ]
       : [{ id: 1, category: "Unknown" }];
 
-  const trainingArr = trainingData.map((data) => {
-    return (
-      <button
-        className={
-          "w-100 text-start py-2 px-4" +
-          (currentTraining == data.title ? " active" : "")
-        }
-        onClick={() => setCurrentTraining(data.title)}
-      >
-        {data.title}
-      </button>
-    );
+  const trainingArr = trainingData.map((data, index) => {
+    if (index != 0) {
+      return (
+        <button
+          className={
+            "w-100 text-start px-3 py-2" +
+            (currentTraining == data.title ? " active" : "")
+          }
+          onClick={() => {
+            setCurrentTraining(data.title);
+            setCurrentSubTraining();
+            window.scrollTo(0, 0);
+          }}
+        >
+          {data.title}
+        </button>
+      );
+    } else {
+      return (
+        <div className="collapse-section">
+          <button
+            className={
+              "collapse-button w-100 text-start px-3 py-2 d-flex" +
+              (currentTraining == data.title ? " active" : "")
+            }
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseExample"
+            aria-expanded="false"
+            aria-controls="collapseExample"
+            onClick={() => {
+              setCollapse(collapse == false ? true : false);
+            }}
+          >
+            <div className="row">
+              <div className="col-10">{data.title}</div>
+              <div className="collapse-icon d-flex justify-content-end align-items-center col-2">
+                <Icon
+                  className={
+                    "icon" + (collapse == true ? " active-collapse" : "")
+                  }
+                  icon="material-symbols:chevron-right-rounded"
+                />
+              </div>
+            </div>
+          </button>
+          <div className="collapse" id="collapseExample">
+            {trainingData[0].sub.map((subData) => {
+              return (
+                <button
+                  className={
+                    "w-100 text-start d-flex align-items-center px-4 py-2" +
+                    (currentSubTraining == subData
+                      ? " active-sub-training"
+                      : "")
+                  }
+                  onClick={() => {
+                    setCurrentTraining(data.title);
+                    setCurrentSubTraining(subData);
+                    window.scrollTo(0, 0);
+                  }}
+                >
+                  <div>{subData}</div>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      );
+    }
   });
 
   const courseArr = courseData.map((data) => {
@@ -569,7 +637,9 @@ const AllTraining = ({
       <div className="container-lg">
         <div className="row">
           <div className="col-3">
-            <div className="training-navigation">{trainingArr}</div>
+            <div className="training-navigation px-1 py-3 d-grid gap-2">
+              {trainingArr}
+            </div>
           </div>
           <div className="col-9">
             <div className="d-flex search-container">
