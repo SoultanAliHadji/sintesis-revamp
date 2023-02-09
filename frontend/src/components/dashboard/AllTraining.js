@@ -255,44 +255,109 @@ const AllTraining = ({
         ]
       : currentTraining == "Advance Training"
       ? [
-          { id: 44, title: "Surat Penunjukan Tenaga Teknis" },
-          { id: 45, title: "Surat Penunjukan Pengawas Teknis" },
-          { id: 46, title: "Surat Penunjukan Pengawas Operasional" },
-          { id: 47, title: "E-Induksi BUMA" },
+          {
+            id: 44,
+            title: "Surat Penunjukan Tenaga Teknis",
+            category: "Unknown",
+          },
+          {
+            id: 45,
+            title: "Surat Penunjukan Pengawas Teknis",
+            category: "Unknown",
+          },
+          {
+            id: 46,
+            title: "Surat Penunjukan Pengawas Operasional",
+            category: "Unknown",
+          },
+          { id: 47, title: "E-Induksi BUMA", category: "Unknown" },
           {
             id: 48,
             title: "Pendidikan dan Pelatihan Pengelola Peledakan (KPP Pertama)",
+            category: "Unknown",
           },
-          { id: 49, title: "Frontline Behavior Based Safety" },
-          { id: 50, title: "SINTESIS+" },
+          {
+            id: 49,
+            title: "Frontline Behavior Based Safety",
+            category: "Unknown",
+          },
+          { id: 50, title: "SINTESIS+", category: "Unknown" },
         ]
       : currentTraining == "Program Sintesis"
       ? [
-          { id: 51, title: "KELOMPOK MATERI PELATIHAN DASAR (KMPD) 2022" },
+          {
+            id: 51,
+            title: "KELOMPOK MATERI PELATIHAN DASAR (KMPD) 2022",
+            category: "Unknown",
+          },
           {
             id: 52,
             title:
               "Pencegahan Kecelakaan Akibat  Fatigue dengan Konsep SBS (Sistem Bekerja Selamat)",
+            category: "Unknown",
           },
           {
             id: 53,
             title:
               "Pengawasan Langsung Berjarak: Dalam Meningkatkan Keselamatan Kerja & Produktivitas Tambang",
+            category: "Unknown",
           },
         ]
       : currentTraining == "Weekly Refresh Competency"
       ? [
-          { id: 54, title: "PIT SERVICE - WEEKLY REFRESH COMPETENCY" },
-          { id: 55, title: "PLANT - WEEKLY REFRESH COMPETENCY" },
-          { id: 56, title: "DO & DON'T EKSPLORASI" },
-          { id: 57, title: "Drill & Blast - WEEKLY REFRESH COMPETENCY" },
+          {
+            id: 54,
+            title: "PIT SERVICE - WEEKLY REFRESH COMPETENCY",
+            category: "Unknown",
+          },
+          {
+            id: 55,
+            title: "PLANT - WEEKLY REFRESH COMPETENCY",
+            category: "Unknown",
+          },
+          { id: 56, title: "DO & DON'T EKSPLORASI", category: "Unknown" },
+          {
+            id: 57,
+            title: "Drill & Blast - WEEKLY REFRESH COMPETENCY",
+            category: "Unknown",
+          },
           {
             id: 58,
             title: "MINING & HAULING OPERATION - WEEKLY REFRESH COMPETENCY",
+            category: "Unknown",
           },
-          { id: 59, title: "DO AND DON'T MARINE - WEEKLY REFRESH COMPETENCY" },
+          {
+            id: 59,
+            title: "DO AND DON'T MARINE - WEEKLY REFRESH COMPETENCY",
+            category: "Unknown",
+          },
         ]
-      : [{ id: 60, title: "Surat Penunjukan Tenaga Teknis" }];
+      : [
+          {
+            id: 60,
+            title: "Surat Penunjukan Tenaga Teknis",
+            category: "Unknown",
+          },
+        ];
+
+  const filterData =
+    currentTraining == "Pelatihan-Uji Online SIMAK dan KPO"
+      ? [
+          { id: 1, category: "Kelompok Materi Pelatihan Dasar (KMPD)" },
+          {
+            id: 2,
+            category:
+              "Kelompok Materi Keselamatan Operasional Pertambangan (KMKOP)",
+          },
+          { id: 3, category: "Kompetensi Pengawas Operasional (KPO)" },
+          {
+            id: 4,
+            category: "Kelompok Materi Pelatihan Tingkat Lanjut (KMPL)",
+          },
+          { id: 5, category: "Trainer Instructor Development Program (TIDP)" },
+          { id: 6, category: "Unknown" },
+        ]
+      : [{ id: 1, category: "Unknown" }];
 
   const trainingArr = trainingData.map((data) => {
     return (
@@ -481,6 +546,24 @@ const AllTraining = ({
     }
   });
 
+  const filterArr = filterData.map((data) => {
+    return (
+      <button
+        className={
+          "px-3 py-1" +
+          (filterCourse == data.category ? " filter-course-active" : "")
+        }
+        onClick={() => {
+          filterCourse != data.category
+            ? setFilterCourse(data.category)
+            : setFilterCourse(null);
+        }}
+      >
+        {data.category}
+      </button>
+    );
+  });
+
   return (
     <div className="training-section pt-4">
       <div className="container-lg">
@@ -509,110 +592,7 @@ const AllTraining = ({
                   <label className="me-2">Topik:</label>
                 </div>
                 <div className="topic-collection d-flex overflow-auto gap-2 p-1">
-                  <button
-                    className={
-                      "px-3 py-1" +
-                      (filterCourse == "Kelompok Materi Pelatihan Dasar (KMPD)"
-                        ? " filter-course-active"
-                        : "")
-                    }
-                    onClick={() => {
-                      filterCourse != "Kelompok Materi Pelatihan Dasar (KMPD)"
-                        ? setFilterCourse(
-                            "Kelompok Materi Pelatihan Dasar (KMPD)"
-                          )
-                        : setFilterCourse(null);
-                    }}
-                  >
-                    Kelompok Materi Pelatihan Dasar (KMPD)
-                  </button>
-                  <button
-                    className={
-                      "px-3 py-1" +
-                      (filterCourse ==
-                      "Kelompok Materi Keselamatan Operasional Pertambangan (KMKOP)"
-                        ? " filter-course-active"
-                        : "")
-                    }
-                    onClick={() => {
-                      filterCourse !=
-                      "Kelompok Materi Keselamatan Operasional Pertambangan (KMKOP)"
-                        ? setFilterCourse(
-                            "Kelompok Materi Keselamatan Operasional Pertambangan (KMKOP)"
-                          )
-                        : setFilterCourse(null);
-                    }}
-                  >
-                    Kelompok Materi Keselamatan Operasional Pertambangan (KMKOP)
-                  </button>
-                  <button
-                    className={
-                      "px-3 py-1" +
-                      (filterCourse == "Kompetensi Pengawas Operasional (KPO)"
-                        ? " filter-course-active"
-                        : "")
-                    }
-                    onClick={() => {
-                      filterCourse != "Kompetensi Pengawas Operasional (KPO)"
-                        ? setFilterCourse(
-                            "Kompetensi Pengawas Operasional (KPO)"
-                          )
-                        : setFilterCourse(null);
-                    }}
-                  >
-                    Kompetensi Pengawas Operasional (KPO)
-                  </button>
-                  <button
-                    className={
-                      "px-3 py-1" +
-                      (filterCourse ==
-                      "Kelompok Materi Pelatihan Tingkat Lanjut (KMPL)"
-                        ? " filter-course-active"
-                        : "")
-                    }
-                    onClick={() => {
-                      filterCourse !=
-                      "Kelompok Materi Pelatihan Tingkat Lanjut (KMPL)"
-                        ? setFilterCourse(
-                            "Kelompok Materi Pelatihan Tingkat Lanjut (KMPL)"
-                          )
-                        : setFilterCourse(null);
-                    }}
-                  >
-                    Kelompok Materi Pelatihan Tingkat Lanjut (KMPL)
-                  </button>
-                  <button
-                    className={
-                      "px-3 py-1" +
-                      (filterCourse ==
-                      "Trainer Instructor Development Program (TIDP)"
-                        ? " filter-course-active"
-                        : "")
-                    }
-                    onClick={() => {
-                      filterCourse !=
-                      "Trainer Instructor Development Program (TIDP)"
-                        ? setFilterCourse(
-                            "Trainer Instructor Development Program (TIDP)"
-                          )
-                        : setFilterCourse(null);
-                    }}
-                  >
-                    Trainer Instructor Development Program (TIDP)
-                  </button>
-                  <button
-                    className={
-                      "px-3 py-1" +
-                      (filterCourse == "Unknown" ? " filter-course-active" : "")
-                    }
-                    onClick={() => {
-                      filterCourse != "Unknown"
-                        ? setFilterCourse("Unknown")
-                        : setFilterCourse(null);
-                    }}
-                  >
-                    Unknown
-                  </button>
+                  {filterArr}
                 </div>
               </div>
             </div>
