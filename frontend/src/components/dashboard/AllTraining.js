@@ -638,8 +638,8 @@ const AllTraining = ({
       <div className="container-lg">
         <div className="row">
           <div className="col-3">
-            <div className="training-navigation px-1 py-3">
-              <div className="d-flex justify-content-center">
+            <div className="training-navigation px-2 py-3">
+              <div className="d-flex justify-content-center mb-1">
                 <h6>Kategori</h6>
               </div>
               <div className="d-grid gap-2">{trainingArr}</div>
@@ -663,7 +663,7 @@ const AllTraining = ({
                 <Icon className="icon" icon="uil:search" />
               </div>
             </div>
-            <div className="topic">
+            <div className="topic px-2 py-1">
               <div className="d-flex">
                 <div className="d-flex align-items-center">
                   <label className="me-2">Topik:</label>

@@ -566,7 +566,7 @@
   font-weight: 600;
   border: none;
   border-radius: 4px;
-  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.14);
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.18);
 }
 
 .dashboard-page .training-section .training-navigation button:hover {
@@ -635,6 +635,12 @@
   font-size: 18px;
 }
 
+.dashboard-page .training-section .topic {
+  background-color: white;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
+}
+
 .dashboard-page .training-section .topic label {
   font-size: 14px;
   font-weight: 500;
@@ -653,7 +659,7 @@
   border: none;
   border-radius: 4px;
   background-color: white;
-  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.12);
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.18);
   font-size: 12px;
   font-weight: 400;
 }
