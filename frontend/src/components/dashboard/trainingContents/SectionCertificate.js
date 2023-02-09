@@ -1,8 +1,7 @@
 import "../../../App.css";
 import { Icon } from "@iconify/react";
-import { useState, useEffect } from "react";
 
-const SectionCertificate = ({ progress }) => {
+const SectionCertificate = ({ progress, handleUpdateSection6 }) => {
   return (
     <div className="section-certificate px-3 py-4 h-100">
       <div className="row">
@@ -15,7 +14,7 @@ const SectionCertificate = ({ progress }) => {
                 alt=""
               />
               <div className="d-flex justify-content-center mt-3">
-                <button className="px-3 py-2">Download Sertifikat</button>
+                <button className="px-3 py-2" onClick={() => {handleUpdateSection6("done")}}>Download Sertifikat</button>
               </div>
             </div>
             {progress < 100 ? (

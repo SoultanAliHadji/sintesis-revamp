@@ -1,7 +1,19 @@
 import "../../../App.css";
 import { useState, useEffect } from "react";
 
-const SectionPreTest = () => {
+const SectionPrePostTest = ({
+  questionData,
+  recordPreTest,
+  setRecordPreTest,
+  recordPostTest,
+  setRecordPostTest,
+  currentSection,
+  handleUpdateSection5,
+  highestScorePreTest,
+  setHighestScorePreTest,
+  highestScorePostTest,
+  setHighestScorePostTest,
+}) => {
   const [doTest, setDoTest] = useState(false);
   const [currentQuestion, setCurrentQuestion] = useState(1);
   const [activeAnswer, setActiveAnswer] = useState();
@@ -10,7 +22,6 @@ const SectionPreTest = () => {
   const [hesitantAnswer, setHesitantAnswer] = useState([false]);
   const [mark, setMark] = useState([0]);
   const scores = [];
-  const [highest, setHighest] = useState();
 
   const day =
     new Date().toString().substring(0, 3) == "Mon"
@@ -62,124 +73,95 @@ const SectionPreTest = () => {
     ", " +
     new Date().toString().substring(16, 21);
 
-  const [record, setRecord] = useState([
-    {
-      id: 1,
-      state: "Selesai",
-      time: "Terkumpul Monday, 22 August 2022, 17.37",
-      mark: "20,00",
-      score: "66,00",
-      review: "Tidak diizinkan",
-    },
-    {
-      id: 2,
-      state: "Selesai",
-      time: "Terkumpul Wednesday, 24 August 2022, 13:49",
-      mark: "10,00",
-      score: "33,00",
-      review: "Tidak diizinkan",
-    },
-    {
-      id: 3,
-      state: "Selesai",
-      time: "Terkumpul Thursday, 20 October 2022, 03:00",
-      mark: "20,00",
-      score: "66,00",
-      review: "Tidak diizinkan",
-    },
-    {
-      id: 4,
-      state: "Selesai",
-      time: "Terkumpul Thursday, 27 October 2022, 16:57",
-      mark: "20,00",
-      score: "66,00",
-      review: "Tidak diizinkan",
-    },
-  ]);
-
-  const question = [
-    {
-      id: "1",
-      question:
-        "Sebagai seorang pekerja yang mengalami kurang waktu tidurnya, apa yang semestinya anda lakukan",
-      subquestion: "Pilih salah satu:",
-      answeroption: [
-        "Langsung istirahat",
-        "Diam saja dan tetap bekerja",
-        "Langsung pulang",
-        "Melapor kepada atasannya",
-      ],
-      trueanswer: "Melapor kepada atasannya",
-    },
-    {
-      id: "2",
-      question: "APD apa yang harus dipakai saat anda terpapar kebisingan",
-      subquestion: "Pilih salah satu:",
-      answeroption: [
-        "Safety full body harness",
-        "Sepatu safety",
-        "Ear plug",
-        "Pelampung",
-      ],
-      trueanswer: "Ear plug",
-    },
-    {
-      id: "3",
-      question:
-        "Bagaimana sikap anda terhadap teman sekerja yang pernah mengalami kecelakaan kerja",
-      subquestion: "Pilih salah satu:",
-      answeroption: [
-        "Menjauhi teman tersebut dan tidak ingin bekerja sama dengannya",
-        "Tidak ingin bekerja satu shift dengannya",
-        "Membimbingnya dan saling bekerja sama",
-        "a dan b benar",
-      ],
-      trueanswer: "Membimbingnya dan saling bekerja sama",
-    },
-  ];
-
   const handleFinishTest = () => {
-    setRecord((object) => [
-      ...object,
-      {
-        id: record.length + 1,
-        state: answers.length < question.length ? "Tidak Selesai" : "Selesai",
-        time: "Terkumpul " + date,
-        mark: mark.reduce((a, v) => (a = a + v)) + "0,00",
-        score:
-          Math.trunc(
-            (100 / question.length) * mark.reduce((a, v) => (a = a + v))
-          ) +
-          (Math.trunc(
-            (100 / question.length) * mark.reduce((a, v) => (a = a + v))
-          ) > 9
-            ? ",00"
-            : "0,00"),
-        review: "Tidak diizinkan",
-      },
-    ]);
+    if (currentSection == "Pre-Test") {
+      setRecordPreTest((object) => [
+        ...object,
+        {
+          id: recordPreTest.length + 1,
+          state:
+            answers.length < questionData.length ? "Tidak Selesai" : "Selesai",
+          time: "Terkumpul " + date,
+          mark: mark.reduce((a, v) => (a = a + v)) + "0,00",
+          score:
+            Math.trunc(
+              (100 / questionData.length) * mark.reduce((a, v) => (a = a + v))
+            ) +
+            (Math.trunc(
+              (100 / questionData.length) * mark.reduce((a, v) => (a = a + v))
+            ) > 9
+              ? ",00"
+              : "0,00"),
+          review: "Tidak diizinkan",
+        },
+      ]);
+    } else {
+      setRecordPostTest((object) => [
+        ...object,
+        {
+          id: recordPostTest.length + 1,
+          state:
+            answers.length < questionData.length ? "Tidak Selesai" : "Selesai",
+          time: "Terkumpul " + date,
+          mark: mark.reduce((a, v) => (a = a + v)) + "0,00",
+          score:
+            Math.trunc(
+              (100 / questionData.length) * mark.reduce((a, v) => (a = a + v))
+            ) +
+            (Math.trunc(
+              (100 / questionData.length) * mark.reduce((a, v) => (a = a + v))
+            ) > 9
+              ? ",00"
+              : "0,00"),
+          review: "Tidak diizinkan",
+        },
+      ]);
+    }
   };
 
+  useEffect(() => {}, [currentSection]);
+
   useEffect(() => {
-    record.map((data) => {
-      if (data.score.length == 6) {
-        const cutString = data.score.substring(0, 3);
-        const transformInt = parseInt(cutString);
-        if (!scores.includes(data.score)) {
-          scores.push(transformInt);
+    if (currentSection == "Pre-Test") {
+      recordPreTest.map((data) => {
+        if (data.score.length == 6) {
+          const cutString = data.score.substring(0, 3);
+          const transformInt = parseInt(cutString);
+          if (!scores.includes(data.score)) {
+            scores.push(transformInt);
+          }
+        } else {
+          const cutString = data.score.substring(0, 2);
+          const transformInt = parseInt(cutString);
+          if (!scores.includes(data.score)) {
+            scores.push(transformInt);
+          }
         }
-      } else {
-        const cutString = data.score.substring(0, 2);
-        const transformInt = parseInt(cutString);
-        if (!scores.includes(data.score)) {
-          scores.push(transformInt);
+      });
+      setHighestScorePreTest(Math.max(...scores));
+    } else {
+      recordPostTest.map((data) => {
+        if (data.score.length == 6) {
+          const cutString = data.score.substring(0, 3);
+          const transformInt = parseInt(cutString);
+          if (!scores.includes(data.score)) {
+            scores.push(transformInt);
+          }
+        } else {
+          const cutString = data.score.substring(0, 2);
+          const transformInt = parseInt(cutString);
+          if (!scores.includes(data.score)) {
+            scores.push(transformInt);
+          }
         }
-      }
-    });
-    setHighest(Math.max(...scores));
+      });
+      setHighestScorePostTest(Math.max(...scores));
+    }
   }, [doTest]);
 
-  const tableArr = record.map((data) => {
+  const tableArr = (
+    currentSection == "Pre-Test" ? recordPreTest : recordPostTest
+  ).map((data) => {
     return (
       <tr>
         <th className="text-center" scope="row">
@@ -196,7 +178,7 @@ const SectionPreTest = () => {
     );
   });
 
-  const questionArr = question
+  const questionArr = questionData
     .slice(currentQuestion - 1, currentQuestion)
     .map((data) => {
       return (
@@ -443,7 +425,7 @@ const SectionPreTest = () => {
             </div>
             <div className="col d-flex justify-content-end">
               <div>
-                {currentQuestion != question.length ? (
+                {currentQuestion != questionData.length ? (
                   <button
                     className="next-prev-question py-1"
                     onClick={() => {
@@ -531,6 +513,11 @@ const SectionPreTest = () => {
                                     setAnswers([""]);
                                     setHesitantAnswer([false]);
                                     setMark([0]);
+                                    {
+                                      currentSection == "Pre-Test"
+                                        ? setMark([0])
+                                        : handleUpdateSection5("done");
+                                    }
                                   }}
                                 >
                                   Kumpulkan dan selesai
@@ -550,7 +537,7 @@ const SectionPreTest = () => {
       );
     });
 
-  const indicatorArr = question.map((data) => {
+  const indicatorArr = questionData.map((data) => {
     return (
       <button
         className={
@@ -584,7 +571,8 @@ const SectionPreTest = () => {
                 <label>Metode penilaian: Nilai Tertinggi</label>
               </div>
             </div>
-            {record.length > 0 ? (
+            {(currentSection == "Pre-Test" ? recordPreTest : recordPostTest)
+              .length > 0 ? (
               <div className="summary-table mt-5">
                 <div className="mb-3">
                   <h6>Ringkasan usaha-usaha sebelumnya</h6>
@@ -609,12 +597,19 @@ const SectionPreTest = () => {
                   </thead>
                   <tbody className="align-middle">{tableArr}</tbody>
                 </table>
-                <label>Nilai Tertinggi: {highest},00 / 100,00.</label>
+                <label>
+                  Nilai Tertinggi:{" "}
+                  {currentSection == "Pre-Test"
+                    ? highestScorePreTest
+                    : highestScorePostTest}
+                  ,00 / 100,00.
+                </label>
               </div>
             ) : (
               ""
             )}
-            {record.length < 5 ? (
+            {(currentSection == "Pre-Test" ? recordPreTest : recordPostTest)
+              .length < 5 ? (
               <div className="do-test d-flex justify-content-center mt-5">
                 <button
                   className="modal-button px-3 py-2"
@@ -789,6 +784,11 @@ const SectionPreTest = () => {
                                       setAnswers([""]);
                                       setHesitantAnswer([false]);
                                       setMark([0]);
+                                      {
+                                        currentSection == "Pre-Test"
+                                          ? setMark([0])
+                                          : handleUpdateSection5("done");
+                                      }
                                     }}
                                   >
                                     Kumpulkan dan selesai
@@ -811,4 +811,4 @@ const SectionPreTest = () => {
   );
 };
 
-export default SectionPreTest;
+export default SectionPrePostTest;

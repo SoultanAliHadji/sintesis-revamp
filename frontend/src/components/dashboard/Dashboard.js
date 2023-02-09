@@ -21,6 +21,86 @@ const Dashboard = ({
   const [courseId, setCourseId] = useState();
   const [courseTitle, setCourseTitle] = useState();
   const [currentTrainingPage, setCurrentTrainingPage] = useState();
+  const [highestScorePreTest, setHighestScorePreTest] = useState();
+  const [highestScorePostTest, setHighestScorePostTest] = useState();
+
+  const questionData = [
+    {
+      id: "1",
+      question:
+        "Sebagai seorang pekerja yang mengalami kurang waktu tidurnya, apa yang semestinya anda lakukan",
+      subquestion: "Pilih salah satu:",
+      answeroption: [
+        "Langsung istirahat",
+        "Diam saja dan tetap bekerja",
+        "Langsung pulang",
+        "Melapor kepada atasannya",
+      ],
+      trueanswer: "Melapor kepada atasannya",
+    },
+    {
+      id: "2",
+      question: "APD apa yang harus dipakai saat anda terpapar kebisingan",
+      subquestion: "Pilih salah satu:",
+      answeroption: [
+        "Safety full body harness",
+        "Sepatu safety",
+        "Ear plug",
+        "Pelampung",
+      ],
+      trueanswer: "Ear plug",
+    },
+    {
+      id: "3",
+      question:
+        "Bagaimana sikap anda terhadap teman sekerja yang pernah mengalami kecelakaan kerja",
+      subquestion: "Pilih salah satu:",
+      answeroption: [
+        "Menjauhi teman tersebut dan tidak ingin bekerja sama dengannya",
+        "Tidak ingin bekerja satu shift dengannya",
+        "Membimbingnya dan saling bekerja sama",
+        "a dan b benar",
+      ],
+      trueanswer: "Membimbingnya dan saling bekerja sama",
+    },
+  ];
+
+  const [recordPreTest, setRecordPreTest] = useState([
+    {
+      id: 1,
+      state: "Selesai",
+      time: "Terkumpul Monday, 22 August 2022, 17.37",
+      mark: "20,00",
+      score: "66,00",
+      review: "Tidak diizinkan",
+    },
+    {
+      id: 2,
+      state: "Selesai",
+      time: "Terkumpul Wednesday, 24 August 2022, 13:49",
+      mark: "10,00",
+      score: "33,00",
+      review: "Tidak diizinkan",
+    },
+    {
+      id: 3,
+      state: "Selesai",
+      time: "Terkumpul Thursday, 20 October 2022, 03:00",
+      mark: "20,00",
+      score: "66,00",
+      review: "Tidak diizinkan",
+    },
+    {
+      id: 4,
+      state: "Selesai",
+      time: "Terkumpul Thursday, 27 October 2022, 16:57",
+      mark: "20,00",
+      score: "66,00",
+      review: "Tidak diizinkan",
+    },
+  ]);
+
+  const [recordPostTest, setRecordPostTest] = useState([]);
 
   const handleTrainingTitle = (data) => {
     setTrainingTitle(data);
@@ -178,6 +258,15 @@ const Dashboard = ({
           courseTitle={courseTitle}
           handleCourseId={handleCourseId}
           handleCurrentTrainingPage={handleCurrentTrainingPage}
+          questionData={questionData}
+          recordPreTest={recordPreTest}
+          setRecordPreTest={setRecordPreTest}
+          recordPostTest={recordPostTest}
+          setRecordPostTest={setRecordPostTest}
+          highestScorePreTest={highestScorePreTest}
+          setHighestScorePreTest={setHighestScorePreTest}
+          highestScorePostTest={highestScorePostTest}
+          setHighestScorePostTest={setHighestScorePostTest}
         />
       )}
     </div>

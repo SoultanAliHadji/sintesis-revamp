@@ -1,9 +1,8 @@
 import "../../../App.css";
-import SectionPreTest from "./SectionPreTest";
+import SectionPrePostTest from "./SectionPrePostTest";
 import SectionH5P from "./SectionH5P";
 import SectionVideo from "./SectionVideo";
 import SectionCourse from "./SectionCourse";
-import SectionPostTest from "./SectionPostTest";
 import SectionCertificate from "./SectionCertificate";
 import { Icon } from "@iconify/react";
 import { useState, useEffect } from "react";
@@ -14,6 +13,15 @@ const Training = ({
   courseTitle,
   handleCourseId,
   handleCurrentTrainingPage,
+  questionData,
+  recordPreTest,
+  setRecordPreTest,
+  recordPostTest,
+  setRecordPostTest,
+  highestScorePreTest,
+  setHighestScorePreTest,
+  highestScorePostTest,
+  setHighestScorePostTest,
 }) => {
   const [progress, setProcess] = useState(50);
   const [currentSubSection, setCurrentSubSection] = useState();
@@ -66,13 +74,18 @@ const Training = ({
       status: data,
     };
     newArr[4] = { id: 5, section: "Post-Test", status: data };
+    setSectionData(newArr);
+    setProcess(100);
+  };
+
+  const handleUpdateSection6 = (data) => {
+    let newArr = [...sectionData];
     newArr[5] = {
       id: 6,
       section: "Sertifikat Kelompok Materi Pelatihan Dasar (KMPD)",
       status: data,
     };
     setSectionData(newArr);
-    setProcess(100);
   };
 
   const sectionArr = sectionData.map((data) => {
@@ -382,8 +395,20 @@ const Training = ({
             <div>{sectionArr}</div>
           </div>
           <div className="col-9 p-4">
-            {currentSection == "Pre-Test" ? (
-              <SectionPreTest />
+            {currentSection == "Pre-Test" || currentSection == "Post-Test" ? (
+              <SectionPrePostTest
+                questionData={questionData}
+                recordPreTest={recordPreTest}
+                setRecordPreTest={setRecordPreTest}
+                recordPostTest={recordPostTest}
+                setRecordPostTest={setRecordPostTest}
+                currentSection={currentSection}
+                handleUpdateSection5={handleUpdateSection5}
+                highestScorePreTest={highestScorePreTest}
+                setHighestScorePreTest={setHighestScorePreTest}
+                highestScorePostTest={highestScorePostTest}
+                setHighestScorePostTest={setHighestScorePostTest}
+              />
             ) : currentSection == "Video H5P" &&
               currentSubSection ==
                 "1. Opening dan Perundang-undangan Intera..." ? (
@@ -392,11 +417,12 @@ const Training = ({
               <SectionVideo />
             ) : currentSection == "KMPD Berbasis Perilaku dan Golden Rules" ? (
               <SectionCourse />
-            ) : currentSection == "Post-Test" ? (
-              <SectionPostTest handleUpdateSection5={handleUpdateSection5} />
             ) : currentSection ==
               "Sertifikat Kelompok Materi Pelatihan Dasar (KMPD)" ? (
-              <SectionCertificate progress={progress} />
+              <SectionCertificate
+                progress={progress}
+                handleUpdateSection6={handleUpdateSection6}
+              />
             ) : (
               ""
             )}

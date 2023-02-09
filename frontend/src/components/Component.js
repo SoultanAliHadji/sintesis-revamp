@@ -344,7 +344,7 @@ const Component = () => {
                         <div className="custom-dropdown">{courseArr4}</div>
                       </ul>
                     </li>
-                    <li className="btn-group dropdown-child d-flex">
+                    <li className="btn-group dropend dropdown-child d-flex">
                       <button
                         type="button"
                         className="btn dropdown-toggle text-start"
