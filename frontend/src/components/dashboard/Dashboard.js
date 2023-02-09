@@ -270,7 +270,7 @@ const Dashboard = ({
               </div>
             </div>
           </div>
-          <div>
+          <div className="mb-3">
             {currentPage == "allTraining" ? (
               <AllTraining
                 handleTrainingTitle={handleTrainingTitle}
