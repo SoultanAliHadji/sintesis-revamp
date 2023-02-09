@@ -17,7 +17,7 @@ const SectionCertificate = ({ progress, handleUpdateSection6 }) => {
                 <button className="px-3 py-2" onClick={() => {handleUpdateSection6("done")}}>Download Sertifikat</button>
               </div>
             </div>
-            {progress < 100 ? (
+            {progress < 99 ? (
               <div className="certificate-lock w-100 h-100 d-flex justify-content-center align-items-center">
                 <div>
                   <div className="d-flex justify-content-center">

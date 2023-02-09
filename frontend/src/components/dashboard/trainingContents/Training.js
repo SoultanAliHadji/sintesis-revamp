@@ -13,6 +13,8 @@ const Training = ({
   courseTitle,
   handleCourseId,
   handleCurrentTrainingPage,
+  sectionData,
+  setSectionData,
   questionData,
   recordPreTest,
   setRecordPreTest,
@@ -23,43 +25,10 @@ const Training = ({
   highestScorePostTest,
   setHighestScorePostTest,
   progress,
-  setProcess,
+  setProgress,
 }) => {
   const [currentSubSection, setCurrentSubSection] = useState();
   const [collapse1, setCollapse1] = useState(false);
-  const [sectionData, setSectionData] = useState([
-    {
-      id: 1,
-      section: "Pre-Test",
-      status: "done",
-    },
-    {
-      id: 2,
-      section: "Video H5P",
-      status: "done",
-    },
-    {
-      id: 3,
-      section: "Video Golden Rules",
-      status: "not yet",
-    },
-    {
-      id: 4,
-      section: "KMPD Berbasis Perilaku dan Golden Rules",
-      status: "not yet",
-    },
-    {
-      id: 5,
-      section: "Post-Test",
-      status: "not yet",
-    },
-    {
-      id: 6,
-      section: "Sertifikat Kelompok Materi Pelatihan Dasar (KMPD)",
-      status: "not yet",
-    },
-  ]);
-
   const [currentSection, setCurrentSection] = useState(sectionData[0].section);
 
   useEffect(() => {
@@ -76,7 +45,7 @@ const Training = ({
     };
     newArr[4] = { id: 5, section: "Post-Test", status: data };
     setSectionData(newArr);
-    setProcess(100);
+    setProgress(99);
   };
 
   const handleUpdateSection6 = (data) => {
@@ -87,6 +56,7 @@ const Training = ({
       status: data,
     };
     setSectionData(newArr);
+    setProgress(100)
   };
 
   const sectionArr = sectionData.map((data) => {

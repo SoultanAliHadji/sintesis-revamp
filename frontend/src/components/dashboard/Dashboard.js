@@ -23,7 +23,40 @@ const Dashboard = ({
   const [currentTrainingPage, setCurrentTrainingPage] = useState();
   const [highestScorePreTest, setHighestScorePreTest] = useState();
   const [highestScorePostTest, setHighestScorePostTest] = useState();
-  const [progress, setProcess] = useState(50);
+  const [progress, setProgress] = useState(35);
+
+  const [sectionData, setSectionData] = useState([
+    {
+      id: 1,
+      section: "Pre-Test",
+      status: "done",
+    },
+    {
+      id: 2,
+      section: "Video H5P",
+      status: "done",
+    },
+    {
+      id: 3,
+      section: "Video Golden Rules",
+      status: "not yet",
+    },
+    {
+      id: 4,
+      section: "KMPD Berbasis Perilaku dan Golden Rules",
+      status: "not yet",
+    },
+    {
+      id: 5,
+      section: "Post-Test",
+      status: "not yet",
+    },
+    {
+      id: 6,
+      section: "Sertifikat Kelompok Materi Pelatihan Dasar (KMPD)",
+      status: "not yet",
+    },
+  ]);
 
   const questionData = [
     {
@@ -260,6 +293,8 @@ const Dashboard = ({
           courseTitle={courseTitle}
           handleCourseId={handleCourseId}
           handleCurrentTrainingPage={handleCurrentTrainingPage}
+          sectionData={sectionData}
+          setSectionData={setSectionData}
           questionData={questionData}
           recordPreTest={recordPreTest}
           setRecordPreTest={setRecordPreTest}
@@ -270,7 +305,7 @@ const Dashboard = ({
           highestScorePostTest={highestScorePostTest}
           setHighestScorePostTest={setHighestScorePostTest}
           progress={progress}
-          setProcess={setProcess}
+          setProgress={setProgress}
         />
       )}
     </div>

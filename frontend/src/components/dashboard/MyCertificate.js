@@ -3,7 +3,6 @@ import { Icon } from "@iconify/react";
 import { useState, useEffect } from "react";
 
 const MyCertificate = () => {
-  const progress = 78;
   const [title, setTitle] = useState();
   const [date, setDate] = useState();
   const api = [
