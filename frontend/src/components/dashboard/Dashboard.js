@@ -23,6 +23,7 @@ const Dashboard = ({
   const [currentTrainingPage, setCurrentTrainingPage] = useState();
   const [highestScorePreTest, setHighestScorePreTest] = useState();
   const [highestScorePostTest, setHighestScorePostTest] = useState();
+  const [progress, setProcess] = useState(50);
 
   const questionData = [
     {
@@ -243,6 +244,7 @@ const Dashboard = ({
                 handleCourseId={handleCourseId}
                 handleCourseTitle={handleCourseTitle}
                 currentTrainingPage={currentTrainingPage}
+                progress={progress}
               />
             ) : currentPage == "myTraining" ? (
               <MyTraining />
@@ -267,6 +269,8 @@ const Dashboard = ({
           setHighestScorePreTest={setHighestScorePreTest}
           highestScorePostTest={highestScorePostTest}
           setHighestScorePostTest={setHighestScorePostTest}
+          progress={progress}
+          setProcess={setProcess}
         />
       )}
     </div>

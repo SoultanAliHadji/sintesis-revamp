@@ -7,13 +7,13 @@ const AllTraining = ({
   handleCourseId,
   handleCourseTitle,
   currentTrainingPage,
+  progress,
 }) => {
   const [currentTraining, setCurrentTraining] = useState(
     currentTrainingPage == null
       ? "Pelatihan-Uji Online SIMAK dan KPO"
       : currentTrainingPage
   );
-  const progress = 0;
   const [search, setSearch] = useState();
   const [filterCourse, setFilterCourse] = useState();
 
@@ -22,8 +22,8 @@ const AllTraining = ({
   };
 
   useEffect(() => {
-    setFilterCourse(null)
-  }, [currentTraining])
+    setFilterCourse(null);
+  }, [currentTraining]);
 
   const trainingData = [
     { title: "Pelatihan-Uji Online SIMAK dan KPO" },

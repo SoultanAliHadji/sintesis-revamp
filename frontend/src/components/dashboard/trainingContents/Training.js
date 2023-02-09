@@ -22,8 +22,9 @@ const Training = ({
   setHighestScorePreTest,
   highestScorePostTest,
   setHighestScorePostTest,
+  progress,
+  setProcess,
 }) => {
-  const [progress, setProcess] = useState(50);
   const [currentSubSection, setCurrentSubSection] = useState();
   const [collapse1, setCollapse1] = useState(false);
   const [sectionData, setSectionData] = useState([
@@ -328,6 +329,7 @@ const Training = ({
                   href="#"
                   onClick={() => {
                     handleCourseId(null);
+                    handleCurrentTrainingPage(null);
                   }}
                 >
                   Dashboard
