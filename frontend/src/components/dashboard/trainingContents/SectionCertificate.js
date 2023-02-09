@@ -2,9 +2,7 @@ import "../../../App.css";
 import { Icon } from "@iconify/react";
 import { useState, useEffect } from "react";
 
-const SectionCertificate = () => {
-  const progress = 80;
-
+const SectionCertificate = ({ progress }) => {
   return (
     <div className="section-certificate px-3 py-4 h-100">
       <div className="row">

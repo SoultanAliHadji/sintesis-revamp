@@ -15,7 +15,7 @@ const Training = ({
   handleCourseId,
   handleCurrentTrainingPage,
 }) => {
-  const progress = 85;
+  const [progress, setProcess] = useState(50);
   const [currentSubSection, setCurrentSubSection] = useState();
   const [collapse1, setCollapse1] = useState(false);
   const [sectionData, setSectionData] = useState([
@@ -58,7 +58,21 @@ const Training = ({
   }, [courseTitle]);
 
   const handleUpdateSection5 = (data) => {
-    sectionData[4] = { id: 5, section: "Post-Test", status: data };
+    let newArr = [...sectionData];
+    newArr[2] = { id: 3, section: "Video Golden Rules", status: data };
+    newArr[3] = {
+      id: 4,
+      section: "KMPD Berbasis Perilaku dan Golden Rules",
+      status: data,
+    };
+    newArr[4] = { id: 5, section: "Post-Test", status: data };
+    newArr[5] = {
+      id: 6,
+      section: "Sertifikat Kelompok Materi Pelatihan Dasar (KMPD)",
+      status: data,
+    };
+    setSectionData(newArr);
+    setProcess(100);
   };
 
   const sectionArr = sectionData.map((data) => {
@@ -382,7 +396,7 @@ const Training = ({
               <SectionPostTest handleUpdateSection5={handleUpdateSection5} />
             ) : currentSection ==
               "Sertifikat Kelompok Materi Pelatihan Dasar (KMPD)" ? (
-              <SectionCertificate />
+              <SectionCertificate progress={progress} />
             ) : (
               ""
             )}

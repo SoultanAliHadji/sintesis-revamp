@@ -465,6 +465,7 @@ const Component = () => {
                           setCurrentTrainingTitle();
                           setCurrentCourseId();
                           setCurrentCourseTitle();
+                          window.scroll(0, 0);
                         }}
                       >
                         <Icon className="icon me-1" icon="radix-icons:person" />
