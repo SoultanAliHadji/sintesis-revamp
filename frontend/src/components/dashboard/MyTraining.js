@@ -2,13 +2,12 @@ import "../../App.css";
 import { Icon } from "@iconify/react";
 import { useState, useEffect } from "react";
 
-const MyTraining = () => {
-  const progress = 78;
+const MyTraining = ({ progress, handleCourseId, handleCourseTitle }) => {
   const api = [
-    { title: "Kelompok Materi Pelatihan Dasar (KMPD)" },
-    { title: "KMKOP Izin Bekerja di Ketinggian" },
-    { title: "KMKOP Izin Bekerja di Dekat Air" },
-    { title: "KMKOP Izin Bekerja pada Ruang Terbatas" },
+    { id: 1, title: "Kelompok Materi Pelatihan Dasar (KMPD)" },
+    { id: 2, title: "KMKOP Izin Bekerja di Ketinggian" },
+    { id: 3, title: "KMKOP Izin Bekerja di Dekat Air" },
+    { id: 4, title: "KMKOP Izin Bekerja pada Ruang Terbatas" },
   ];
 
   const arr = api.map((data) => {
@@ -18,7 +17,11 @@ const MyTraining = () => {
           <div className="training-item p-3 d-flex align-items-center">
             <div className="row">
               <div className="col-3 d-flex align-items-center">
-                <img className="w-75" src={require("../../assets/trainingimg.png")} alt="" />
+                <img
+                  className="w-75"
+                  src={require("../../assets/trainingimg.png")}
+                  alt=""
+                />
               </div>
               <div className="col-9">
                 <div className="content-justify d-flex align-items-start flex-column">
@@ -46,7 +49,16 @@ const MyTraining = () => {
                           ></div>
                         </div>
                       </div>
-                      <button className="px-3">Lanjutkan</button>
+                      <button
+                        className="px-3"
+                        onClick={() => {
+                          handleCourseId(data.id);
+                          handleCourseTitle(data.title);
+                          window.scrollTo(0, 0);
+                        }}
+                      >
+                        Lanjutkan
+                      </button>
                     </div>
                   </div>
                 </div>

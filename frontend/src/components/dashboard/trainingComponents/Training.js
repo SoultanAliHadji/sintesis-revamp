@@ -9,6 +9,8 @@ import { useState, useEffect } from "react";
 
 const Training = ({
   handleRoute,
+  currentPage,
+  setCurrentPage,
   trainingTitle,
   courseTitle,
   handleCourseId,
@@ -56,7 +58,7 @@ const Training = ({
       status: data,
     };
     setSectionData(newArr);
-    setProgress(100)
+    setProgress(100);
   };
 
   const sectionArr = sectionData.map((data) => {
@@ -298,6 +300,7 @@ const Training = ({
                 <a
                   href="#"
                   onClick={() => {
+                    setCurrentPage("allTraining")
                     handleCourseId(null);
                     handleCurrentTrainingPage(null);
                   }}
@@ -314,10 +317,12 @@ const Training = ({
                   href="#"
                   onClick={() => {
                     handleCourseId(null);
-                    handleCurrentTrainingPage(trainingTitle);
+                    currentPage != "myTraining"
+                      ? handleCurrentTrainingPage(trainingTitle)
+                      : handleCurrentTrainingPage();
                   }}
                 >
-                  {trainingTitle}
+                  {currentPage != "myTraining" ? trainingTitle : "My Training"}
                 </a>
               </div>
               <Icon

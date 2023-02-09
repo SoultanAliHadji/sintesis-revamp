@@ -2,6 +2,7 @@ import "../../../App.css";
 import { useState, useEffect } from "react";
 
 const SectionPrePostTest = ({
+  currentPage,
   questionData,
   recordPreTest,
   setRecordPreTest,

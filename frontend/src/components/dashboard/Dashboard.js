@@ -2,7 +2,7 @@ import "../../App.css";
 import AllTraining from "./AllTraining";
 import MyTraining from "./MyTraining";
 import MyCertificate from "./MyCertificate";
-import Training from "./trainingContents/Training";
+import Training from "./trainingComponents/Training";
 import { Icon } from "@iconify/react";
 import { useState, useEffect } from "react";
 
@@ -280,7 +280,11 @@ const Dashboard = ({
                 progress={progress}
               />
             ) : currentPage == "myTraining" ? (
-              <MyTraining />
+              <MyTraining
+                handleCourseId={handleCourseId}
+                handleCourseTitle={handleCourseTitle}
+                progress={progress}
+              />
             ) : (
               <MyCertificate />
             )}
@@ -289,6 +293,8 @@ const Dashboard = ({
       ) : (
         <Training
           handleRoute={handleRoute}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
           trainingTitle={trainingTitle}
           courseTitle={courseTitle}
           handleCourseId={handleCourseId}
