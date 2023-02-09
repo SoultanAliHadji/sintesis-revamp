@@ -8,8 +8,9 @@ const Component = () => {
   const [login, setLogin] = useState(false);
   const [currentPage, setCurrentPage] = useState("landing");
   const [currentPageDetail, setCurrentPageDetail] = useState();
-  const [currentPageDetailTraining, setCurrentPageDetailTraining] =
-    useState(false);
+  const [currentTrainingTitle, setCurrentTrainingTitle] = useState();
+  const [currentCourseId, setCurrentCourseId] = useState();
+  const [currentCourseTitle, setCurrentCourseTitle] = useState();
   const [navOption, setNavOption] = useState();
   const [searchNow, setSearchNow] = useState(false);
 
@@ -20,6 +21,233 @@ const Component = () => {
   const handleRouteDetail = (data) => {
     setCurrentPageDetail(data);
   };
+
+  const courseData1 = [
+    { id: 1, title: "Pelatihan-Uji Online SIMAK dan KPO 2022" },
+    { id: 2, title: "Trainer Instructor Development Program (TIDP)" },
+    { id: 3, title: "Fatigue Management" },
+    { id: 4, title: "Pelatihan Emergency Response" },
+  ];
+
+  const courseData2 = [
+    {
+      id: 44,
+      title: "Surat Penunjukan Tenaga Teknis",
+      training: "Advance Training",
+    },
+    {
+      id: 45,
+      title: "Surat Penunjukan Pengawas Teknis",
+      training: "Advance Training",
+    },
+    {
+      id: 46,
+      title: "Surat Penunjukan Pengawas Operasional",
+      training: "Advance Training",
+    },
+    { id: 47, title: "E-Induksi BUMA", training: "Advance Training" },
+    {
+      id: 48,
+      title: "Pendidikan dan Pelatihan Pengelola Peledakan (KPP Pertama)",
+      training: "Advance Training",
+    },
+    {
+      id: 49,
+      title: "Frontline Behavior Based Safety",
+      training: "Advance Training",
+    },
+    {
+      id: 50,
+      title: "SINTESIS+",
+      training: "Advance Training",
+      training: "Advance Training",
+    },
+  ];
+
+  const courseData3 = [
+    {
+      id: 51,
+      title: "KELOMPOK MATERI PELATIHAN DASAR (KMPD) 2022",
+      training: "Program Sintesis",
+    },
+    {
+      id: 52,
+      title:
+        "Pencegahan Kecelakaan Akibat  Fatigue dengan Konsep SBS (Sistem Bekerja Selamat)",
+      training: "Program Sintesis",
+    },
+    {
+      id: 53,
+      title:
+        "Pengawasan Langsung Berjarak: Dalam Meningkatkan Keselamatan Kerja & Produktivitas Tambang",
+      training: "Program Sintesis",
+    },
+  ];
+
+  const courseData4 = [
+    {
+      id: 54,
+      title: "PIT SERVICE - WEEKLY REFRESH COMPETENCY",
+      training: "Weekly Refresh Competency",
+    },
+    {
+      id: 55,
+      title: "PLANT - WEEKLY REFRESH COMPETENCY",
+      training: "Weekly Refresh Competency",
+    },
+    {
+      id: 56,
+      title: "DO & DON'T EKSPLORASI",
+      training: "Weekly Refresh Competency",
+    },
+    {
+      id: 57,
+      title: "Drill & Blast - WEEKLY REFRESH COMPETENCY",
+      training: "Weekly Refresh Competency",
+    },
+    {
+      id: 58,
+      title: "MINING & HAULING OPERATION - WEEKLY REFRESH COMPETENCY",
+      training: "Weekly Refresh Competency",
+    },
+    {
+      id: 59,
+      title: "DO AND DON'T MARINE - WEEKLY REFRESH COMPETENCY",
+      training: "Weekly Refresh Competency",
+    },
+  ];
+
+  const courseData5 = [
+    { id: 60, title: "Surat Penunjukan Tenaga Teknis", training: "SOP" },
+  ];
+
+  const courseArr1 = courseData1.map((data) => {
+    return (
+      <li>
+        <a
+          className="dropdown-item"
+          href="#"
+          onClick={() => {
+            setCurrentPageDetail("allTraining");
+            setCurrentCourseTitle(null);
+            setNavOption("op1");
+            login == true
+              ? setCurrentPage("dashboard")
+              : setCurrentPage("landing");
+            window.scrollTo(0, 0);
+          }}
+          data-bs-toggle={login == false ? "modal" : ""}
+          data-bs-target={login == false ? "#loginModal" : ""}
+        >
+          {data.title}
+        </a>
+      </li>
+    );
+  });
+
+  const courseArr2 = courseData2.map((data) => {
+    return (
+      <li>
+        <a
+          className="dropdown-item"
+          href="#"
+          onClick={() => {
+            setCurrentPageDetail("allTraining");
+            setCurrentTrainingTitle(data.training);
+            setCurrentCourseTitle(data.title);
+            setCurrentCourseId(data.id);
+            setNavOption("op1");
+            login == true
+              ? setCurrentPage("dashboard")
+              : setCurrentPage("landing");
+            window.scrollTo(0, 0);
+          }}
+          data-bs-toggle={login == false ? "modal" : ""}
+          data-bs-target={login == false ? "#loginModal" : ""}
+        >
+          {data.title}
+        </a>
+      </li>
+    );
+  });
+
+  const courseArr3 = courseData3.map((data) => {
+    return (
+      <li>
+        <a
+          className="dropdown-item"
+          href="#"
+          onClick={() => {
+            setCurrentPageDetail("allTraining");
+            setCurrentTrainingTitle(data.training);
+            setCurrentCourseTitle(data.title);
+            setCurrentCourseId(data.id);
+            setNavOption("op1");
+            login == true
+              ? setCurrentPage("dashboard")
+              : setCurrentPage("landing");
+            window.scrollTo(0, 0);
+          }}
+          data-bs-toggle={login == false ? "modal" : ""}
+          data-bs-target={login == false ? "#loginModal" : ""}
+        >
+          {data.title}
+        </a>
+      </li>
+    );
+  });
+
+  const courseArr4 = courseData4.map((data) => {
+    return (
+      <li>
+        <a
+          className="dropdown-item"
+          href="#"
+          onClick={() => {
+            setCurrentPageDetail("allTraining");
+            setCurrentTrainingTitle(data.training);
+            setCurrentCourseTitle(data.title);
+            setCurrentCourseId(data.id);
+            setNavOption("op1");
+            login == true
+              ? setCurrentPage("dashboard")
+              : setCurrentPage("landing");
+            window.scrollTo(0, 0);
+          }}
+          data-bs-toggle={login == false ? "modal" : ""}
+          data-bs-target={login == false ? "#loginModal" : ""}
+        >
+          {data.title}
+        </a>
+      </li>
+    );
+  });
+
+  const courseArr5 = courseData5.map((data) => {
+    return (
+      <li>
+        <a
+          className="dropdown-item"
+          href="#"
+          onClick={() => {
+            setCurrentPageDetail("allTraining");
+            setCurrentTrainingTitle(data.training);
+            setCurrentCourseTitle(data.title);
+            setCurrentCourseId(data.id);
+            setNavOption("op1");
+            login == true
+              ? setCurrentPage("dashboard")
+              : setCurrentPage("landing");
+            window.scrollTo(0, 0);
+          }}
+          data-bs-toggle={login == false ? "modal" : ""}
+          data-bs-target={login == false ? "#loginModal" : ""}
+        >
+          {data.title}
+        </a>
+      </li>
+    );
+  });
 
   return (
     <div className="component">
@@ -74,99 +302,9 @@ const Component = () => {
                         Pelatihan-Ujian SIMAK dan KPO
                       </button>
                       <ul className="dropdown-menu dropdown-menu-child">
-                        <div className="custom-dropdown">
-                          <li>
-                            <a
-                              className="dropdown-item"
-                              href="#"
-                              onClick={() => {
-                                setCurrentPageDetail("allTraining");
-                                setCurrentPageDetailTraining(
-                                  currentPageDetailTraining == false
-                                    ? true
-                                    : false
-                                );
-                                setNavOption("op1");
-                                login == true
-                                  ? setCurrentPage("dashboard")
-                                  : setCurrentPage("landing");
-                                window.scrollTo(0, 0);
-                              }}
-                              data-bs-toggle={login == false ? "modal" : ""}
-                              data-bs-target={
-                                login == false ? "#loginModal" : ""
-                              }
-                            >
-                              Pelatihan-Uji Online SIMAK dan KPO 2022
-                            </a>
-                          </li>
-                          <li>
-                            <a className="dropdown-item" href="#">
-                              Trainer Instructor Development Program (TIDP)
-                            </a>
-                          </li>
-                          <li>
-                            <a className="dropdown-item" href="#">
-                              Fatigue Management
-                            </a>
-                          </li>
-                          <li>
-                            <a className="dropdown-item" href="#">
-                              Pelatihan Emergency Response
-                            </a>
-                          </li>
-                        </div>
+                        <div className="custom-dropdown">{courseArr1}</div>
                       </ul>
                     </li>
-                    {/*<li className="btn-group dropend dropdown-child d-flex">
-                      <button
-                        type="button"
-                        className="btn dropdown-toggle text-start"
-                        data-bs-toggle="dropdown"
-                        aria-expanded="false"
-                      >
-                        Sosialisasi Prosedur Pengawasan
-                      </button>
-                      <ul className="dropdown-menu dropdown-menu-child">
-                        <div className="custom-dropdown">
-                          <li>
-                            <a className="dropdown-item" href="#">
-                              P-SFO-01 Prosedur Pengoperasian Ken...
-                            </a>
-                          </li>
-                          <li>
-                            <a className="dropdown-item" href="#">
-                              P-MNO-10 Prosedur Penimbunan di Ar...
-                            </a>
-                          </li>
-                          <li>
-                            <a className="dropdown-item" href="#">
-                              P-ENV-02 Prosedur Pengelolaan B3 da...
-                            </a>
-                          </li>
-                          <li>
-                            <a className="dropdown-item" href="#">
-                              P-SFO-02 Prosedur Komunikasi Radio
-                            </a>
-                          </li>
-                          <li>
-                            <a className="dropdown-item" href="#">
-                              P-DCR-02 Prosedur Pengelolaan Fatigu...
-                            </a>
-                          </li>
-                          <li>
-                            <a className="dropdown-item" href="#">
-                              P-CMP-10 Prosedur Manajemen Peran...
-                            </a>
-                          </li>
-                          <li>
-                            <a className="dropdown-item" href="#">
-                              P-SFO-04 Prosedur Pengawasan Lang...
-                            </a>
-                          </li>
-                        </div>
-                      </ul>
-                    </li>*/}
                     <li className="btn-group dropend dropdown-child d-flex">
                       <button
                         type="button"
@@ -177,44 +315,7 @@ const Component = () => {
                         Advance Training
                       </button>
                       <ul className="dropdown-menu dropdown-menu-child">
-                        <div className="custom-dropdown">
-                          <li>
-                            <a className="dropdown-item" href="#">
-                              Surat Penunjukan Tenaga Teknis
-                            </a>
-                          </li>
-                          <li>
-                            <a className="dropdown-item" href="#">
-                              Surat Penunjukan Pengawas Teknis
-                            </a>
-                          </li>
-                          <li>
-                            <a className="dropdown-item" href="#">
-                              Surat Penunjukan Pengawas Operasional
-                            </a>
-                          </li>
-                          <li>
-                            <a className="dropdown-item" href="#">
-                              E-Induksi BUMA
-                            </a>
-                          </li>
-                          <li>
-                            <a className="dropdown-item" href="#">
-                              Pendidikan dan Pelatihan Pengelola Peledakan (KPP
-                              Pertama)
-                            </a>
-                          </li>
-                          <li>
-                            <a className="dropdown-item" href="#">
-                              Frontline Behavior Based Safety
-                            </a>
-                          </li>
-                          <li>
-                            <a className="dropdown-item" href="#">
-                              SINTESIS+
-                            </a>
-                          </li>
-                        </div>
+                        <div className="custom-dropdown">{courseArr2}</div>
                       </ul>
                     </li>
                     <li className="btn-group dropend dropdown-child d-flex">
@@ -227,38 +328,7 @@ const Component = () => {
                         Program Sintesis
                       </button>
                       <ul className="dropdown-menu dropdown-menu-child">
-                        <div className="custom-dropdown">
-                          <li>
-                            <a className="dropdown-item" href="#">
-                              K3L Audit
-                            </a>
-                          </li>
-                          <li>
-                            <a className="dropdown-item" href="#">
-                              SOP REFRESHMENT
-                            </a>
-                          </li>
-                          <li>
-                            <a className="dropdown-item" href="#">
-                              Radio Digital
-                            </a>
-                          </li>
-                          <li>
-                            <a className="dropdown-item" href="#">
-                              Kartu Pengawas Coal Getting BMO2
-                            </a>
-                          </li>
-                          <li>
-                            <a className="dropdown-item" href="#">
-                              SINTESIS+ Webinar
-                            </a>
-                          </li>
-                          <li>
-                            <a className="dropdown-item" href="#">
-                              HSE Committee Meeting Tingkat 1
-                            </a>
-                          </li>
-                        </div>
+                        <div className="custom-dropdown">{courseArr3}</div>
                       </ul>
                     </li>
                     <li className="btn-group dropend dropdown-child d-flex">
@@ -271,53 +341,21 @@ const Component = () => {
                         Weekly Refresh Competency
                       </button>
                       <ul className="dropdown-menu dropdown-menu-child">
-                        <div className="custom-dropdown">
-                          <li>
-                            <a className="dropdown-item" href="#">
-                              Weekly Refresh Competency
-                            </a>
-                          </li>
-                        </div>
+                        <div className="custom-dropdown">{courseArr4}</div>
                       </ul>
                     </li>
-                    {/*<li className="btn-group dropend dropdown-child d-flex">
+                    <li className="btn-group dropdown-child d-flex">
                       <button
                         type="button"
                         className="btn dropdown-toggle text-start"
                         data-bs-toggle="dropdown"
                         aria-expanded="false"
                       >
-                        Dokumen
-                      </button>
-                      <ul className="dropdown-menu dropdown-menu-child">
-                        <div className="custom-dropdown">
-                          <li>
-                            <a className="dropdown-item" href="#">
-                              HIRA Internal
-                            </a>
-                          </li>
-                          <li>
-                            <a className="dropdown-item" href="#">
-                              Dokumen BeGeMS Internal
-                            </a>
-                          </li>
-                          <li>
-                            <a className="dropdown-item" href="#">
-                              HIRA Mitra Kerja
-                            </a>
-                          </li>
-                          <li>
-                            <a className="dropdown-item" href="#">
-                              Dokumen BeGeMS Mitra Kerja
-                            </a>
-                          </li>
-                        </div>
-                      </ul>
-                    </li>*/}
-                    <li className="btn-group dropdown-child d-flex">
-                      <button type="button" className="btn text-start">
                         SOP
                       </button>
+                      <ul className="dropdown-menu dropdown-menu-child">
+                        <div className="custom-dropdown">{courseArr5}</div>
+                      </ul>
                     </li>
                   </ul>
                 </li>
@@ -352,7 +390,6 @@ const Component = () => {
                   <a className="nav-link active" aria-current="page" href="#">
                     Panduan
                   </a>
-                  {currentPageDetailTraining}
                 </li>
               </ul>
               <div className="d-flex justify-content-end align-items-center gap-2">
@@ -422,7 +459,12 @@ const Component = () => {
                         data-bs-toggle="modal"
                         data-bs-target="#loginModal"
                         onClick={() => {
+                          setCurrentPage("landing");
+                          setCurrentPageDetail();
                           setNavOption();
+                          setCurrentTrainingTitle();
+                          setCurrentCourseId();
+                          setCurrentCourseTitle();
                         }}
                       >
                         <Icon className="icon me-1" icon="radix-icons:person" />
@@ -556,7 +598,9 @@ const Component = () => {
               handleRoute={handleRoute}
               handleRouteDetail={handleRouteDetail}
               currentPageDetail={currentPageDetail}
-              currentPageDetailTraining={currentPageDetailTraining}
+              currentTrainingTitle={currentTrainingTitle}
+              currentCourseId={currentCourseId}
+              currentCourseTitle={currentCourseTitle}
             />
           ) : currentPage == "dashboard" &&
             currentPageDetail == "myCertificate" ? (
@@ -564,7 +608,9 @@ const Component = () => {
               handleRoute={handleRoute}
               handleRouteDetail={handleRouteDetail}
               currentPageDetail={currentPageDetail}
-              currentPageDetailTraining={currentPageDetailTraining}
+              currentTrainingTitle={currentTrainingTitle}
+              currentCourseId={currentCourseId}
+              currentCourseTitle={currentCourseTitle}
             />
           ) : (
             ""

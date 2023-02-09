@@ -53,6 +53,10 @@ const Training = ({
 
   const [currentSection, setCurrentSection] = useState(sectionData[0].section);
 
+  useEffect(() => {
+    setCurrentSection(sectionData[0].section);
+  }, [courseTitle]);
+
   const handleUpdateSection5 = (data) => {
     sectionData[4] = { id: 5, section: "Post-Test", status: data };
   };

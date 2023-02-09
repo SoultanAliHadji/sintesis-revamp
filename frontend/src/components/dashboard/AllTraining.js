@@ -21,6 +21,10 @@ const AllTraining = ({
     setSearch(data.target.value);
   };
 
+  useEffect(() => {
+    setFilterCourse(null)
+  }, [currentTraining])
+
   const trainingData = [
     { title: "Pelatihan-Uji Online SIMAK dan KPO" },
     { title: "Advance Training" },

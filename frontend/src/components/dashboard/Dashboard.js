@@ -10,7 +10,9 @@ const Dashboard = ({
   handleRoute,
   handleRouteDetail,
   currentPageDetail,
-  currentPageDetailTraining,
+  currentTrainingTitle,
+  currentCourseTitle,
+  currentCourseId,
 }) => {
   const [currentPage, setCurrentPage] = useState(
     currentPageDetail == null ? "allTraining" : currentPageDetail
@@ -42,8 +44,10 @@ const Dashboard = ({
   }, [currentPageDetail]);
 
   useEffect(() => {
-    setCourseId(null)
-  }, [currentPageDetailTraining]);
+    setTrainingTitle(currentTrainingTitle);
+    setCourseTitle(currentCourseTitle);
+    setCourseId(currentCourseId);
+  }, [currentCourseTitle]);
 
   return (
     <div>
