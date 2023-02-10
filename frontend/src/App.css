@@ -31,6 +31,15 @@
   color: #292929;
 }
 
+.navigation-bar .dropdown-child button {
+  white-space: nowrap;
+  width: max-content;
+}
+
+.navigation-bar .dropdown-child button .icon {
+  font-size: 18px;
+}
+
 .navigation-bar form {
   height: max-content;
 }
@@ -86,7 +95,7 @@
 
 .navigation-bar .dropdown-parent:hover .dropdown-menu-parent {
   display: block;
-  margin-top: 0;
+  margin-top: 0px;
 }
 
 .navigation-bar .dropdown-parent .dropdown-menu-parent .dropdown-item:hover {
@@ -123,11 +132,11 @@
 
 .navigation-bar .dropdown-child:hover .dropdown-menu-child {
   display: block;
+  top: -16px;
   left: 100%;
   right: auto;
   background-color: transparent;
   padding-left: 4px;
-  padding-top: 0px;
   padding-bottom: 0px;
   border: none;
 }
@@ -143,7 +152,7 @@
   background-color: #C3FFA9;
 }
 
-.navigation-bar .dropdown-menu .dropdown-toggle, .dropdown-item {
+.navigation-bar .dropdown-menu .dropdown-toggle, .dropdown-toggler, .dropdown-item {
   font-size: 14px !important;
   font-weight: 500 !important;
 }
@@ -369,6 +378,7 @@
   color: #3B9315;
   text-decoration: none;
   font-weight: 500;
+  cursor: pointer;
 }
 
 .landing-page .category .see-all-button:hover {
@@ -591,7 +601,8 @@
 }
 
 .dashboard-page .training-section .training-navigation .collapse-section .collapse-button .collapse-icon .icon {
-  font-size: 18px;
+  font-size: 20px;
+  margin-right: -8px !important;
 }
 
 .dashboard-page .training-section .training-navigation .collapse-section .collapse-button .collapse-icon .active-collapse {
@@ -622,7 +633,7 @@
 .dashboard-page .training-section .training-navigation .collapse-section .collapse .active-sub-training:hover {
   background-image: linear-gradient(to right, #64D035, #64D035);
   color: white;
-  
+
 }
 
 .training-section .search-container {
@@ -639,6 +650,7 @@
   background-color: white;
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.12);
   border-radius: 4px;
+  cursor: grab;
 }
 
 .dashboard-page .training-section .topic label {

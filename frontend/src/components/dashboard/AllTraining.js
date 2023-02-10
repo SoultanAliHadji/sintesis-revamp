@@ -405,8 +405,8 @@ const AllTraining = ({
             }}
           >
             <div className="row">
-              <div className="col-10">{data.title}</div>
-              <div className="collapse-icon d-flex justify-content-end align-items-center col-2">
+              <div className="col-9">{data.title}</div>
+              <div className="collapse-icon d-flex justify-content-end align-items-center col-3">
                 <Icon
                   className={
                     "icon" + (collapse == true ? " active-collapse" : "")
@@ -646,7 +646,7 @@ const AllTraining = ({
             </div>
           </div>
           <div className="col-9">
-            <div className="d-flex search-container">
+            <div className="d-flex search-container mb-1">
               <form className="mb-1 w-100" role="search">
                 <input
                   className="form-control ps-5"
@@ -663,7 +663,7 @@ const AllTraining = ({
                 <Icon className="icon" icon="uil:search" />
               </div>
             </div>
-            <div className="topic px-2 py-1">
+            <div className="topic px-2 py-1 mb-2">
               <div className="d-flex">
                 <div className="d-flex align-items-center">
                   <label className="me-2">Topik:</label>

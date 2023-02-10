@@ -295,11 +295,21 @@ const Component = () => {
                     <li className="btn-group dropend dropdown-child d-flex">
                       <button
                         type="button"
-                        className="btn dropdown-toggle text-start"
+                        className="btn dropdown-toggler text-start"
                         data-bs-toggle="dropdown"
                         aria-expanded="false"
                       >
-                        Pelatihan-Ujian SIMAK dan KPO
+                        <div className="row p-0">
+                          <div className="col-8">
+                            Pelatihan-Ujian SIMAK dan KPO
+                          </div>
+                          <div className="col-4 d-flex justify-content-end align-items-center">
+                            <Icon
+                              className="icon"
+                              icon="material-symbols:chevron-right-rounded"
+                            />
+                          </div>
+                        </div>
                       </button>
                       <ul className="dropdown-menu dropdown-menu-child">
                         <div className="custom-dropdown">{courseArr1}</div>
@@ -308,11 +318,19 @@ const Component = () => {
                     <li className="btn-group dropend dropdown-child d-flex">
                       <button
                         type="button"
-                        className="btn dropdown-toggle text-start"
+                        className="btn dropdown-toggler text-start"
                         data-bs-toggle="dropdown"
                         aria-expanded="false"
                       >
-                        Advance Training
+                        <div className="row p-0">
+                          <div className="col-8">Advance Training</div>
+                          <div className="col-4 d-flex justify-content-end align-items-center">
+                            <Icon
+                              className="icon"
+                              icon="material-symbols:chevron-right-rounded"
+                            />
+                          </div>
+                        </div>
                       </button>
                       <ul className="dropdown-menu dropdown-menu-child">
                         <div className="custom-dropdown">{courseArr2}</div>
@@ -321,11 +339,19 @@ const Component = () => {
                     <li className="btn-group dropend dropdown-child d-flex">
                       <button
                         type="button"
-                        className="btn dropdown-toggle text-start"
+                        className="btn dropdown-toggler text-start"
                         data-bs-toggle="dropdown"
                         aria-expanded="false"
                       >
-                        Program Sintesis
+                        <div className="row p-0">
+                          <div className="col-8">Program Sintesis</div>
+                          <div className="col-4 d-flex justify-content-end align-items-center">
+                            <Icon
+                              className="icon"
+                              icon="material-symbols:chevron-right-rounded"
+                            />
+                          </div>
+                        </div>
                       </button>
                       <ul className="dropdown-menu dropdown-menu-child">
                         <div className="custom-dropdown">{courseArr3}</div>
@@ -334,11 +360,19 @@ const Component = () => {
                     <li className="btn-group dropend dropdown-child d-flex">
                       <button
                         type="button"
-                        className="btn dropdown-toggle text-start"
+                        className="btn dropdown-toggler text-start"
                         data-bs-toggle="dropdown"
                         aria-expanded="false"
                       >
-                        Weekly Refresh Competency
+                        <div className="row p-0">
+                          <div className="col-8">Weekly Refresh Competency</div>
+                          <div className="col-4 d-flex justify-content-end align-items-center">
+                            <Icon
+                              className="icon"
+                              icon="material-symbols:chevron-right-rounded"
+                            />
+                          </div>
+                        </div>
                       </button>
                       <ul className="dropdown-menu dropdown-menu-child">
                         <div className="custom-dropdown">{courseArr4}</div>
@@ -347,11 +381,19 @@ const Component = () => {
                     <li className="btn-group dropend dropdown-child d-flex">
                       <button
                         type="button"
-                        className="btn dropdown-toggle text-start"
+                        className="btn dropdown-toggler text-start"
                         data-bs-toggle="dropdown"
                         aria-expanded="false"
                       >
-                        SOP
+                        <div className="row p-0">
+                          <div className="col-8">SOP</div>
+                          <div className="col-4 d-flex justify-content-end align-items-center">
+                            <Icon
+                              className="icon"
+                              icon="material-symbols:chevron-right-rounded"
+                            />
+                          </div>
+                        </div>
                       </button>
                       <ul className="dropdown-menu dropdown-menu-child">
                         <div className="custom-dropdown">{courseArr5}</div>
@@ -593,7 +635,16 @@ const Component = () => {
       <div className="mt-5 pt-2">
         <div>
           {currentPage == "landing" ? (
-            <Landing handleRoute={handleRoute} />
+            <Landing
+              login={login}
+              setLogin={setLogin}
+              handleRoute={handleRoute}
+              currentPageDetail={currentPageDetail}
+              setCurrentPageDetail={setCurrentPageDetail}
+              navOption={navOption}
+              setCurrentCourseTitle={setCurrentCourseTitle}
+              setNavOption={setNavOption}
+            />
           ) : currentPage == "dashboard" && navOption == "op1" ? (
             <Dashboard
               handleRoute={handleRoute}

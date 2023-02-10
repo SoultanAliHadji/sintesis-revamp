@@ -4,7 +4,16 @@ import { Icon } from "@iconify/react";
 import CountUp, { useCountUp } from "react-countup";
 import { useState, useEffect } from "react";
 
-const Landing = () => {
+const Landing = ({
+  login,
+  setLogin,
+  handleRoute,
+  currentPageDetail,
+  setCurrentPageDetail,
+  navOption,
+  setCurrentCourseTitle,
+  setNavOption,
+}) => {
   const [filterdate, setFilterdate] = useState(new Date());
 
   return (
@@ -65,35 +74,35 @@ const Landing = () => {
               </div>
             </div>
             <div className="carousel-inner">
-              <div className="carousel-item active" data-bs-interval="3000">
+              <div className="carousel-item active" data-bs-interval="000">
                 <img
                   src={require("../../assets/carousel1.jpg")}
                   className="d-block w-100"
                   alt="..."
                 />
               </div>
-              <div className="carousel-item" data-bs-interval="3000">
+              <div className="carousel-item" data-bs-interval="000">
                 <img
                   src={require("../../assets/carousel2.jpeg")}
                   className="d-block w-100"
                   alt="..."
                 />
               </div>
-              <div className="carousel-item" data-bs-interval="3000">
+              <div className="carousel-item" data-bs-interval="000">
                 <img
                   src={require("../../assets/carousel3.JPG")}
                   className="d-block w-100"
                   alt="..."
                 />
               </div>
-              <div className="carousel-item" data-bs-interval="3000">
+              <div className="carousel-item" data-bs-interval="000">
                 <img
                   src={require("../../assets/carousel4.jpeg")}
                   className="d-block w-100"
                   alt="..."
                 />
               </div>
-              <div className="carousel-item" data-bs-interval="3000">
+              <div className="carousel-item" data-bs-interval="000">
                 <img
                   src={require("../../assets/carousel5.jpg")}
                   className="d-block w-100"
@@ -186,7 +195,20 @@ const Landing = () => {
           </div>
           <div>
             <div className="d-flex justify-content-end mb-3">
-              <a className="see-all-button d-flex" href="">
+              <a
+                className="see-all-button d-flex"
+                onClick={() => {
+                  setCurrentPageDetail("allTraining");
+                  setCurrentCourseTitle(null);
+                  setNavOption("op1");
+                  login == true
+                    ? handleRoute("dashboard")
+                    : handleRoute("landing");
+                  window.scroll(0, 0);
+                }}
+                data-bs-toggle={login == false ? "modal" : ""}
+                data-bs-target={login == false ? "#loginModal" : ""}
+              >
                 <div className="d-flex align-items-center">
                   <div>Lihat semua</div>
                 </div>
@@ -220,7 +242,22 @@ const Landing = () => {
                     </div>
                   </div>
                   <div className="category-readmore-button d-flex justify-content-center py-3">
-                    <button className="px-2 py-1">Read More</button>
+                    <button
+                      className="px-2 py-1"
+                      onClick={() => {
+                        setCurrentPageDetail("allTraining");
+                        setCurrentCourseTitle(null);
+                        setNavOption("op1");
+                        login == true
+                          ? handleRoute("dashboard")
+                          : handleRoute("landing");
+                        window.scroll(0, 0);
+                      }}
+                      data-bs-toggle={login == false ? "modal" : ""}
+                      data-bs-target={login == false ? "#loginModal" : ""}
+                    >
+                      Read More
+                    </button>
                   </div>
                 </div>
               </div>
@@ -245,7 +282,22 @@ const Landing = () => {
                     </div>
                   </div>
                   <div className="category-readmore-button d-flex justify-content-center py-3">
-                    <button className="px-2 py-1">Read More</button>
+                    <button
+                      className="px-2 py-1"
+                      onClick={() => {
+                        setCurrentPageDetail("allTraining");
+                        setCurrentCourseTitle(null);
+                        setNavOption("op1");
+                        login == true
+                          ? handleRoute("dashboard")
+                          : handleRoute("landing");
+                        window.scroll(0, 0);
+                      }}
+                      data-bs-toggle={login == false ? "modal" : ""}
+                      data-bs-target={login == false ? "#loginModal" : ""}
+                    >
+                      Read More
+                    </button>
                   </div>
                 </div>
               </div>
@@ -270,7 +322,22 @@ const Landing = () => {
                     </div>
                   </div>
                   <div className="category-readmore-button d-flex justify-content-center py-3">
-                    <button className="px-2 py-1">Read More</button>
+                    <button
+                      className="px-2 py-1"
+                      onClick={() => {
+                        setCurrentPageDetail("allTraining");
+                        setCurrentCourseTitle(null);
+                        setNavOption("op1");
+                        login == true
+                          ? handleRoute("dashboard")
+                          : handleRoute("landing");
+                        window.scroll(0, 0);
+                      }}
+                      data-bs-toggle={login == false ? "modal" : ""}
+                      data-bs-target={login == false ? "#loginModal" : ""}
+                    >
+                      Read More
+                    </button>
                   </div>
                 </div>
               </div>
@@ -295,7 +362,22 @@ const Landing = () => {
                     </div>
                   </div>
                   <div className="category-readmore-button d-flex justify-content-center py-3">
-                    <button className="px-2 py-1">Read More</button>
+                    <button
+                      className="px-2 py-1"
+                      onClick={() => {
+                        setCurrentPageDetail("allTraining");
+                        setCurrentCourseTitle(null);
+                        setNavOption("op1");
+                        login == true
+                          ? handleRoute("dashboard")
+                          : handleRoute("landing");
+                        window.scroll(0, 0);
+                      }}
+                      data-bs-toggle={login == false ? "modal" : ""}
+                      data-bs-target={login == false ? "#loginModal" : ""}
+                    >
+                      Read More
+                    </button>
                   </div>
                 </div>
               </div>
@@ -349,7 +431,7 @@ const Landing = () => {
                 </div>
               </div>
               <div className="carousel-inner">
-                <div className="carousel-item active" data-bs-interval="3000">
+                <div className="carousel-item active" data-bs-interval="000">
                   <div className="row">
                     <div className="col d-block d-flex justify-content-end">
                       <div className="box mb-2">
@@ -408,7 +490,7 @@ const Landing = () => {
                     </div>
                   </div>
                 </div>
-                <div className="carousel-item" data-bs-interval="3000">
+                <div className="carousel-item" data-bs-interval="000">
                   <div className="row">
                     <div className="col d-block d-flex justify-content-end">
                       <div className="box mb-2">
@@ -494,7 +576,13 @@ const Landing = () => {
               <div className="px-4">
                 <div className="d-flex justify-content-center">
                   <h2>
-                    <CountUp end={27000} duration="3" separator="," enableScrollSpy/>+
+                    <CountUp
+                      end={27000}
+                      duration="3"
+                      separator=","
+                      enableScrollSpy
+                    />
+                    +
                   </h2>
                 </div>
                 <div className="d-flex justify-content-center">
@@ -504,7 +592,7 @@ const Landing = () => {
               <div className="px-4">
                 <div className="d-flex justify-content-center">
                   <h2>
-                    <CountUp end={46} duration="3" enableScrollSpy/>+
+                    <CountUp end={46} duration="3" enableScrollSpy />+
                   </h2>
                 </div>
                 <div className="d-flex justify-content-center">
@@ -514,7 +602,13 @@ const Landing = () => {
               <div className="px-4">
                 <div className="d-flex justify-content-center">
                   <h2>
-                    <CountUp end={9064} duration="3" separator="," enableScrollSpy/>+
+                    <CountUp
+                      end={9064}
+                      duration="3"
+                      separator=","
+                      enableScrollSpy
+                    />
+                    +
                   </h2>
                 </div>
                 <div className="d-flex justify-content-center">
@@ -524,7 +618,13 @@ const Landing = () => {
               <div className="px-4">
                 <div className="d-flex justify-content-center">
                   <h2>
-                    <CountUp end={82046} duration="3" separator="," enableScrollSpy/>+
+                    <CountUp
+                      end={82046}
+                      duration="3"
+                      separator=","
+                      enableScrollSpy
+                    />
+                    +
                   </h2>
                 </div>
                 <div className="d-flex justify-content-center">
@@ -572,6 +672,79 @@ const Landing = () => {
               <div className="px-3">
                 <div className="d-flex justify-content-center align-items-center">
                   <img src={require("../../assets/partner4.png")} alt="" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="modal fade modal-lg"
+        id="loginModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog modal-dialog-centered">
+          <div className="modal-content">
+            <div className="modal-body">
+              <div className="row">
+                <div className="col-6">
+                  <img
+                    className="w-100"
+                    src={require("../../assets/loginimg.png")}
+                    alt=""
+                  />
+                </div>
+                <div className="col-6 d-flex justify-content-center align-items-center">
+                  <div>
+                    <label>Selamat datang</label>
+                    <h4 className="mb-4">Masuk ke akun Anda</h4>
+                    <form>
+                      <div className="mb-3">
+                        <label for="exampleInputEmail1" className="form-label">
+                          Username
+                        </label>
+                        <input
+                          type="email"
+                          className="form-control"
+                          id="exampleInputEmail1"
+                          placeholder="Nomor SID/KTP"
+                        />
+                      </div>
+                      <div className="mb-3">
+                        <label
+                          for="exampleInputPassword1"
+                          className="form-label"
+                        >
+                          Password
+                        </label>
+                        <input
+                          type="password"
+                          className="form-control"
+                          id="exampleInputPassword1"
+                          placeholder="Password"
+                        />
+                      </div>
+                    </form>
+                    <div className="d-flex justify-content-end mb-4">
+                      <a href="">Forget password?</a>
+                    </div>
+                    <br />
+                    <button
+                      className="w-100 py-2"
+                      type="submit"
+                      data-bs-dismiss="modal"
+                      onClick={() => {
+                        setLogin(true);
+                        navOption == "op1" || currentPageDetail != null
+                          ? handleRoute("dashboard")
+                          : handleRoute("landing");
+                      }}
+                    >
+                      Masuk
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
