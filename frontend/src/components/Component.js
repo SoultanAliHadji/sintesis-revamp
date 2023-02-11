@@ -8,19 +8,34 @@ const Component = () => {
   const [login, setLogin] = useState(false);
   const [currentPage, setCurrentPage] = useState("landing");
   const [currentPageDetail, setCurrentPageDetail] = useState();
-  const [currentTrainingTitle, setCurrentTrainingTitle] = useState();
   const [currentCourseId, setCurrentCourseId] = useState();
   const [currentCourseTitle, setCurrentCourseTitle] = useState();
+  const [progress, setProgress] = useState(35);
   const [navOption, setNavOption] = useState();
   const [searchNow, setSearchNow] = useState(false);
 
-  const handleRoute = (data) => {
-    setCurrentPage(data);
-  };
+  const trainingData = [
+    {
+      title: "Pelatihan-Uji Online SIMAK dan KPO",
+      sub: [
+        "Pelatihan-Uji Online SIMAK dan KPO 2022",
+        "Trainer Instructor Development Program (TIDP)",
+        "Fatigue Management",
+        "Pelatihan Emergency Response",
+      ],
+    },
+    { title: "Advance Training" },
+    { title: "Program Sintesis" },
+    { title: "Weekly Refresh Competency" },
+    { title: "SOP" },
+  ];
 
-  const handleRouteDetail = (data) => {
-    setCurrentPageDetail(data);
-  };
+  const [currentTrainingTitle, setCurrentTrainingTitle] = useState(
+    trainingData[0].title
+  );
+  const [currentSubTrainingTitle, setCurrentSubTrainingTitle] = useState(
+    trainingData[0].sub[0]
+  );
 
   const courseData1 = [
     { id: 1, title: "Pelatihan-Uji Online SIMAK dan KPO 2022" },
@@ -129,6 +144,8 @@ const Component = () => {
           href="#"
           onClick={() => {
             setCurrentPageDetail("allTraining");
+            setCurrentTrainingTitle("Pelatihan-Uji Online SIMAK dan KPO")
+            setCurrentCourseId()
             setCurrentCourseTitle(null);
             setNavOption("op1");
             login == true
@@ -412,6 +429,7 @@ const Component = () => {
                     aria-current="page"
                     href="#"
                     onClick={() => {
+                      setCurrentCourseId()
                       setCurrentPageDetail("myCertificate");
                       login == true
                         ? setCurrentPage("dashboard")
@@ -638,31 +656,30 @@ const Component = () => {
             <Landing
               login={login}
               setLogin={setLogin}
-              handleRoute={handleRoute}
+              setCurrentPage={setCurrentPage}
               currentPageDetail={currentPageDetail}
               setCurrentPageDetail={setCurrentPageDetail}
               navOption={navOption}
-              setCurrentCourseTitle={setCurrentCourseTitle}
               setNavOption={setNavOption}
-            />
-          ) : currentPage == "dashboard" && navOption == "op1" ? (
-            <Dashboard
-              handleRoute={handleRoute}
-              handleRouteDetail={handleRouteDetail}
-              currentPageDetail={currentPageDetail}
-              currentTrainingTitle={currentTrainingTitle}
-              currentCourseId={currentCourseId}
-              currentCourseTitle={currentCourseTitle}
+              setCurrentCourseTitle={setCurrentCourseTitle}
             />
           ) : currentPage == "dashboard" &&
-            currentPageDetail == "myCertificate" ? (
+            (navOption == "op1" || currentPageDetail == "myCertificate") ? (
             <Dashboard
-              handleRoute={handleRoute}
-              handleRouteDetail={handleRouteDetail}
+              setCurrentPage={setCurrentPage}
               currentPageDetail={currentPageDetail}
+              setCurrentPageDetail={setCurrentPageDetail}
+              trainingData={trainingData}
               currentTrainingTitle={currentTrainingTitle}
+              setCurrentTrainingTitle={setCurrentTrainingTitle}
+              currentSubTrainingTitle={currentSubTrainingTitle}
+              setCurrentSubTrainingTitle={setCurrentSubTrainingTitle}
               currentCourseId={currentCourseId}
+              setCurrentCourseId={setCurrentCourseId}
               currentCourseTitle={currentCourseTitle}
+              setCurrentCourseTitle={setCurrentCourseTitle}
+              progress={progress}
+              setProgress={setProgress}
             />
           ) : (
             ""

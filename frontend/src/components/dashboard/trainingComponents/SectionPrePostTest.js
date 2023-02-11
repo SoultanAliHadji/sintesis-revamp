@@ -2,14 +2,15 @@ import "../../../App.css";
 import { useState, useEffect } from "react";
 
 const SectionPrePostTest = ({
-  currentPage,
+  currentSection,
+  currentSubSection,
   questionData,
   recordPreTest,
   setRecordPreTest,
   recordPostTest,
   setRecordPostTest,
-  currentSection,
   handleUpdateSection5,
+  setHighestMarkPostTest,
   highestScorePreTest,
   setHighestScorePreTest,
   highestScorePostTest,
@@ -22,6 +23,7 @@ const SectionPrePostTest = ({
   const [hesitantCheckbox, setHesitantCheckbox] = useState(false);
   const [hesitantAnswer, setHesitantAnswer] = useState([false]);
   const [mark, setMark] = useState([0]);
+  const marks = [];
   const scores = [];
 
   const day =
@@ -120,7 +122,11 @@ const SectionPrePostTest = ({
     }
   };
 
-  useEffect(() => {}, [currentSection]);
+  useEffect(() => {
+    setDoTest(false);
+    setAnswers([""]);
+    setActiveAnswer();
+  }, [currentSection, currentSubSection]);
 
   useEffect(() => {
     if (currentSection == "Pre-Test") {
@@ -142,6 +148,20 @@ const SectionPrePostTest = ({
       setHighestScorePreTest(Math.max(...scores));
     } else {
       recordPostTest.map((data) => {
+        if (data.mark.length == 6) {
+          const cutString = data.mark.substring(0, 3);
+          const transformInt = parseInt(cutString);
+          if (!marks.includes(data.mark)) {
+            marks.push(transformInt);
+          }
+        } else {
+          const cutString = data.mark.substring(0, 2);
+          const transformInt = parseInt(cutString);
+          if (!marks.includes(data.mark)) {
+            marks.push(transformInt);
+          }
+        }
+
         if (data.score.length == 6) {
           const cutString = data.score.substring(0, 3);
           const transformInt = parseInt(cutString);
@@ -156,6 +176,7 @@ const SectionPrePostTest = ({
           }
         }
       });
+      setHighestMarkPostTest(Math.max(...marks));
       setHighestScorePostTest(Math.max(...scores));
     }
   }, [doTest]);
@@ -512,6 +533,7 @@ const SectionPrePostTest = ({
                                     window.scrollTo(0, 0);
                                     handleFinishTest();
                                     setAnswers([""]);
+                                    setActiveAnswer();
                                     setHesitantAnswer([false]);
                                     setMark([0]);
                                     {
@@ -783,6 +805,7 @@ const SectionPrePostTest = ({
                                       window.scrollTo(0, 0);
                                       handleFinishTest();
                                       setAnswers([""]);
+                                      setActiveAnswer();
                                       setHesitantAnswer([false]);
                                       setMark([0]);
                                       {

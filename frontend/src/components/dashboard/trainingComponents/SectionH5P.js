@@ -1,23 +1,27 @@
 import "../../../App.css";
-import ReactPlayer from "react-player";
+import { H5P } from "h5p-standalone";
 import { useState, useEffect } from "react";
+
+/*const el = document.getElementById("h5p-container");
+const options = {
+  h5pJsonPath: "/h5p-folder",
+  frameJs: "/assets/frame.bundle.js",
+  frameCss: "/assets/styles/h5p.css",
+};
+
+new H5P(el, options);*/
 
 const SectionH5P = () => {
   return (
     <div className="section-h5p px-3 py-4">
       <div className="w-100">
-        <ReactPlayer
-          className="w-100"
-          height={420}
-          url={"https://www.youtube.com/watch?v=DJ2yCAXNxHI"}
-          config={{
-            youtube: {
-              playerVars: { showinfo: 0 },
-            },
-          }}
-          progressInterval={5000}
-          muted="true"
-        />
+        <iframe
+          id="h5p-container"
+          width="100%"
+          height="400"
+          src="https://app.wikonnect.org/embed/JJuzs-OAACU"
+          styles="width:100%"
+        ></iframe>
       </div>
     </div>
   );

@@ -575,8 +575,7 @@
   font-size: 12px;
   font-weight: 600;
   border: none;
-  border-radius: 4px;
-  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.18);
+  border-top: 1px solid #C0C0C0;
 }
 
 .dashboard-page .training-section .training-navigation button:hover {
@@ -603,6 +602,7 @@
 .dashboard-page .training-section .training-navigation .collapse-section .collapse-button .collapse-icon .icon {
   font-size: 20px;
   margin-right: -8px !important;
+  margin-left: 10px;
 }
 
 .dashboard-page .training-section .training-navigation .collapse-section .collapse-button .collapse-icon .active-collapse {
@@ -617,6 +617,7 @@
   border: none;
   border-radius: 0px !important;
   box-shadow: none;
+  border-top: 1px solid #C0C0C0;
 }
 
 .dashboard-page .training-section .training-navigation .collapse-section .collapse button:hover {

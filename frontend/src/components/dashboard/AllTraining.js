@@ -4,10 +4,13 @@ import { useState, useEffect } from "react";
 import ScrollContainer from "react-indiana-drag-scroll";
 
 const AllTraining = ({
-  handleTrainingTitle,
-  handleCourseId,
-  handleCourseTitle,
-  currentTrainingPage,
+  trainingData,
+  currentTrainingTitle,
+  setCurrentTrainingTitle,
+  currentSubTrainingTitle,
+  setCurrentSubTrainingTitle,
+  setCurrentCourseId,
+  setCurrentCourseTitle,
   progress,
 }) => {
   const [collapse, setCollapse] = useState(false);
@@ -18,35 +21,12 @@ const AllTraining = ({
     setSearch(data.target.value);
   };
 
-  const trainingData = [
-    {
-      title: "Pelatihan-Uji Online SIMAK dan KPO",
-      sub: [
-        "Pelatihan-Uji Online SIMAK dan KPO 2022",
-        "Trainer Instructor Development Program (TIDP)",
-        "Fatigue Management",
-        "Pelatihan Emergency Response",
-      ],
-    },
-    { title: "Advance Training" },
-    { title: "Program Sintesis" },
-    { title: "Weekly Refresh Competency" },
-    { title: "SOP" },
-  ];
-
-  const [currentTraining, setCurrentTraining] = useState(
-    currentTrainingPage == null ? trainingData[0].title : currentTrainingPage
-  );
-  const [currentSubTraining, setCurrentSubTraining] = useState(
-    trainingData[0].sub[0]
-  );
-
   useEffect(() => {
     setFilterTopic(null);
-  }, [currentTraining]);
+  }, [currentTrainingTitle]);
 
   const courseData =
-    currentTraining == "Pelatihan-Uji Online SIMAK dan KPO"
+    currentTrainingTitle == "Pelatihan-Uji Online SIMAK dan KPO"
       ? [
           {
             id: 1,
@@ -265,7 +245,7 @@ const AllTraining = ({
           { id: 42, title: "Pelatihan Self Evacuation", topic: "Unknown" },
           { id: 43, title: "Pelatihan PPGD", topic: "Unknown" },
         ]
-      : currentTraining == "Advance Training"
+      : currentTrainingTitle == "Advance Training"
       ? [
           {
             id: 44,
@@ -295,7 +275,7 @@ const AllTraining = ({
           },
           { id: 50, title: "SINTESIS+", topic: "Unknown" },
         ]
-      : currentTraining == "Program Sintesis"
+      : currentTrainingTitle == "Program Sintesis"
       ? [
           {
             id: 51,
@@ -315,7 +295,7 @@ const AllTraining = ({
             topic: "Unknown",
           },
         ]
-      : currentTraining == "Weekly Refresh Competency"
+      : currentTrainingTitle == "Weekly Refresh Competency"
       ? [
           {
             id: 54,
@@ -353,7 +333,7 @@ const AllTraining = ({
         ];
 
   const filterData =
-    currentTraining == "Pelatihan-Uji Online SIMAK dan KPO"
+    currentTrainingTitle == "Pelatihan-Uji Online SIMAK dan KPO"
       ? [
           { id: 1, topic: "Kelompok Materi Pelatihan Dasar (KMPD)" },
           {
@@ -377,11 +357,11 @@ const AllTraining = ({
         <button
           className={
             "w-100 text-start px-3 py-2" +
-            (currentTraining == data.title ? " active" : "")
+            (currentTrainingTitle == data.title ? " active" : "")
           }
           onClick={() => {
-            setCurrentTraining(data.title);
-            setCurrentSubTraining();
+            setCurrentTrainingTitle(data.title);
+            setCurrentSubTrainingTitle();
             window.scrollTo(0, 0);
           }}
         >
@@ -394,7 +374,7 @@ const AllTraining = ({
           <button
             className={
               "collapse-button w-100 text-start px-3 py-2 d-flex" +
-              (currentTraining == data.title ? " active" : "")
+              (currentTrainingTitle == data.title ? " active" : "")
             }
             data-bs-toggle="collapse"
             data-bs-target="#collapseExample"
@@ -422,13 +402,13 @@ const AllTraining = ({
                 <button
                   className={
                     "w-100 text-start d-flex align-items-center px-4 py-2" +
-                    (currentSubTraining == subData
+                    (currentSubTrainingTitle == subData
                       ? " active-sub-training"
                       : "")
                   }
                   onClick={() => {
-                    setCurrentTraining(data.title);
-                    setCurrentSubTraining(subData);
+                    setCurrentTrainingTitle(data.title);
+                    setCurrentSubTrainingTitle(subData);
                     window.scrollTo(0, 0);
                   }}
                 >
@@ -482,9 +462,9 @@ const AllTraining = ({
                           <button
                             className="px-3"
                             onClick={() => {
-                              handleTrainingTitle(currentTraining);
-                              handleCourseId(data.id);
-                              handleCourseTitle(data.title);
+                              setCurrentTrainingTitle(currentTrainingTitle);
+                              setCurrentCourseTitle(data.title);
+                              setCurrentCourseId(data.id);
                               window.scrollTo(0, 0);
                             }}
                           >
@@ -539,9 +519,9 @@ const AllTraining = ({
                           <button
                             className="px-3"
                             onClick={() => {
-                              handleTrainingTitle(currentTraining);
-                              handleCourseId(data.id);
-                              handleCourseTitle(data.title);
+                              setCurrentTrainingTitle(currentTrainingTitle);
+                              setCurrentCourseTitle(data.title);
+                              setCurrentCourseId(data.id);
                               window.scrollTo(0, 0);
                             }}
                           >
@@ -595,9 +575,9 @@ const AllTraining = ({
                         <button
                           className="px-3"
                           onClick={() => {
-                            handleTrainingTitle(currentTraining);
-                            handleCourseId(data.id);
-                            handleCourseTitle(data.title);
+                            setCurrentTrainingTitle(currentTrainingTitle);
+                            setCurrentCourseTitle(data.title);
+                            setCurrentCourseId(data.id);
                             window.scrollTo(0, 0);
                           }}
                         >
@@ -638,11 +618,11 @@ const AllTraining = ({
       <div className="container-lg">
         <div className="row">
           <div className="col-3">
-            <div className="training-navigation px-2 py-3">
-              <div className="d-flex justify-content-center mb-1">
+            <div className="training-navigation">
+              <div className="d-flex justify-content-center pt-3 pb-1">
                 <h6>Kategori</h6>
               </div>
-              <div className="d-grid gap-2">{trainingArr}</div>
+              <div className="d-grid">{trainingArr}</div>
             </div>
           </div>
           <div className="col-9">

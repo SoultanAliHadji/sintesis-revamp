@@ -7,23 +7,24 @@ import { Icon } from "@iconify/react";
 import { useState, useEffect } from "react";
 
 const Dashboard = ({
-  handleRoute,
-  handleRouteDetail,
+  setCurrentPage,
   currentPageDetail,
+  setCurrentPageDetail,
+  trainingData,
   currentTrainingTitle,
-  currentCourseTitle,
+  setCurrentTrainingTitle,
+  currentSubTrainingTitle,
+  setCurrentSubTrainingTitle,
   currentCourseId,
+  setCurrentCourseId,
+  currentCourseTitle,
+  setCurrentCourseTitle,
+  progress,
+  setProgress,
 }) => {
-  const [currentPage, setCurrentPage] = useState(
-    currentPageDetail == null ? "allTraining" : currentPageDetail
-  );
-  const [trainingTitle, setTrainingTitle] = useState();
-  const [courseId, setCourseId] = useState();
-  const [courseTitle, setCourseTitle] = useState();
-  const [currentTrainingPage, setCurrentTrainingPage] = useState();
+  const [highestMarkPostTest, setHighestMarkPostTest] = useState();
   const [highestScorePreTest, setHighestScorePreTest] = useState();
   const [highestScorePostTest, setHighestScorePostTest] = useState();
-  const [progress, setProgress] = useState(35);
 
   const [sectionData, setSectionData] = useState([
     {
@@ -136,36 +137,9 @@ const Dashboard = ({
 
   const [recordPostTest, setRecordPostTest] = useState([]);
 
-  const handleTrainingTitle = (data) => {
-    setTrainingTitle(data);
-  };
-
-  const handleCourseId = (data) => {
-    setCourseId(data);
-  };
-
-  const handleCourseTitle = (data) => {
-    setCourseTitle(data);
-  };
-
-  const handleCurrentTrainingPage = (data) => {
-    setCurrentTrainingPage(data);
-  };
-
-  useEffect(() => {
-    setCurrentPage(currentPageDetail);
-    setCourseId(null);
-  }, [currentPageDetail]);
-
-  useEffect(() => {
-    setTrainingTitle(currentTrainingTitle);
-    setCourseTitle(currentCourseTitle);
-    setCourseId(currentCourseId);
-  }, [currentCourseTitle]);
-
   return (
     <div>
-      {courseId == null ? (
+      {currentCourseId == null ? (
         <div className="dashboard-page">
           <div className="account-section pt-4">
             <div className="container-lg">
@@ -174,8 +148,8 @@ const Dashboard = ({
                   <a
                     href="#"
                     onClick={() => {
-                      handleRoute("landing");
-                      handleRouteDetail(null);
+                      setCurrentPage("landing");
+                      setCurrentPageDetail(null);
                     }}
                   >
                     Home
@@ -215,14 +189,16 @@ const Dashboard = ({
                     <div
                       className={
                         "col-3" +
-                        (currentPage == "allTraining" ? " active" : "")
+                        (currentPageDetail == "allTraining" ? " active" : "")
                       }
                     >
                       <div className="d-flex justify-content-center mb-1">
                         <label
                           onClick={() => {
-                            setCurrentPage("allTraining");
-                            handleRouteDetail("allTraining");
+                            setCurrentPageDetail("allTraining");
+                            setCurrentTrainingTitle(
+                              "Pelatihan-Uji Online SIMAK dan KPO"
+                            );
                           }}
                         >
                           Semua Training
@@ -232,14 +208,14 @@ const Dashboard = ({
                     </div>
                     <div
                       className={
-                        "col-3" + (currentPage == "myTraining" ? " active" : "")
+                        "col-3" +
+                        (currentPageDetail == "myTraining" ? " active" : "")
                       }
                     >
                       <div className="d-flex justify-content-center mb-1">
                         <label
                           onClick={() => {
-                            setCurrentPage("myTraining");
-                            handleRouteDetail("myTraining");
+                            setCurrentPageDetail("myTraining");
                           }}
                         >
                           Training Saya
@@ -250,14 +226,13 @@ const Dashboard = ({
                     <div
                       className={
                         "col-3" +
-                        (currentPage == "myCertificate" ? " active" : "")
+                        (currentPageDetail == "myCertificate" ? " active" : "")
                       }
                     >
                       <div className="d-flex justify-content-center mb-1">
                         <label
                           onClick={() => {
-                            setCurrentPage("myCertificate");
-                            handleRouteDetail("myCertificate");
+                            setCurrentPageDetail("myCertificate");
                           }}
                         >
                           Sertifikat Saya
@@ -271,18 +246,21 @@ const Dashboard = ({
             </div>
           </div>
           <div className="mb-3">
-            {currentPage == "allTraining" ? (
+            {currentPageDetail == "allTraining" ? (
               <AllTraining
-                handleTrainingTitle={handleTrainingTitle}
-                handleCourseId={handleCourseId}
-                handleCourseTitle={handleCourseTitle}
-                currentTrainingPage={currentTrainingPage}
+                trainingData={trainingData}
+                currentTrainingTitle={currentTrainingTitle}
+                setCurrentTrainingTitle={setCurrentTrainingTitle}
+                currentSubTrainingTitle={currentSubTrainingTitle}
+                setCurrentSubTrainingTitle={setCurrentSubTrainingTitle}
+                setCurrentCourseId={setCurrentCourseId}
+                setCurrentCourseTitle={setCurrentCourseTitle}
                 progress={progress}
               />
-            ) : currentPage == "myTraining" ? (
+            ) : currentPageDetail == "myTraining" ? (
               <MyTraining
-                handleCourseId={handleCourseId}
-                handleCourseTitle={handleCourseTitle}
+                setCurrentCourseId={setCurrentCourseId}
+                setCurrentCourseTitle={setCurrentCourseTitle}
                 progress={progress}
               />
             ) : (
@@ -292,24 +270,26 @@ const Dashboard = ({
         </div>
       ) : (
         <Training
-          handleRoute={handleRoute}
-          currentPage={currentPage}
           setCurrentPage={setCurrentPage}
-          trainingTitle={trainingTitle}
-          courseTitle={courseTitle}
-          handleCourseId={handleCourseId}
-          handleCurrentTrainingPage={handleCurrentTrainingPage}
+          currentPageDetail={currentPageDetail}
+          setCurrentPageDetail={setCurrentPageDetail}
+          currentTrainingTitle={currentTrainingTitle}
+          setCurrentTrainingTitle={setCurrentTrainingTitle}
+          setCurrentCourseId={setCurrentCourseId}
+          currentCourseTitle={currentCourseTitle}
           sectionData={sectionData}
           setSectionData={setSectionData}
           questionData={questionData}
-          recordPreTest={recordPreTest}
-          setRecordPreTest={setRecordPreTest}
-          recordPostTest={recordPostTest}
-          setRecordPostTest={setRecordPostTest}
+          highestMarkPostTest={highestMarkPostTest}
+          setHighestMarkPostTest={setHighestMarkPostTest}
           highestScorePreTest={highestScorePreTest}
           setHighestScorePreTest={setHighestScorePreTest}
           highestScorePostTest={highestScorePostTest}
           setHighestScorePostTest={setHighestScorePostTest}
+          recordPreTest={recordPreTest}
+          setRecordPreTest={setRecordPreTest}
+          recordPostTest={recordPostTest}
+          setRecordPostTest={setRecordPostTest}
           progress={progress}
           setProgress={setProgress}
         />

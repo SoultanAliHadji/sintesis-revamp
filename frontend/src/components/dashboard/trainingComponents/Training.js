@@ -8,34 +8,36 @@ import { Icon } from "@iconify/react";
 import { useState, useEffect } from "react";
 
 const Training = ({
-  handleRoute,
-  currentPage,
   setCurrentPage,
-  trainingTitle,
-  courseTitle,
-  handleCourseId,
-  handleCurrentTrainingPage,
+  currentPageDetail,
+  setCurrentPageDetail,
+  currentTrainingTitle,
+  setCurrentTrainingTitle,
+  setCurrentCourseId,
+  currentCourseTitle,
   sectionData,
   setSectionData,
   questionData,
-  recordPreTest,
-  setRecordPreTest,
-  recordPostTest,
-  setRecordPostTest,
+  highestMarkPostTest,
+  setHighestMarkPostTest,
   highestScorePreTest,
   setHighestScorePreTest,
   highestScorePostTest,
   setHighestScorePostTest,
+  recordPreTest,
+  setRecordPreTest,
+  recordPostTest,
+  setRecordPostTest,
   progress,
   setProgress,
 }) => {
-  const [currentSubSection, setCurrentSubSection] = useState();
   const [collapse1, setCollapse1] = useState(false);
   const [currentSection, setCurrentSection] = useState(sectionData[0].section);
+  const [currentSubSection, setCurrentSubSection] = useState();
 
   useEffect(() => {
     setCurrentSection(sectionData[0].section);
-  }, [courseTitle]);
+  }, [currentCourseTitle]);
 
   const handleUpdateSection5 = (data) => {
     let newArr = [...sectionData];
@@ -286,7 +288,7 @@ const Training = ({
                 <a
                   href="#"
                   onClick={() => {
-                    handleRoute("landing");
+                    setCurrentPage("landing");
                   }}
                 >
                   Home
@@ -300,9 +302,11 @@ const Training = ({
                 <a
                   href="#"
                   onClick={() => {
-                    setCurrentPage("allTraining");
-                    handleCourseId(null);
-                    handleCurrentTrainingPage(null);
+                    setCurrentPageDetail("allTraining");
+                    setCurrentTrainingTitle(
+                      "Pelatihan-Uji Online SIMAK dan KPO"
+                    );
+                    setCurrentCourseId(null);
                   }}
                 >
                   Dashboard
@@ -316,13 +320,12 @@ const Training = ({
                 <a
                   href="#"
                   onClick={() => {
-                    handleCourseId(null);
-                    currentPage != "myTraining"
-                      ? handleCurrentTrainingPage(trainingTitle)
-                      : handleCurrentTrainingPage();
+                    setCurrentCourseId(null);
                   }}
                 >
-                  {currentPage != "myTraining" ? trainingTitle : "My Training"}
+                  {currentPageDetail != "myTraining"
+                    ? currentTrainingTitle
+                    : "My Training"}
                 </a>
               </div>
               <Icon
@@ -330,11 +333,11 @@ const Training = ({
                 icon="material-symbols:chevron-right-rounded"
               />
               <div className="d-flex align-items-center">
-                <label>{courseTitle}</label>
+                <label>{currentCourseTitle}</label>
               </div>
             </div>
             <div>
-              <h5>{courseTitle}</h5>
+              <h5>{currentCourseTitle}</h5>
             </div>
           </div>
           <div>
@@ -373,13 +376,15 @@ const Training = ({
           <div className="col-9 p-4">
             {currentSection == "Pre-Test" || currentSection == "Post-Test" ? (
               <SectionPrePostTest
+                currentSection={currentSection}
+                currentSubSection={currentSubSection}
                 questionData={questionData}
                 recordPreTest={recordPreTest}
                 setRecordPreTest={setRecordPreTest}
                 recordPostTest={recordPostTest}
                 setRecordPostTest={setRecordPostTest}
-                currentSection={currentSection}
                 handleUpdateSection5={handleUpdateSection5}
+                setHighestMarkPostTest={setHighestMarkPostTest}
                 highestScorePreTest={highestScorePreTest}
                 setHighestScorePreTest={setHighestScorePreTest}
                 highestScorePostTest={highestScorePostTest}
@@ -396,6 +401,9 @@ const Training = ({
             ) : currentSection ==
               "Sertifikat Kelompok Materi Pelatihan Dasar (KMPD)" ? (
               <SectionCertificate
+                recordPostTest={recordPostTest}
+                highestMarkPostTest={highestMarkPostTest}
+                highestScorePostTest={highestScorePostTest}
                 progress={progress}
                 handleUpdateSection6={handleUpdateSection6}
               />

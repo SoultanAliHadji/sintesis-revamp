@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 const Landing = ({
   login,
   setLogin,
-  handleRoute,
+  setCurrentPage,
   currentPageDetail,
   setCurrentPageDetail,
   navOption,
@@ -202,8 +202,8 @@ const Landing = ({
                   setCurrentCourseTitle(null);
                   setNavOption("op1");
                   login == true
-                    ? handleRoute("dashboard")
-                    : handleRoute("landing");
+                    ? setCurrentPage("dashboard")
+                    : setCurrentPage("landing");
                   window.scroll(0, 0);
                 }}
                 data-bs-toggle={login == false ? "modal" : ""}
@@ -249,8 +249,8 @@ const Landing = ({
                         setCurrentCourseTitle(null);
                         setNavOption("op1");
                         login == true
-                          ? handleRoute("dashboard")
-                          : handleRoute("landing");
+                          ? setCurrentPage("dashboard")
+                          : setCurrentPage("landing");
                         window.scroll(0, 0);
                       }}
                       data-bs-toggle={login == false ? "modal" : ""}
@@ -289,8 +289,8 @@ const Landing = ({
                         setCurrentCourseTitle(null);
                         setNavOption("op1");
                         login == true
-                          ? handleRoute("dashboard")
-                          : handleRoute("landing");
+                          ? setCurrentPage("dashboard")
+                          : setCurrentPage("landing");
                         window.scroll(0, 0);
                       }}
                       data-bs-toggle={login == false ? "modal" : ""}
@@ -329,8 +329,8 @@ const Landing = ({
                         setCurrentCourseTitle(null);
                         setNavOption("op1");
                         login == true
-                          ? handleRoute("dashboard")
-                          : handleRoute("landing");
+                          ? setCurrentPage("dashboard")
+                          : setCurrentPage("landing");
                         window.scroll(0, 0);
                       }}
                       data-bs-toggle={login == false ? "modal" : ""}
@@ -369,8 +369,8 @@ const Landing = ({
                         setCurrentCourseTitle(null);
                         setNavOption("op1");
                         login == true
-                          ? handleRoute("dashboard")
-                          : handleRoute("landing");
+                          ? setCurrentPage("dashboard")
+                          : setCurrentPage("landing");
                         window.scroll(0, 0);
                       }}
                       data-bs-toggle={login == false ? "modal" : ""}
@@ -738,8 +738,8 @@ const Landing = ({
                       onClick={() => {
                         setLogin(true);
                         navOption == "op1" || currentPageDetail != null
-                          ? handleRoute("dashboard")
-                          : handleRoute("landing");
+                          ? setCurrentPage("dashboard")
+                          : setCurrentPage("landing");
                       }}
                     >
                       Masuk

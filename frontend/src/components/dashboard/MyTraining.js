@@ -1,6 +1,10 @@
 import "../../App.css";
 
-const MyTraining = ({ progress, handleCourseId, handleCourseTitle }) => {
+const MyTraining = ({
+  setCurrentCourseId,
+  setCurrentCourseTitle,
+  progress,
+}) => {
   const api = [
     { id: 1, title: "Kelompok Materi Pelatihan Dasar (KMPD)" },
     { id: 2, title: "KMKOP Izin Bekerja di Ketinggian" },
@@ -50,8 +54,8 @@ const MyTraining = ({ progress, handleCourseId, handleCourseTitle }) => {
                       <button
                         className="px-3"
                         onClick={() => {
-                          handleCourseId(data.id);
-                          handleCourseTitle(data.title);
+                          setCurrentCourseId(data.id);
+                          setCurrentCourseTitle(data.title);
                           window.scrollTo(0, 0);
                         }}
                       >

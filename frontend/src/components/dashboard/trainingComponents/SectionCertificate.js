@@ -1,7 +1,13 @@
 import "../../../App.css";
 import { Icon } from "@iconify/react";
 
-const SectionCertificate = ({ progress, handleUpdateSection6 }) => {
+const SectionCertificate = ({
+  recordPostTest,
+  highestMarkPostTest,
+  highestScorePostTest,
+  progress,
+  handleUpdateSection6,
+}) => {
   return (
     <div className="section-certificate px-3 py-4 h-100">
       <div className="row">
@@ -14,7 +20,14 @@ const SectionCertificate = ({ progress, handleUpdateSection6 }) => {
                 alt=""
               />
               <div className="d-flex justify-content-center mt-3">
-                <button className="px-3 py-2" onClick={() => {handleUpdateSection6("done")}}>Download Sertifikat</button>
+                <button
+                  className="px-3 py-2"
+                  onClick={() => {
+                    handleUpdateSection6("done");
+                  }}
+                >
+                  Download Sertifikat
+                </button>
               </div>
             </div>
             {progress < 99 ? (
@@ -58,8 +71,10 @@ const SectionCertificate = ({ progress, handleUpdateSection6 }) => {
                     <label>/ 30,00</label>
                   </div>
                   <div className="mark-score-container">
-                    <label>30,00</label>
-                    {progress < 100 ? (
+                    <label>
+                      {recordPostTest.length != 0 ? highestMarkPostTest : ""}
+                    </label>
+                    {progress < 99 ? (
                       <div className="d-flex justify-content-center">
                         <div className="mark-score-lock px-2">
                           <label>30,00</label>
@@ -76,8 +91,10 @@ const SectionCertificate = ({ progress, handleUpdateSection6 }) => {
                     <label>/ 100,00</label>
                   </div>
                   <div className="mark-score-container">
-                    <label>100,00</label>
-                    {progress < 100 ? (
+                    <label>
+                      {recordPostTest.length != 0 ? highestScorePostTest : ""}
+                    </label>
+                    {progress < 99 ? (
                       <div className="d-flex justify-content-center">
                         <div className="mark-score-lock px-2">
                           <label>100,00</label>
