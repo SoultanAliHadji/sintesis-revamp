@@ -69,7 +69,7 @@ const Training = ({
         {data.section != "Video H5P" ? (
           <button
             className={
-              "w-100 text-start d-flex align-items-center px-2 py-3" +
+              "w-100 text-start d-flex align-items-center px-2 py-3" + (data.section == "Sertifikat Kelompok Materi Pelatihan Dasar (KMPD)" && (highestScorePostTest < 70 || highestScorePostTest == null) ? " cannot-access-certificate" : "" ) +
               (currentSection == data.section ? " active-section" : "")
             }
             onClick={() => {

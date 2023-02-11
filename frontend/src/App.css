@@ -61,7 +61,7 @@
   border: none;
   background-color: transparent;
   font-size: 26px;
-  color: #5C5C5C;
+  color: #757575;
 }
 
 .navigation-bar .search-nav-button:hover {
@@ -69,7 +69,7 @@
 }
 
 .navigation-bar .language-button {
-  color: #5C5C5C !important;
+  color: #858585 !important;
 }
 
 .navigation-bar .icon {
@@ -859,6 +859,11 @@
 
 .training-page .test-section button .check-icon {
   color: transparent;
+}
+
+.training-page .test-section .test-nav .cannot-access-certificate {
+  color: #5C5C5C;
+  pointer-events: none;
 }
 
 .training-page .test-section .test-nav .active-section {
