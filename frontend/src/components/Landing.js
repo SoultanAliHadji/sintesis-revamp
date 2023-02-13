@@ -169,7 +169,7 @@ const Landing = ({
       </div>
       <hr />
       <div className="container-lg">
-        <div className="calender py-5">
+        <div className="calendar py-5">
           <div className="title mb-5">
             <div className="d-flex justify-content-center">
               <div>
@@ -198,18 +198,17 @@ const Landing = ({
                 </div>
               </div>
               <div className="col-9">
-                <div
+                <div className="big-calendar p-3"
                   data-bs-toggle={login == false ? "modal" : ""}
                   data-bs-target={login == false ? "#loginModal" : ""}
                 >
                   <BigCalendar
-                    className="calendars"
                     onSelectEvent={(event) => handleSelectedEvent(event)}
                     events={myevents}
                     resources={myresources}
                     localizer={localizer}
                     defaultDate={new Date(2023, 1, 6)}
-                    style={{ height: 700 }}
+                    style={{ height: 620 }}
                   />
                   {onSelect}
                 </div>
