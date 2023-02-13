@@ -198,19 +198,20 @@ const Landing = ({
                 </div>
               </div>
               <div className="col-9">
-                <div className="big-calendar p-3"
-                  data-bs-toggle={login == false ? "modal" : ""}
-                  data-bs-target={login == false ? "#loginModal" : ""}
-                >
-                  <BigCalendar
-                    onSelectEvent={(event) => handleSelectedEvent(event)}
-                    events={myevents}
-                    resources={myresources}
-                    localizer={localizer}
-                    defaultDate={new Date(2023, 1, 6)}
-                    style={{ height: 640 }}
-                  />
-                  {onSelect}
+                <div className="big-calendar p-3">
+                  <div
+                    data-bs-toggle={login == false ? "modal" : ""}
+                    data-bs-target={login == false ? "#loginModal" : ""}
+                  >
+                    <BigCalendar
+                      onSelectEvent={(event) => handleSelectedEvent(event)}
+                      events={myevents}
+                      resources={myresources}
+                      localizer={localizer}
+                      defaultDate={new Date(2023, 1, 6)}
+                      style={{ height: 640 }}
+                    />
+                  </div>
                 </div>
               </div>
             </div>
