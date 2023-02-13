@@ -208,7 +208,7 @@ const Landing = ({
                     resources={myresources}
                     localizer={localizer}
                     defaultDate={new Date(2023, 1, 6)}
-                    style={{ height: 620 }}
+                    style={{ height: 640 }}
                   />
                   {onSelect}
                 </div>
