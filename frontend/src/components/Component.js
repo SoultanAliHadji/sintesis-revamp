@@ -776,6 +776,9 @@ const Component = () => {
               navOption={navOption}
               setNavOption={setNavOption}
               setCurrentCourseTitle={setCurrentCourseTitle}
+              trainingData={trainingData}
+              setCurrentTrainingTitle={setCurrentTrainingTitle}
+              setCurrentSubTrainingTitle={setCurrentSubTrainingTitle}
             />
           ) : currentPage == "dashboard" &&
             (navOption == "op1" || currentPageDetail == "myCertificate") ? (

@@ -3,7 +3,21 @@ import Calendar from "react-calendar";
 import { Icon } from "@iconify/react";
 import CountUp, { useCountUp } from "react-countup";
 import { useState, useEffect } from "react";
-import EventCalendar from "./calendar/EventCalendar";
+import { Calendar as BigCalendar, dateFnsLocalizer } from "react-big-calendar";
+import { myevents, myresources } from "./Event";
+import { format, parse, startOfWeek, getDay } from "date-fns";
+
+const locales = {
+  "en-US": require("date-fns"),
+};
+
+const localizer = dateFnsLocalizer({
+  format,
+  parse,
+  startOfWeek,
+  getDay,
+  locales,
+});
 
 const Landing = ({
   login,
@@ -14,8 +28,23 @@ const Landing = ({
   navOption,
   setCurrentCourseTitle,
   setNavOption,
+  trainingData,
+  setCurrentTrainingTitle,
+  setCurrentSubTrainingTitle,
 }) => {
   const [filterdate, setFilterdate] = useState(new Date());
+  const [onSelect, setOnSelect] = useState();
+
+  const handleSelectedEvent = (event) => {
+    setOnSelect(event.title);
+    setCurrentPageDetail("allTraining");
+    setCurrentCourseTitle(null);
+    setNavOption("op1");
+    setCurrentTrainingTitle(trainingData[0].title);
+    setCurrentSubTrainingTitle(trainingData[0].sub[0]);
+    login == true ? setCurrentPage("dashboard") : setCurrentPage("landing");
+    window.scroll(0, 0);
+  };
 
   return (
     <div className="landing-page">
@@ -169,7 +198,21 @@ const Landing = ({
                 </div>
               </div>
               <div className="col-9">
-                <EventCalendar />
+                <div
+                  data-bs-toggle={login == false ? "modal" : ""}
+                  data-bs-target={login == false ? "#loginModal" : ""}
+                >
+                  <BigCalendar
+                    className="calendars"
+                    onSelectEvent={(event) => handleSelectedEvent(event)}
+                    events={myevents}
+                    resources={myresources}
+                    localizer={localizer}
+                    defaultDate={new Date(2023, 1, 6)}
+                    style={{ height: 700 }}
+                  />
+                  {onSelect}
+                </div>
               </div>
             </div>
           </div>
@@ -204,6 +247,8 @@ const Landing = ({
                   setCurrentPageDetail("allTraining");
                   setCurrentCourseTitle(null);
                   setNavOption("op1");
+                  setCurrentTrainingTitle(trainingData[0].title);
+                  setCurrentSubTrainingTitle(trainingData[0].sub[0]);
                   login == true
                     ? setCurrentPage("dashboard")
                     : setCurrentPage("landing");
@@ -251,6 +296,8 @@ const Landing = ({
                         setCurrentPageDetail("allTraining");
                         setCurrentCourseTitle(null);
                         setNavOption("op1");
+                        setCurrentTrainingTitle(trainingData[0].title);
+                        setCurrentSubTrainingTitle(trainingData[0].sub[0]);
                         login == true
                           ? setCurrentPage("dashboard")
                           : setCurrentPage("landing");
@@ -291,6 +338,8 @@ const Landing = ({
                         setCurrentPageDetail("allTraining");
                         setCurrentCourseTitle(null);
                         setNavOption("op1");
+                        setCurrentTrainingTitle(trainingData[0].title);
+                        setCurrentSubTrainingTitle(trainingData[0].sub[0]);
                         login == true
                           ? setCurrentPage("dashboard")
                           : setCurrentPage("landing");
@@ -331,6 +380,8 @@ const Landing = ({
                         setCurrentPageDetail("allTraining");
                         setCurrentCourseTitle(null);
                         setNavOption("op1");
+                        setCurrentTrainingTitle(trainingData[0].title);
+                        setCurrentSubTrainingTitle(trainingData[0].sub[0]);
                         login == true
                           ? setCurrentPage("dashboard")
                           : setCurrentPage("landing");
@@ -371,6 +422,8 @@ const Landing = ({
                         setCurrentPageDetail("allTraining");
                         setCurrentCourseTitle(null);
                         setNavOption("op1");
+                        setCurrentTrainingTitle(trainingData[0].title);
+                        setCurrentSubTrainingTitle(trainingData[0].sub[0]);
                         login == true
                           ? setCurrentPage("dashboard")
                           : setCurrentPage("landing");

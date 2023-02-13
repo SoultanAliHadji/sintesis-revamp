@@ -2,7 +2,19 @@
 
 .App {
   font-family: 'Roboto', sans-serif;
-
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
 }
 
 .component {
@@ -1441,7 +1453,7 @@ button.rbc-input::-moz-focus-inner {
 }
 
 .rbc-off-range-bg {
-  background: #e6e6e6;
+  background: #F5F5F5;
 }
 
 .rbc-header {
@@ -1595,6 +1607,7 @@ button.rbc-input::-moz-focus-inner {
 .rbc-btn-group {
   display: inline-block;
   white-space: nowrap;
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.12);
 }
 
 .rbc-btn-group>button:first-child:not(:last-child) {
@@ -1750,6 +1763,8 @@ button.rbc-input::-moz-focus-inner {
   user-select: none;
   -webkit-user-select: none;
   height: 100%;
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.12);
+  border-radius: 10px;
 }
 
 .rbc-month-header {
@@ -1863,6 +1878,9 @@ button.rbc-input::-moz-focus-inner {
   -ms-flex: 1 0 0px;
   flex: 1 0 0;
   overflow: auto;
+  background-color: white;
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.12);
+  border-radius: 10px;
 }
 
 .rbc-agenda-view table.rbc-agenda-table {
@@ -1925,6 +1943,14 @@ button.rbc-input::-moz-focus-inner {
 
 .rbc-agenda-event-cell {
   width: 100%;
+  color: #297209;
+  cursor: pointer;
+}
+
+.rbc-agenda-event-cell:hover {
+  width: 100%;
+  color: white;
+  background-color: #297209;
 }
 
 .rbc-time-column {
@@ -2032,6 +2058,8 @@ button.rbc-input::-moz-focus-inner {
 
 .rbc-time-view {
   background-color: white;
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.12);
+  border-radius: 10px;
 }
 
 .rbc-time-view-resources .rbc-time-gutter,
