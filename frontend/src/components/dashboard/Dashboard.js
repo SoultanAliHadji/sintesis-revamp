@@ -19,124 +19,22 @@ const Dashboard = ({
   setCurrentCourseId,
   currentCourseTitle,
   setCurrentCourseTitle,
+  highestMarkPostTest,
+  setHighestMarkPostTest,
+  highestScorePreTest,
+  setHighestScorePreTest,
+  highestScorePostTest,
+  setHighestScorePostTest,
+  sectionData,
+  setSectionData,
+  questionData,
+  recordPreTest,
+  setRecordPreTest,
+  recordPostTest,
+  setRecordPostTest,
   progress,
   setProgress,
 }) => {
-  const [highestMarkPostTest, setHighestMarkPostTest] = useState();
-  const [highestScorePreTest, setHighestScorePreTest] = useState();
-  const [highestScorePostTest, setHighestScorePostTest] = useState();
-
-  const [sectionData, setSectionData] = useState([
-    {
-      id: 1,
-      section: "Pre-Test",
-      status: "done",
-    },
-    {
-      id: 2,
-      section: "Video H5P",
-      status: "done",
-    },
-    {
-      id: 3,
-      section: "Video Golden Rules",
-      status: "not yet",
-    },
-    {
-      id: 4,
-      section: "KMPD Berbasis Perilaku dan Golden Rules",
-      status: "not yet",
-    },
-    {
-      id: 5,
-      section: "Post-Test",
-      status: "not yet",
-    },
-    {
-      id: 6,
-      section: "Sertifikat Kelompok Materi Pelatihan Dasar (KMPD)",
-      status: "not yet",
-    },
-  ]);
-
-  const questionData = [
-    {
-      id: "1",
-      question:
-        "Sebagai seorang pekerja yang mengalami kurang waktu tidurnya, apa yang semestinya anda lakukan",
-      subquestion: "Pilih salah satu:",
-      answeroption: [
-        "Langsung istirahat",
-        "Diam saja dan tetap bekerja",
-        "Langsung pulang",
-        "Melapor kepada atasannya",
-      ],
-      trueanswer: "Melapor kepada atasannya",
-    },
-    {
-      id: "2",
-      question: "APD apa yang harus dipakai saat anda terpapar kebisingan",
-      subquestion: "Pilih salah satu:",
-      answeroption: [
-        "Safety full body harness",
-        "Sepatu safety",
-        "Ear plug",
-        "Pelampung",
-      ],
-      trueanswer: "Ear plug",
-    },
-    {
-      id: "3",
-      question:
-        "Bagaimana sikap anda terhadap teman sekerja yang pernah mengalami kecelakaan kerja",
-      subquestion: "Pilih salah satu:",
-      answeroption: [
-        "Menjauhi teman tersebut dan tidak ingin bekerja sama dengannya",
-        "Tidak ingin bekerja satu shift dengannya",
-        "Membimbingnya dan saling bekerja sama",
-        "a dan b benar",
-      ],
-      trueanswer: "Membimbingnya dan saling bekerja sama",
-    },
-  ];
-
-  const [recordPreTest, setRecordPreTest] = useState([
-    {
-      id: 1,
-      state: "Selesai",
-      time: "Terkumpul Monday, 22 August 2022, 17.37",
-      mark: "20,00",
-      score: "66,00",
-      review: "Tidak diizinkan",
-    },
-    {
-      id: 2,
-      state: "Selesai",
-      time: "Terkumpul Wednesday, 24 August 2022, 13:49",
-      mark: "10,00",
-      score: "33,00",
-      review: "Tidak diizinkan",
-    },
-    {
-      id: 3,
-      state: "Selesai",
-      time: "Terkumpul Thursday, 20 October 2022, 03:00",
-      mark: "20,00",
-      score: "66,00",
-      review: "Tidak diizinkan",
-    },
-    {
-      id: 4,
-      state: "Selesai",
-      time: "Terkumpul Thursday, 27 October 2022, 16:57",
-      mark: "20,00",
-      score: "66,00",
-      review: "Tidak diizinkan",
-    },
-  ]);
-
-  const [recordPostTest, setRecordPostTest] = useState([]);
-
   return (
     <div>
       {currentCourseId == null ? (
@@ -198,6 +96,9 @@ const Dashboard = ({
                             setCurrentPageDetail("allTraining");
                             setCurrentTrainingTitle(
                               "Pelatihan-Uji Online SIMAK dan KPO"
+                            );
+                            setCurrentSubTrainingTitle(
+                              "Pelatihan-Uji Online SIMAK dan KPO 2022"
                             );
                           }}
                         >

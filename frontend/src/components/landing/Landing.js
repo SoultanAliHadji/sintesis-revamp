@@ -74,35 +74,35 @@ const Landing = ({
               </div>
             </div>
             <div className="carousel-inner">
-              <div className="carousel-item active" data-bs-interval="000">
+              <div className="carousel-item active" data-bs-interval="7000">
                 <img
                   src={require("../../assets/carousel1.jpg")}
                   className="d-block w-100"
                   alt="..."
                 />
               </div>
-              <div className="carousel-item" data-bs-interval="000">
+              <div className="carousel-item" data-bs-interval="7000">
                 <img
                   src={require("../../assets/carousel2.jpeg")}
                   className="d-block w-100"
                   alt="..."
                 />
               </div>
-              <div className="carousel-item" data-bs-interval="000">
+              <div className="carousel-item" data-bs-interval="7000">
                 <img
                   src={require("../../assets/carousel3.JPG")}
                   className="d-block w-100"
                   alt="..."
                 />
               </div>
-              <div className="carousel-item" data-bs-interval="000">
+              <div className="carousel-item" data-bs-interval="7000">
                 <img
                   src={require("../../assets/carousel4.jpeg")}
                   className="d-block w-100"
                   alt="..."
                 />
               </div>
-              <div className="carousel-item" data-bs-interval="000">
+              <div className="carousel-item" data-bs-interval="7000">
                 <img
                   src={require("../../assets/carousel5.jpg")}
                   className="d-block w-100"
@@ -431,7 +431,7 @@ const Landing = ({
                 </div>
               </div>
               <div className="carousel-inner">
-                <div className="carousel-item active" data-bs-interval="000">
+                <div className="carousel-item active" data-bs-interval="7000">
                   <div className="row">
                     <div className="col d-block d-flex justify-content-end">
                       <div className="box mb-2">
@@ -490,7 +490,7 @@ const Landing = ({
                     </div>
                   </div>
                 </div>
-                <div className="carousel-item" data-bs-interval="000">
+                <div className="carousel-item" data-bs-interval="7000">
                   <div className="row">
                     <div className="col d-block d-flex justify-content-end">
                       <div className="box mb-2">
@@ -577,7 +577,7 @@ const Landing = ({
                 <div className="d-flex justify-content-center">
                   <h2>
                     <CountUp
-                      end={27000}
+                      end={277000}
                       duration="3"
                       separator=","
                       enableScrollSpy
