@@ -1,8 +1,9 @@
-import "../../App.css";
+import "../App.css";
 import Calendar from "react-calendar";
 import { Icon } from "@iconify/react";
 import CountUp, { useCountUp } from "react-countup";
 import { useState, useEffect } from "react";
+import EventCalendar from "./calendar/EventCalendar";
 
 const Landing = ({
   login,
@@ -76,35 +77,35 @@ const Landing = ({
             <div className="carousel-inner">
               <div className="carousel-item active" data-bs-interval="7000">
                 <img
-                  src={require("../../assets/carousel1.jpg")}
+                  src={require("../assets/carousel1.jpg")}
                   className="d-block w-100"
                   alt="..."
                 />
               </div>
               <div className="carousel-item" data-bs-interval="7000">
                 <img
-                  src={require("../../assets/carousel2.jpeg")}
+                  src={require("../assets/carousel2.jpeg")}
                   className="d-block w-100"
                   alt="..."
                 />
               </div>
               <div className="carousel-item" data-bs-interval="7000">
                 <img
-                  src={require("../../assets/carousel3.JPG")}
+                  src={require("../assets/carousel3.JPG")}
                   className="d-block w-100"
                   alt="..."
                 />
               </div>
               <div className="carousel-item" data-bs-interval="7000">
                 <img
-                  src={require("../../assets/carousel4.jpeg")}
+                  src={require("../assets/carousel4.jpeg")}
                   className="d-block w-100"
                   alt="..."
                 />
               </div>
               <div className="carousel-item" data-bs-interval="7000">
                 <img
-                  src={require("../../assets/carousel5.jpg")}
+                  src={require("../assets/carousel5.jpg")}
                   className="d-block w-100"
                   alt="..."
                 />
@@ -167,7 +168,9 @@ const Landing = ({
                   </div>
                 </div>
               </div>
-              <div className="col-9">dkjvhsbdjb</div>
+              <div className="col-9">
+                <EventCalendar />
+              </div>
             </div>
           </div>
         </div>
@@ -225,7 +228,7 @@ const Landing = ({
                 <div className="box">
                   <img
                     className="w-100 mb-2"
-                    src={require("../../assets/categoryimg1.png")}
+                    src={require("../assets/categoryimg1.png")}
                     alt=""
                   />
                   <div className="category-desc">
@@ -265,7 +268,7 @@ const Landing = ({
                 <div className="box">
                   <img
                     className="w-100 mb-2"
-                    src={require("../../assets/categoryimg2.png")}
+                    src={require("../assets/categoryimg2.png")}
                     alt=""
                   />
                   <div className="category-desc">
@@ -305,7 +308,7 @@ const Landing = ({
                 <div className="box">
                   <img
                     className="w-100 mb-2"
-                    src={require("../../assets/categoryimg3.png")}
+                    src={require("../assets/categoryimg3.png")}
                     alt=""
                   />
                   <div className="category-desc">
@@ -345,7 +348,7 @@ const Landing = ({
                 <div className="box">
                   <img
                     className="w-100 mb-2"
-                    src={require("../../assets/categoryimg4.png")}
+                    src={require("../assets/categoryimg4.png")}
                     alt=""
                   />
                   <div className="category-desc">
@@ -437,7 +440,7 @@ const Landing = ({
                       <div className="box mb-2">
                         <img
                           className="w-100 mb-3"
-                          src={require("../../assets/trainer1.png")}
+                          src={require("../assets/trainer1.png")}
                           alt=""
                         />
                         <div className="trainer-desc">
@@ -456,7 +459,7 @@ const Landing = ({
                       <div className="box mb-2">
                         <img
                           className="w-100 mb-3"
-                          src={require("../../assets/trainer2.png")}
+                          src={require("../assets/trainer2.png")}
                           alt=""
                         />
                         <div className="trainer-desc">
@@ -475,7 +478,7 @@ const Landing = ({
                       <div className="box mb-2">
                         <img
                           className="w-100 mb-3"
-                          src={require("../../assets/trainer3.png")}
+                          src={require("../assets/trainer3.png")}
                           alt=""
                         />
                         <div className="trainer-desc">
@@ -496,7 +499,7 @@ const Landing = ({
                       <div className="box mb-2">
                         <img
                           className="w-100 mb-3"
-                          src={require("../../assets/trainer4.png")}
+                          src={require("../assets/trainer4.png")}
                           alt=""
                         />
                         <div className="trainer-desc">
@@ -513,7 +516,7 @@ const Landing = ({
                       <div className="box mb-2">
                         <img
                           className="w-100 mb-3"
-                          src={require("../../assets/trainer5.png")}
+                          src={require("../assets/trainer5.png")}
                           alt=""
                         />
                         <div className="trainer-desc">
@@ -532,7 +535,7 @@ const Landing = ({
                       <div className="box mb-2">
                         <img
                           className="w-100 mb-3"
-                          src={require("../../assets/trainer6.png")}
+                          src={require("../assets/trainer6.png")}
                           alt=""
                         />
                         <div className="trainer-desc">
@@ -656,22 +659,22 @@ const Landing = ({
             <div className="d-flex justify-content-center gap-5">
               <div className="px-3">
                 <div className="d-flex justify-content-center align-items-center">
-                  <img src={require("../../assets/partner1.png")} alt="" />
+                  <img src={require("../assets/partner1.png")} alt="" />
                 </div>
               </div>
               <div className="px-3">
                 <div className="d-flex justify-content-center align-items-center">
-                  <img src={require("../../assets/partner2.png")} alt="" />
+                  <img src={require("../assets/partner2.png")} alt="" />
                 </div>
               </div>
               <div className="px-3">
                 <div className="d-flex justify-content-center align-items-center">
-                  <img src={require("../../assets/partner3.png")} alt="" />
+                  <img src={require("../assets/partner3.png")} alt="" />
                 </div>
               </div>
               <div className="px-3">
                 <div className="d-flex justify-content-center align-items-center">
-                  <img src={require("../../assets/partner4.png")} alt="" />
+                  <img src={require("../assets/partner4.png")} alt="" />
                 </div>
               </div>
             </div>
@@ -692,7 +695,7 @@ const Landing = ({
                 <div className="col-6">
                   <img
                     className="w-100"
-                    src={require("../../assets/loginimg.png")}
+                    src={require("../assets/loginimg.png")}
                     alt=""
                   />
                 </div>

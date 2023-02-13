@@ -1,5 +1,5 @@
 import "../App.css";
-import Landing from "./landing/Landing";
+import Landing from "./Landing";
 import Dashboard from "./dashboard/Dashboard";
 import { Icon } from "@iconify/react";
 import { useState, useEffect } from "react";
