@@ -4,7 +4,7 @@ import { Icon } from "@iconify/react";
 import CountUp, { useCountUp } from "react-countup";
 import { useState, useEffect } from "react";
 import { Calendar as BigCalendar, dateFnsLocalizer } from "react-big-calendar";
-import { myevents, myresources } from "./Event";
+import { events, resources } from "./Event";
 import { format, parse, startOfWeek, getDay } from "date-fns";
 
 const locales = {
@@ -26,25 +26,52 @@ const Landing = ({
   currentPageDetail,
   setCurrentPageDetail,
   navOption,
-  setCurrentCourseTitle,
   setNavOption,
+  setCurrentCourseId,
+  setCurrentCourseTitle,
   trainingData,
   setCurrentTrainingTitle,
   setCurrentSubTrainingTitle,
 }) => {
+  const [calendarEvents, setCalendarEvents] = useState(events);
   const [filterdate, setFilterdate] = useState(new Date());
-  const [onSelect, setOnSelect] = useState();
 
   const handleSelectedEvent = (event) => {
-    setOnSelect(event.title);
     setCurrentPageDetail("allTraining");
-    setCurrentCourseTitle(null);
+    setCurrentTrainingTitle(event.training);
+    setCurrentCourseId(event.id);
+    setCurrentCourseTitle(event.title);
     setNavOption("op1");
-    setCurrentTrainingTitle(trainingData[0].title);
-    setCurrentSubTrainingTitle(trainingData[0].sub[0]);
     login == true ? setCurrentPage("dashboard") : setCurrentPage("landing");
     window.scroll(0, 0);
   };
+
+  const handleEventCheckBox = (data) => {
+    if (!calendarEvents.includes(data)) {
+      setCalendarEvents((arr) => [...arr, events[events.indexOf(data)]]);
+    } else {
+      setCalendarEvents(calendarEvents.filter((arr) => arr.id != data.id));
+    }
+  };
+
+  const eventArr = events.map((data) => {
+    return (
+      <div className="event mt-2 d-grid gap-2">
+        <div className="d-flex">
+          <div className="me-2 d-flex align-items-center">
+            <input
+              type="checkbox"
+              defaultChecked
+              onClick={() => {
+                handleEventCheckBox(data);
+              }}
+            />
+          </div>
+          <label>{data.title}</label>
+        </div>
+      </div>
+    );
+  });
 
   return (
     <div className="landing-page">
@@ -191,10 +218,27 @@ const Landing = ({
           <div>
             <div className="row">
               <div className="col-3">
-                <div className="app">
-                  <div className="calendar-container d-flex justify-content-center">
-                    <Calendar onChange={setFilterdate} value={filterdate} />
+                <div>
+                  <Calendar onChange={setFilterdate} value={filterdate} />
+                </div>
+                <div className="calendar-event mt-4 p-3">
+                  <div className="d-flex justify-content-center">
+                    <h6>Jadwal Kegiatan</h6>
                   </div>
+                  <div className="mt-2 search-bar">
+                    <form className="mb-1 w-100" role="search">
+                      <input
+                        className="form-control ps-4"
+                        type="search"
+                        placeholder="Cari kegiatan anda"
+                        aria-label="Search"
+                      />
+                    </form>
+                    <div className="d-flex align-items-center">
+                      <Icon className="icon" icon="uil:search" />
+                    </div>
+                  </div>
+                  <div className="event mt-2 d-grid gap-2">{eventArr}</div>
                 </div>
               </div>
               <div className="col-9">
@@ -205,11 +249,11 @@ const Landing = ({
                   >
                     <BigCalendar
                       onSelectEvent={(event) => handleSelectedEvent(event)}
-                      events={myevents}
-                      resources={myresources}
+                      events={calendarEvents}
+                      resources={resources}
                       localizer={localizer}
-                      defaultDate={new Date(2023, 1, 6)}
-                      style={{ height: 640 }}
+                      defaultDate={new Date()}
+                      style={{ height: 660 }}
                     />
                   </div>
                 </div>
@@ -245,7 +289,8 @@ const Landing = ({
                 className="see-all-button d-flex"
                 onClick={() => {
                   setCurrentPageDetail("allTraining");
-                  setCurrentCourseTitle(null);
+                  setCurrentCourseId();
+                  setCurrentCourseTitle();
                   setNavOption("op1");
                   setCurrentTrainingTitle(trainingData[0].title);
                   setCurrentSubTrainingTitle(trainingData[0].sub[0]);
@@ -294,7 +339,8 @@ const Landing = ({
                       className="px-2 py-1"
                       onClick={() => {
                         setCurrentPageDetail("allTraining");
-                        setCurrentCourseTitle(null);
+                        setCurrentCourseId();
+                        setCurrentCourseTitle();
                         setNavOption("op1");
                         setCurrentTrainingTitle(trainingData[0].title);
                         setCurrentSubTrainingTitle(trainingData[0].sub[0]);
@@ -336,7 +382,8 @@ const Landing = ({
                       className="px-2 py-1"
                       onClick={() => {
                         setCurrentPageDetail("allTraining");
-                        setCurrentCourseTitle(null);
+                        setCurrentCourseId();
+                        setCurrentCourseTitle();
                         setNavOption("op1");
                         setCurrentTrainingTitle(trainingData[0].title);
                         setCurrentSubTrainingTitle(trainingData[0].sub[0]);
@@ -378,7 +425,8 @@ const Landing = ({
                       className="px-2 py-1"
                       onClick={() => {
                         setCurrentPageDetail("allTraining");
-                        setCurrentCourseTitle(null);
+                        setCurrentCourseId();
+                        setCurrentCourseTitle();
                         setNavOption("op1");
                         setCurrentTrainingTitle(trainingData[0].title);
                         setCurrentSubTrainingTitle(trainingData[0].sub[0]);
@@ -420,7 +468,8 @@ const Landing = ({
                       className="px-2 py-1"
                       onClick={() => {
                         setCurrentPageDetail("allTraining");
-                        setCurrentCourseTitle(null);
+                        setCurrentCourseId();
+                        setCurrentCourseTitle();
                         setNavOption("op1");
                         setCurrentTrainingTitle(trainingData[0].title);
                         setCurrentSubTrainingTitle(trainingData[0].sub[0]);

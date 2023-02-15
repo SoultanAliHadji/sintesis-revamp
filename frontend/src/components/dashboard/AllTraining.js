@@ -605,7 +605,7 @@ const AllTraining = ({
         onClick={() => {
           filterTopic != data.topic
             ? setFilterTopic(data.topic)
-            : setFilterTopic(null);
+            : setFilterTopic();
         }}
       >
         {data.topic}

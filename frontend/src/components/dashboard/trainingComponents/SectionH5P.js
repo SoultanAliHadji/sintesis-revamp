@@ -1,15 +1,5 @@
 import "../../../App.css";
-import { H5P } from "h5p-standalone";
 import { useState, useEffect } from "react";
-
-/*const el = document.getElementById("h5p-container");
-const options = {
-  h5pJsonPath: "/h5p-folder",
-  frameJs: "/assets/frame.bundle.js",
-  frameCss: "/assets/styles/h5p.css",
-};
-
-new H5P(el, options);*/
 
 const SectionH5P = () => {
   return (

@@ -775,6 +775,7 @@ const Component = () => {
               setCurrentPageDetail={setCurrentPageDetail}
               navOption={navOption}
               setNavOption={setNavOption}
+              setCurrentCourseId={setCurrentCourseId}
               setCurrentCourseTitle={setCurrentCourseTitle}
               trainingData={trainingData}
               setCurrentTrainingTitle={setCurrentTrainingTitle}
