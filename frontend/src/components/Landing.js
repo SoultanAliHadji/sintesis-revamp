@@ -50,7 +50,7 @@ const Landing = ({
     if (!calendarEvents.includes(data)) {
       setCalendarEvents((arr) => [...arr, events[events.indexOf(data)]]);
     } else {
-      setCalendarEvents(calendarEvents.filter((arr) => arr.id != data.id));
+      setCalendarEvents(calendarEvents.filter((arr) => arr != data));
     }
   };
 

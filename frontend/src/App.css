@@ -404,6 +404,7 @@
   width: 20px;
   height: 20px;
   cursor: pointer;
+  accent-color: #297209;
 }
 
 .landing-page .calendar-event .event label {
