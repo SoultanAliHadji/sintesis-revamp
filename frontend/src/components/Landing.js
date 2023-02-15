@@ -320,7 +320,7 @@ const Landing = ({
                   setCurrentCourseTitle();
                   setNavOption("op1");
                   setCurrentTrainingTitle(trainingData[0].title);
-                  setCurrentSubTrainingTitle(trainingData[0].sub[0]);
+                  setCurrentSubTrainingTitle(trainingData[0].category[0].title);
                   login == true
                     ? setCurrentPage("dashboard")
                     : setCurrentPage("landing");
@@ -370,7 +370,7 @@ const Landing = ({
                         setCurrentCourseTitle();
                         setNavOption("op1");
                         setCurrentTrainingTitle(trainingData[0].title);
-                        setCurrentSubTrainingTitle(trainingData[0].sub[0]);
+                        setCurrentSubTrainingTitle(trainingData[0].category[0].title);
                         login == true
                           ? setCurrentPage("dashboard")
                           : setCurrentPage("landing");
@@ -413,7 +413,7 @@ const Landing = ({
                         setCurrentCourseTitle();
                         setNavOption("op1");
                         setCurrentTrainingTitle(trainingData[0].title);
-                        setCurrentSubTrainingTitle(trainingData[0].sub[0]);
+                        setCurrentSubTrainingTitle(trainingData[0].category[0].title);
                         login == true
                           ? setCurrentPage("dashboard")
                           : setCurrentPage("landing");
@@ -456,7 +456,7 @@ const Landing = ({
                         setCurrentCourseTitle();
                         setNavOption("op1");
                         setCurrentTrainingTitle(trainingData[0].title);
-                        setCurrentSubTrainingTitle(trainingData[0].sub[0]);
+                        setCurrentSubTrainingTitle(trainingData[0].category[0].title);
                         login == true
                           ? setCurrentPage("dashboard")
                           : setCurrentPage("landing");
@@ -499,7 +499,7 @@ const Landing = ({
                         setCurrentCourseTitle();
                         setNavOption("op1");
                         setCurrentTrainingTitle(trainingData[0].title);
-                        setCurrentSubTrainingTitle(trainingData[0].sub[0]);
+                        setCurrentSubTrainingTitle(trainingData[0].category[0].title);
                         login == true
                           ? setCurrentPage("dashboard")
                           : setCurrentPage("landing");
