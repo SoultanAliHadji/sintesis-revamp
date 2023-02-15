@@ -749,31 +749,31 @@ const Component = () => {
                   <div>
                     <label className="mb-3">Ikuti Kami</label>
                     <br />
-                    <a className="d-flex" href="#">
+                    <a className="d-flex" href="https://www.facebook.com/profile.php?id=100063531310402">
                       <Icon className="icon me-1" icon="uil:facebook-f" />
                       <div className="d-flex align-items-center">
                         <div>Kawan.K3l</div>
                       </div>
                     </a>
                     <br />
-                    <a className="d-flex" href="#">
+                    <a className="d-flex" href="https://www.instagram.com/kawan.k3l">
                       <Icon className="icon me-1" icon="mdi:instagram" />
                       <div className="d-flex align-items-center">
                         <div>@kawan.k3l</div>
                       </div>
                     </a>
                     <br />
-                    <a className="d-flex" href="#">
+                    <a className="d-flex" href="https://www.tiktok.com/@kawan.k3l">
                       <Icon className="icon me-1" icon="ic:baseline-tiktok" />
                       <div className="d-flex align-items-center">
                         <div>kawan.k3l</div>
                       </div>
                     </a>
                     <br />
-                    <a className="d-flex" href="#">
+                    <a className="d-flex" href="https://www.youtube.com/@SINTESISPLUS">
                       <Icon className="icon me-1" icon="vaadin:youtube" />
                       <div className="d-flex align-items-center">
-                        <div>Sintesis</div>
+                        <div>@SINTESISPLUS</div>
                       </div>
                     </a>
                   </div>
