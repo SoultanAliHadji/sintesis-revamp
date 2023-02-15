@@ -4,7 +4,7 @@ import { Icon } from "@iconify/react";
 import CountUp, { useCountUp } from "react-countup";
 import { useState, useEffect } from "react";
 import { Calendar as BigCalendar, dateFnsLocalizer } from "react-big-calendar";
-import { events, resources } from "./Event";
+import { trainingData, events, resources } from "./Data";
 import { format, parse, startOfWeek, getDay } from "date-fns";
 
 const locales = {
@@ -29,7 +29,6 @@ const Landing = ({
   setNavOption,
   setCurrentCourseId,
   setCurrentCourseTitle,
-  trainingData,
   setCurrentTrainingTitle,
   setCurrentSubTrainingTitle,
 }) => {

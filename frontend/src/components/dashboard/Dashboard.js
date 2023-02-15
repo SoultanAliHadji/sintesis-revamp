@@ -10,7 +10,6 @@ const Dashboard = ({
   setCurrentPage,
   currentPageDetail,
   setCurrentPageDetail,
-  trainingData,
   currentTrainingTitle,
   setCurrentTrainingTitle,
   currentSubTrainingTitle,
@@ -149,7 +148,6 @@ const Dashboard = ({
           <div className="mb-3">
             {currentPageDetail == "allTraining" ? (
               <AllTraining
-                trainingData={trainingData}
                 currentTrainingTitle={currentTrainingTitle}
                 setCurrentTrainingTitle={setCurrentTrainingTitle}
                 currentSubTrainingTitle={currentSubTrainingTitle}

@@ -1,10 +1,10 @@
 import "../../App.css";
+import { trainingData } from "../Data";
 import { Icon } from "@iconify/react";
 import { useState, useEffect } from "react";
 import ScrollContainer from "react-indiana-drag-scroll";
 
 const AllTraining = ({
-  trainingData,
   currentTrainingTitle,
   setCurrentTrainingTitle,
   currentSubTrainingTitle,
