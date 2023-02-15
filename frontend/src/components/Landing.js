@@ -33,8 +33,9 @@ const Landing = ({
   setCurrentTrainingTitle,
   setCurrentSubTrainingTitle,
 }) => {
-  const [calendarEvents, setCalendarEvents] = useState(events);
   const [filterdate, setFilterdate] = useState(new Date());
+  const [calendarEvents, setCalendarEvents] = useState(events);
+  const [searchEvent, setSearchEvent] = useState();
 
   const handleSelectedEvent = (event) => {
     setCurrentPageDetail("allTraining");
@@ -46,6 +47,10 @@ const Landing = ({
     window.scroll(0, 0);
   };
 
+  const handleSearchEvent = (data) => {
+    setSearchEvent(data.target.value);
+  };
+
   const handleEventCheckBox = (data) => {
     if (!calendarEvents.includes(data)) {
       setCalendarEvents((arr) => [...arr, events[events.indexOf(data)]]);
@@ -55,22 +60,43 @@ const Landing = ({
   };
 
   const eventArr = events.map((data) => {
-    return (
-      <div className="event mt-2 d-grid gap-2">
-        <div className="d-flex">
-          <div className="me-2 d-flex align-items-center">
-            <input
-              type="checkbox"
-              defaultChecked
-              onClick={() => {
-                handleEventCheckBox(data);
-              }}
-            />
+    if (searchEvent == null) {
+      return (
+        <div className="event mt-2 d-grid gap-2">
+          <div className="d-flex">
+            <div className="me-2 d-flex align-items-center">
+              <input
+                type="checkbox"
+                checked={calendarEvents.includes(data) ? true : false}
+                onClick={() => {
+                  handleEventCheckBox(data);
+                }}
+              />
+            </div>
+            <label>{data.title}</label>
           </div>
-          <label>{data.title}</label>
         </div>
-      </div>
-    );
+      );
+    } else {
+      if (data.title.toLowerCase().includes(searchEvent)) {
+        return (
+          <div className="event mt-2 d-grid gap-2">
+            <div className="d-flex">
+              <div className="me-2 d-flex align-items-center">
+                <input
+                  type="checkbox"
+                  checked={calendarEvents.includes(data) ? true : false}
+                  onClick={() => {
+                    handleEventCheckBox(data);
+                  }}
+                />
+              </div>
+              <label>{data.title}</label>
+            </div>
+          </div>
+        );
+      }
+    }
   });
 
   return (
@@ -232,6 +258,7 @@ const Landing = ({
                         type="search"
                         placeholder="Cari kegiatan anda"
                         aria-label="Search"
+                        onChange={handleSearchEvent}
                       />
                     </form>
                     <div className="d-flex align-items-center">
