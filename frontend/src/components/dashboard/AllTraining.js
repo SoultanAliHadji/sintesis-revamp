@@ -330,18 +330,16 @@ const AllTraining = ({
           </div>
           <div className="col-9">
             <div className="d-flex search-container mb-1">
-              <form className="mb-1 w-100" role="search">
-                <input
-                  className="form-control ps-5"
-                  type="search"
-                  placeholder="Cari kursus yang ingin anda ikuti"
-                  aria-label="Search"
-                  onClick={() => {
-                    setFilterTopic();
-                  }}
-                  onChange={handleSearch}
-                />
-              </form>
+              <input
+                className="form-control ps-5 mb-1 w-100"
+                type="search"
+                placeholder="Cari kursus yang ingin anda ikuti"
+                aria-label="Search"
+                onClick={() => {
+                  setFilterTopic();
+                }}
+                onChange={handleSearch}
+              />
               <div className="d-flex align-items-center">
                 <Icon className="icon" icon="uil:search" />
               </div>

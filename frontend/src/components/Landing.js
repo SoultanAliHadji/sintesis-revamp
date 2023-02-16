@@ -265,15 +265,14 @@ const Landing = ({
                     <h6>Jadwal Kegiatan</h6>
                   </div>
                   <div className="mt-2 search-bar">
-                    <form className="mb-1 w-100" role="search">
-                      <input
-                        className="form-control ps-4"
-                        type="search"
-                        placeholder="Cari kegiatan anda"
-                        aria-label="Search"
-                        onChange={handleSearchEvent}
-                      />
-                    </form>
+                    <input
+                      className="form-control ps-4 mb-1 w-100"
+                      type="search"
+                      placeholder="Cari kegiatan anda"
+                      aria-label="Search"
+                      onChange={handleSearchEvent}
+
+                    />
                     <div className="d-flex align-items-center">
                       <Icon className="icon" icon="uil:search" />
                     </div>
