@@ -271,13 +271,14 @@ const Landing = ({
                       placeholder="Cari kegiatan anda"
                       aria-label="Search"
                       onChange={handleSearchEvent}
-
                     />
                     <div className="d-flex align-items-center">
                       <Icon className="icon" icon="uil:search" />
                     </div>
                   </div>
-                  <div className="event overflow-auto mt-2 d-grid gap-2">{eventArr}</div>
+                  <div className="event overflow-auto mt-2 d-grid gap-2">
+                    {eventArr}
+                  </div>
                 </div>
               </div>
               <div className="col-9">
@@ -295,7 +296,6 @@ const Landing = ({
                               arr.title.toLowerCase().includes(searchEvent)
                             )
                       }
-                      resources={resources}
                       localizer={localizer}
                       defaultDate={new Date()}
                       style={{ height: 660 }}
