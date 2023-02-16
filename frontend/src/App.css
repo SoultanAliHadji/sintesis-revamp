@@ -404,7 +404,6 @@
   width: 20px;
   height: 20px;
   cursor: pointer;
-  accent-color: #3B9315;
 }
 
 .landing-page .calendar-event .event label {
@@ -1699,7 +1698,6 @@ button.rbc-input::-moz-focus-inner {
   box-shadow: none;
   margin: 0;
   padding: 2px 5px;
-  background-image: linear-gradient(to right, #3B9315, #3B9315);
   border-radius: 5px;
   color: #fff;
   cursor: pointer;
@@ -1708,7 +1706,7 @@ button.rbc-input::-moz-focus-inner {
 }
 
 .rbc-event:hover, .rbc-day-slot .rbc-background-event {
-  background-image: linear-gradient(to right, #297209, #297209);
+  opacity: 1 !important;
 }
 
 .rbc-slot-selecting .rbc-event, .rbc-slot-selecting .rbc-day-slot .rbc-background-event, .rbc-day-slot .rbc-slot-selecting .rbc-background-event {

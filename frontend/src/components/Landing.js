@@ -36,6 +36,18 @@ const Landing = ({
   const [searchEvent, setSearchEvent] = useState();
   const [calendarEvents, setCalendarEvents] = useState(events);
 
+  const eventPropGetter = (data) => {
+    var backgroundColor = "#" + data.hexColor;
+    var style = {
+      backgroundColor: backgroundColor,
+      opacity: 0.8,
+      color: "white",
+    };
+    return {
+      style: style,
+    };
+  };
+
   const handleSelectedEvent = (event) => {
     setCurrentPageDetail("allTraining");
     setCurrentTrainingTitle(event.training);
@@ -70,6 +82,7 @@ const Landing = ({
                 onClick={() => {
                   handleEventCheckBox(data);
                 }}
+                style={{ accentColor: "#" + data.hexColor }}
               />
             </div>
             <label>{data.title}</label>
@@ -88,6 +101,7 @@ const Landing = ({
                   onClick={() => {
                     handleEventCheckBox(data);
                   }}
+                  style={{ accentColor: "#" + data.hexColor }}
                 />
               </div>
               <label>{data.title}</label>
@@ -286,6 +300,7 @@ const Landing = ({
                       localizer={localizer}
                       defaultDate={new Date()}
                       style={{ height: 660 }}
+                      eventPropGetter={eventPropGetter}
                     />
                   </div>
                 </div>

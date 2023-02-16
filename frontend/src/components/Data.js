@@ -300,6 +300,7 @@ export const events = [
     start: new Date(2023, 1, 22, 9, 0, 0),
     end: new Date(2023, 1, 22, 13, 0, 0),
     resourceId: 1,
+    hexColor: "737121"
   },
   {
     id: 2,
@@ -308,6 +309,7 @@ export const events = [
     start: new Date(2023, 1, 14, 14, 0, 0),
     end: new Date(2023, 1, 16, 16, 30, 0),
     resourceId: 2,
+    hexColor: "CF4B00"
   },
   {
     id: 3,
@@ -316,6 +318,7 @@ export const events = [
     start: new Date(2023, 1, 15, 8, 30, 0),
     end: new Date(2023, 1, 16, 12, 30, 0),
     resourceId: 3,
+    hexColor: "0091CF"
   },
   {
     id: 4,
@@ -324,6 +327,7 @@ export const events = [
     start: new Date(2023, 1, 18, 7, 0, 0),
     end: new Date(2023, 1, 20, 10, 30, 0),
     resourceId: 4,
+    hexColor: "CF0095"
   },
 ];
 
