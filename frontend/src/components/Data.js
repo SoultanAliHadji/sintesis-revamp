@@ -300,7 +300,7 @@ export const events = [
     start: new Date(2023, 1, 22, 9, 0, 0),
     end: new Date(2023, 1, 22, 13, 0, 0),
     resourceId: 1,
-    hexColor: "737121"
+    hexColor: "737121",
   },
   {
     id: 2,
@@ -309,7 +309,7 @@ export const events = [
     start: new Date(2023, 1, 14, 14, 0, 0),
     end: new Date(2023, 1, 16, 16, 30, 0),
     resourceId: 2,
-    hexColor: "CF4B00"
+    hexColor: "CF4B00",
   },
   {
     id: 3,
@@ -318,7 +318,7 @@ export const events = [
     start: new Date(2023, 1, 15, 8, 30, 0),
     end: new Date(2023, 1, 16, 12, 30, 0),
     resourceId: 3,
-    hexColor: "0091CF"
+    hexColor: "0091CF",
   },
   {
     id: 4,
@@ -327,7 +327,34 @@ export const events = [
     start: new Date(2023, 1, 18, 7, 0, 0),
     end: new Date(2023, 1, 20, 10, 30, 0),
     resourceId: 4,
-    hexColor: "CF0095"
+    hexColor: "CF0095",
+  },
+  {
+    id: 5,
+    title: "MINING & HAULING OPERATION - WEEKLY REFRESH COMPETENCY",
+    training: "Weekly Refresh Competency",
+    start: new Date(2023, 1, 25, 9, 0, 0),
+    end: new Date(2023, 1, 25, 13, 0, 0),
+    resourceId: 1,
+    hexColor: "7d0008",
+  },
+  {
+    id: 6,
+    title: "KELOMPOK MATERI PELATIHAN DASAR (KMPD) 2022",
+    training: "Program Sintesis",
+    start: new Date(2023, 1, 24, 14, 0, 0),
+    end: new Date(2023, 1, 25, 16, 30, 0),
+    resourceId: 2,
+    hexColor: "5c0178",
+  },
+  {
+    id: 7,
+    title: "SINTESIS+",
+    training: "Advance Training",
+    start: new Date(2023, 1, 8, 8, 30, 0),
+    end: new Date(2023, 1, 10, 12, 30, 0),
+    resourceId: 3,
+    hexColor: "01702e",
   },
 ];
 

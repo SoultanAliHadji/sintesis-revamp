@@ -277,7 +277,7 @@ const Landing = ({
                       <Icon className="icon" icon="uil:search" />
                     </div>
                   </div>
-                  <div className="event mt-2 d-grid gap-2">{eventArr}</div>
+                  <div className="event overflow-auto mt-2 d-grid gap-2">{eventArr}</div>
                 </div>
               </div>
               <div className="col-9">

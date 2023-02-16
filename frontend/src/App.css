@@ -400,6 +400,10 @@
   left: 6px;
 }
 
+.landing-page .calendar-event .event {
+  max-height: 272px;
+}
+
 .landing-page .calendar-event .event input {
   width: 20px;
   height: 20px;
