@@ -33,8 +33,8 @@ const Landing = ({
   setCurrentSubTrainingTitle,
 }) => {
   const [filterdate, setFilterdate] = useState(new Date());
-  const [calendarEvents, setCalendarEvents] = useState(events);
   const [searchEvent, setSearchEvent] = useState();
+  const [calendarEvents, setCalendarEvents] = useState(events);
 
   const handleSelectedEvent = (event) => {
     setCurrentPageDetail("allTraining");
@@ -275,7 +275,13 @@ const Landing = ({
                   >
                     <BigCalendar
                       onSelectEvent={(event) => handleSelectedEvent(event)}
-                      events={calendarEvents}
+                      events={
+                        searchEvent == null
+                          ? calendarEvents
+                          : calendarEvents.filter((arr) =>
+                              arr.title.toLowerCase().includes(searchEvent)
+                            )
+                      }
                       resources={resources}
                       localizer={localizer}
                       defaultDate={new Date()}
@@ -369,7 +375,9 @@ const Landing = ({
                         setCurrentCourseTitle();
                         setNavOption("op1");
                         setCurrentTrainingTitle(trainingData[0].title);
-                        setCurrentSubTrainingTitle(trainingData[0].category[0].title);
+                        setCurrentSubTrainingTitle(
+                          trainingData[0].category[0].title
+                        );
                         login == true
                           ? setCurrentPage("dashboard")
                           : setCurrentPage("landing");
@@ -412,7 +420,9 @@ const Landing = ({
                         setCurrentCourseTitle();
                         setNavOption("op1");
                         setCurrentTrainingTitle(trainingData[0].title);
-                        setCurrentSubTrainingTitle(trainingData[0].category[0].title);
+                        setCurrentSubTrainingTitle(
+                          trainingData[0].category[0].title
+                        );
                         login == true
                           ? setCurrentPage("dashboard")
                           : setCurrentPage("landing");
@@ -455,7 +465,9 @@ const Landing = ({
                         setCurrentCourseTitle();
                         setNavOption("op1");
                         setCurrentTrainingTitle(trainingData[0].title);
-                        setCurrentSubTrainingTitle(trainingData[0].category[0].title);
+                        setCurrentSubTrainingTitle(
+                          trainingData[0].category[0].title
+                        );
                         login == true
                           ? setCurrentPage("dashboard")
                           : setCurrentPage("landing");
@@ -498,7 +510,9 @@ const Landing = ({
                         setCurrentCourseTitle();
                         setNavOption("op1");
                         setCurrentTrainingTitle(trainingData[0].title);
-                        setCurrentSubTrainingTitle(trainingData[0].category[0].title);
+                        setCurrentSubTrainingTitle(
+                          trainingData[0].category[0].title
+                        );
                         login == true
                           ? setCurrentPage("dashboard")
                           : setCurrentPage("landing");
