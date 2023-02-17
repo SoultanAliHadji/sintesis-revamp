@@ -413,6 +413,7 @@
 
 .landing-page .calendar-event .event label {
   font-size: 12px;
+  cursor: pointer;
 }
 
 .landing-page .big-calendar {

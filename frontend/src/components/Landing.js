@@ -74,15 +74,17 @@ const Landing = ({
   const eventArr = events.map((data) => {
     if (searchEvent == null) {
       return (
-        <div className="event mt-2 d-grid gap-2">
+        <div
+          className="event mt-2"
+          onClick={() => {
+            handleEventCheckBox(data);
+          }}
+        >
           <div className="d-flex">
             <div className="me-2 d-flex align-items-center">
               <input
                 type="checkbox"
                 checked={calendarEvents.includes(data) ? true : false}
-                onClick={() => {
-                  handleEventCheckBox(data);
-                }}
                 style={{ accentColor: "#" + data.hexColor }}
               />
             </div>
@@ -93,15 +95,17 @@ const Landing = ({
     } else {
       if (data.title.toLowerCase().includes(searchEvent)) {
         return (
-          <div className="event mt-2 d-grid gap-2">
+          <div
+            className="event mt-2"
+            onClick={() => {
+              handleEventCheckBox(data);
+            }}
+          >
             <div className="d-flex">
               <div className="me-2 d-flex align-items-center">
                 <input
                   type="checkbox"
                   checked={calendarEvents.includes(data) ? true : false}
-                  onClick={() => {
-                    handleEventCheckBox(data);
-                  }}
                   style={{ accentColor: "#" + data.hexColor }}
                 />
               </div>
