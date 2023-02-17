@@ -100,7 +100,6 @@
 
 .navigation-bar .dropdown-parent .dropdown-menu-parent .dropdown-item:hover {
   background-color: #C3FFA9;
-  color: #3B9315;
 }
 
 .navigation-bar .account-dropdown .account-button {
@@ -114,7 +113,6 @@
 .navigation-bar .account-dropdown .dropdown-item:hover {
   background-color: #C3FFA9 !important;
   text-decoration: underline;
-  color: #3B9315;
 }
 
 .navigation-bar .account-dropdown .logout:hover {
@@ -127,7 +125,6 @@
   background-color: #C3FFA9;
   border-radius: 0 !important;
   text-decoration: underline;
-  color: #3B9315;
 }
 
 .navigation-bar .dropdown-child:hover .dropdown-menu-child {
@@ -626,7 +623,6 @@
 
 .dashboard-page .training-section .training-navigation button:hover {
   background-color: #C3FFA9;
-  color: #3B9315;
 }
 
 .dashboard-page .training-section .training-navigation .active {
@@ -668,7 +664,6 @@
 
 .dashboard-page .training-section .training-navigation .collapse-section .collapse button:hover {
   background-color: #C3FFA9;
-  color: #3B9315;
 }
 
 .dashboard-page .training-section .training-navigation .collapse-section .collapse .active-sub-training {
@@ -899,8 +894,7 @@
 
 .training-page .test-section .test-nav button:hover {
   border: none;
-  background-image: linear-gradient(to right, #C3FFA9, #C3FFA9);
-  color: #3B9315;
+  background-color: #C3FFA9;
   font-size: 12px;
   font-weight: 500;
   border-top: 1px solid #C0C0C0;
