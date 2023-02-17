@@ -35,6 +35,7 @@ const Landing = ({
   const [filterDate, setFilterDate] = useState(new Date());
   const [searchEvent, setSearchEvent] = useState();
   const [calendarEvents, setCalendarEvents] = useState(events);
+  const [trainerContact, setTrainerContact] = useState();
 
   const eventPropGetter = (data) => {
     var backgroundColor = "#" + data.hexColor;
@@ -594,11 +595,39 @@ const Landing = ({
                   <div className="row">
                     <div className="col d-block d-flex justify-content-end">
                       <div className="box mb-2">
-                        <img
-                          className="w-100 mb-3"
-                          src={require("../assets/trainer1.png")}
-                          alt=""
-                        />
+                        <div
+                          className="trainer-img mb-3"
+                          onMouseOver={() => {
+                            setTrainerContact("trainer1");
+                          }}
+                          onMouseOut={() => {
+                            setTrainerContact();
+                          }}
+                        >
+                          <img
+                            className="w-100"
+                            src={require("../assets/trainer1.png")}
+                            alt=""
+                          />
+                          {trainerContact == "trainer1" ? (
+                            <div className="trainer-contact w-100 d-flex justify-content-center gap-2 pt-5 pb-3">
+                              <div className="icon-container d-flex justify-content-center align-items-center">
+                                <Icon icon="codicon:twitter" />
+                              </div>
+                              <div className="icon-container d-flex justify-content-center align-items-center">
+                                <Icon icon="ri:instagram-line" />
+                              </div>
+                              <div className="icon-container d-flex justify-content-center align-items-center">
+                                <Icon icon="ri:linkedin-fill" />
+                              </div>
+                              <div className="icon-container d-flex justify-content-center align-items-center">
+                                <Icon icon="typcn:social-facebook" />
+                              </div>
+                            </div>
+                          ) : (
+                            ""
+                          )}
+                        </div>
                         <div className="trainer-desc">
                           <div className="d-flex justify-content-center px-3">
                             <h6 className="text-center">Jainal Abidin</h6>
@@ -613,11 +642,39 @@ const Landing = ({
                     </div>
                     <div className="col d-block d-flex justify-content-center">
                       <div className="box mb-2">
-                        <img
-                          className="w-100 mb-3"
-                          src={require("../assets/trainer2.png")}
-                          alt=""
-                        />
+                        <div
+                          className="trainer-img mb-3"
+                          onMouseOver={() => {
+                            setTrainerContact("trainer2");
+                          }}
+                          onMouseOut={() => {
+                            setTrainerContact();
+                          }}
+                        >
+                          <img
+                            className="w-100"
+                            src={require("../assets/trainer2.png")}
+                            alt=""
+                          />
+                          {trainerContact == "trainer2" ? (
+                            <div className="trainer-contact w-100 d-flex justify-content-center gap-2 pt-5 pb-3">
+                              <div className="icon-container d-flex justify-content-center align-items-center">
+                                <Icon icon="codicon:twitter" />
+                              </div>
+                              <div className="icon-container d-flex justify-content-center align-items-center">
+                                <Icon icon="ri:instagram-line" />
+                              </div>
+                              <div className="icon-container d-flex justify-content-center align-items-center">
+                                <Icon icon="ri:linkedin-fill" />
+                              </div>
+                              <div className="icon-container d-flex justify-content-center align-items-center">
+                                <Icon icon="typcn:social-facebook" />
+                              </div>
+                            </div>
+                          ) : (
+                            ""
+                          )}
+                        </div>
                         <div className="trainer-desc">
                           <div className="d-flex justify-content-center px-3">
                             <h6 className="text-center">Franky Kodoatie</h6>
@@ -632,11 +689,39 @@ const Landing = ({
                     </div>
                     <div className="col d-block d-flex justify-content-start">
                       <div className="box mb-2">
-                        <img
-                          className="w-100 mb-3"
-                          src={require("../assets/trainer3.png")}
-                          alt=""
-                        />
+                        <div
+                          className="trainer-img mb-3"
+                          onMouseOver={() => {
+                            setTrainerContact("trainer3");
+                          }}
+                          onMouseOut={() => {
+                            setTrainerContact();
+                          }}
+                        >
+                          <img
+                            className="w-100"
+                            src={require("../assets/trainer3.png")}
+                            alt=""
+                          />
+                          {trainerContact == "trainer3" ? (
+                            <div className="trainer-contact w-100 d-flex justify-content-center gap-2 pt-5 pb-3">
+                              <div className="icon-container d-flex justify-content-center align-items-center">
+                                <Icon icon="codicon:twitter" />
+                              </div>
+                              <div className="icon-container d-flex justify-content-center align-items-center">
+                                <Icon icon="ri:instagram-line" />
+                              </div>
+                              <div className="icon-container d-flex justify-content-center align-items-center">
+                                <Icon icon="ri:linkedin-fill" />
+                              </div>
+                              <div className="icon-container d-flex justify-content-center align-items-center">
+                                <Icon icon="typcn:social-facebook" />
+                              </div>
+                            </div>
+                          ) : (
+                            ""
+                          )}
+                        </div>
                         <div className="trainer-desc">
                           <div className="d-flex justify-content-center px-3">
                             <h6 className="text-center">Budi Satiyawan</h6>
@@ -653,11 +738,39 @@ const Landing = ({
                   <div className="row">
                     <div className="col d-block d-flex justify-content-end">
                       <div className="box mb-2">
-                        <img
-                          className="w-100 mb-3"
-                          src={require("../assets/trainer4.png")}
-                          alt=""
-                        />
+                        <div
+                          className="trainer-img mb-3"
+                          onMouseOver={() => {
+                            setTrainerContact("trainer4");
+                          }}
+                          onMouseOut={() => {
+                            setTrainerContact();
+                          }}
+                        >
+                          <img
+                            className="w-100"
+                            src={require("../assets/trainer4.png")}
+                            alt=""
+                          />
+                          {trainerContact == "trainer4" ? (
+                            <div className="trainer-contact w-100 d-flex justify-content-center gap-2 pt-5 pb-3">
+                              <div className="icon-container d-flex justify-content-center align-items-center">
+                                <Icon icon="codicon:twitter" />
+                              </div>
+                              <div className="icon-container d-flex justify-content-center align-items-center">
+                                <Icon icon="ri:instagram-line" />
+                              </div>
+                              <div className="icon-container d-flex justify-content-center align-items-center">
+                                <Icon icon="ri:linkedin-fill" />
+                              </div>
+                              <div className="icon-container d-flex justify-content-center align-items-center">
+                                <Icon icon="typcn:social-facebook" />
+                              </div>
+                            </div>
+                          ) : (
+                            ""
+                          )}
+                        </div>
                         <div className="trainer-desc">
                           <div className="d-flex justify-content-center px-3">
                             <h6 className="text-center">Sonny Widjajanto</h6>
@@ -670,11 +783,39 @@ const Landing = ({
                     </div>
                     <div className="col d-block d-flex justify-content-center">
                       <div className="box mb-2">
-                        <img
-                          className="w-100 mb-3"
-                          src={require("../assets/trainer5.png")}
-                          alt=""
-                        />
+                        <div
+                          className="trainer-img mb-3"
+                          onMouseOver={() => {
+                            setTrainerContact("trainer5");
+                          }}
+                          onMouseOut={() => {
+                            setTrainerContact();
+                          }}
+                        >
+                          <img
+                            className="w-100"
+                            src={require("../assets/trainer5.png")}
+                            alt=""
+                          />
+                          {trainerContact == "trainer5" ? (
+                            <div className="trainer-contact w-100 d-flex justify-content-center gap-2 pt-5 pb-3">
+                              <div className="icon-container d-flex justify-content-center align-items-center">
+                                <Icon icon="codicon:twitter" />
+                              </div>
+                              <div className="icon-container d-flex justify-content-center align-items-center">
+                                <Icon icon="ri:instagram-line" />
+                              </div>
+                              <div className="icon-container d-flex justify-content-center align-items-center">
+                                <Icon icon="ri:linkedin-fill" />
+                              </div>
+                              <div className="icon-container d-flex justify-content-center align-items-center">
+                                <Icon icon="typcn:social-facebook" />
+                              </div>
+                            </div>
+                          ) : (
+                            ""
+                          )}
+                        </div>
                         <div className="trainer-desc">
                           <div className="d-flex justify-content-center px-3">
                             <h6 className="text-center">Adi Tono</h6>
@@ -689,11 +830,39 @@ const Landing = ({
                     </div>
                     <div className="col d-block d-flex justify-content-start">
                       <div className="box mb-2">
-                        <img
-                          className="w-100 mb-3"
-                          src={require("../assets/trainer6.png")}
-                          alt=""
-                        />
+                        <div
+                          className="trainer-img mb-3"
+                          onMouseOver={() => {
+                            setTrainerContact("trainer6");
+                          }}
+                          onMouseOut={() => {
+                            setTrainerContact();
+                          }}
+                        >
+                          <img
+                            className="w-100"
+                            src={require("../assets/trainer6.png")}
+                            alt=""
+                          />
+                          {trainerContact == "trainer6" ? (
+                            <div className="trainer-contact w-100 d-flex justify-content-center gap-2 pt-5 pb-3">
+                              <div className="icon-container d-flex justify-content-center align-items-center">
+                                <Icon icon="codicon:twitter" />
+                              </div>
+                              <div className="icon-container d-flex justify-content-center align-items-center">
+                                <Icon icon="ri:instagram-line" />
+                              </div>
+                              <div className="icon-container d-flex justify-content-center align-items-center">
+                                <Icon icon="ri:linkedin-fill" />
+                              </div>
+                              <div className="icon-container d-flex justify-content-center align-items-center">
+                                <Icon icon="typcn:social-facebook" />
+                              </div>
+                            </div>
+                          ) : (
+                            ""
+                          )}
+                        </div>
                         <div className="trainer-desc">
                           <div className="d-flex justify-content-center px-3">
                             <h6 className="text-center">Lukman Rahim</h6>
