@@ -32,7 +32,7 @@ const Landing = ({
   setCurrentTrainingTitle,
   setCurrentSubTrainingTitle,
 }) => {
-  const [filterdate, setFilterdate] = useState(new Date());
+  const [filterDate, setFilterDate] = useState(new Date());
   const [searchEvent, setSearchEvent] = useState();
   const [calendarEvents, setCalendarEvents] = useState(events);
 
@@ -258,7 +258,7 @@ const Landing = ({
             <div className="row">
               <div className="col-3">
                 <div>
-                  <Calendar onChange={setFilterdate} value={filterdate} />
+                  <Calendar onChange={setFilterDate} value={filterDate} />
                 </div>
                 <div className="calendar-event mt-4 p-3">
                   <div className="d-flex justify-content-center">
