@@ -607,7 +607,7 @@
 
 .dashboard-page .training-section .training-navigation {
   background-color: white;
-  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.12);
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.3);
   border-radius: 6px;
 }
 
@@ -687,6 +687,10 @@
   position: relative;
 }
 
+.training-section .search-container input {
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.3);
+}
+
 .training-section .search-container .icon {
   position: absolute;
   left: 16px;
@@ -695,7 +699,7 @@
 
 .dashboard-page .training-section .topic {
   background-color: white;
-  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.12);
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.3);
   border-radius: 4px;
   cursor: grab;
 }
@@ -718,14 +722,13 @@
   border: none;
   border-radius: 4px;
   background-color: white;
-  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.18);
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.3);
   font-size: 12px;
   font-weight: 400;
 }
 
 .dashboard-page .training-section .topic .topic-collection button:hover {
   background-color: #C3FFA9;
-  color: #3B9315;
 }
 
 .dashboard-page .training-section .topic .filter-course-active {
@@ -747,7 +750,7 @@
 }
 
 .dashboard-page .training-section .training-item-container .training-item {
-  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.12);
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.3);
   border-radius: 6px;
   background-color: white;
   padding: 0px;
