@@ -247,6 +247,10 @@
   width: 220px;
 }
 
+.footer .footer-about, .footer-help, .footer-account a {
+  cursor: pointer;
+}
+
 .footer .footer-about, .footer-help, .footer-account label {
   font-size: 18px;
   font-weight: 500;

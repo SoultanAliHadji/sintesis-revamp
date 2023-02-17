@@ -749,7 +749,12 @@ const Component = () => {
                     <br />
                     <a
                       className="d-flex"
-                      href="https://www.facebook.com/profile.php?id=100063531310402"
+                      onClick={() => {
+                        window.open(
+                          "https://www.facebook.com/profile.php?id=100063531310402",
+                          "_blank"
+                        );
+                      }}
                     >
                       <Icon className="icon me-1" icon="uil:facebook-f" />
                       <div className="d-flex align-items-center">
@@ -759,7 +764,12 @@ const Component = () => {
                     <br />
                     <a
                       className="d-flex"
-                      href="https://www.instagram.com/kawan.k3l"
+                      onClick={() => {
+                        window.open(
+                          "https://www.instagram.com/kawan.k3l",
+                          "_blank"
+                        );
+                      }}
                     >
                       <Icon className="icon me-1" icon="mdi:instagram" />
                       <div className="d-flex align-items-center">
@@ -769,7 +779,12 @@ const Component = () => {
                     <br />
                     <a
                       className="d-flex"
-                      href="https://www.tiktok.com/@kawan.k3l"
+                      onClick={() => {
+                        window.open(
+                          "https://www.tiktok.com/@kawan.k3l",
+                          "_blank"
+                        );
+                      }}
                     >
                       <Icon className="icon me-1" icon="ic:baseline-tiktok" />
                       <div className="d-flex align-items-center">
@@ -779,7 +794,12 @@ const Component = () => {
                     <br />
                     <a
                       className="d-flex"
-                      href="https://www.youtube.com/@SINTESISPLUS"
+                      onClick={() => {
+                        window.open(
+                          "https://www.youtube.com/@SINTESISPLUS",
+                          "_blank"
+                        );
+                      }}
                     >
                       <Icon className="icon me-1" icon="vaadin:youtube" />
                       <div className="d-flex align-items-center">
@@ -835,7 +855,12 @@ const Component = () => {
           </div>
         </div>
         <div className="helpdesk-button fixed-bottom d-flex justify-content-end mb-4 me-4">
-          <button className="px-3 py-2">
+          <button
+            className="px-3 py-2"
+            onClick={() => {
+              window.open("https://wa.me/6282148893282", "_blank");
+            }}
+          >
             <div className="d-flex py-1">
               <Icon className="icon me-2" icon="ic:baseline-whatsapp" />
               <div className="d-flex align-items-center">
